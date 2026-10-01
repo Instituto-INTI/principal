@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Viver a Dois</title>
+<style>
+:root{--roxo:#6B4B72;--rp:#442F4D;--lilas:#B8A1C1;--lav:#DDD1E2;--off:#F6F4F6;--bege:#D8C8BF;--txt:#3E3241;--mut:#6C5D70;--bd:rgba(68,47,77,.13);--shadow:0 22px 60px rgba(68,47,77,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--txt);background:radial-gradient(circle at 8% 0%,rgba(184,161,193,.25),transparent 28rem),radial-gradient(circle at 95% 15%,rgba(216,200,191,.32),transparent 27rem),var(--off);line-height:1.65}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:var(--rp);line-height:1.13;margin:0 0 18px;letter-spacing:-.025em}h1{font-size:clamp(2.15rem,5vw,4.55rem);max-width:980px;margin-inline:auto}h2{font-size:clamp(1.85rem,3.6vw,3.25rem)}h3{font-size:1.35rem}p{margin:0 0 18px}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.narrow{width:min(860px,100%);margin:auto}.section{padding:92px 0}.section-sm{padding:58px 0}.center{text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid var(--bd);border-radius:999px;background:rgba(255,255,255,.72);color:var(--roxo);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.74rem;margin-bottom:22px}.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lilas);box-shadow:0 0 0 5px rgba(184,161,193,.18)}.lead{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--mut);max-width:850px;margin:0 auto 30px}.muted{color:var(--mut)}
+.brand-logo{display:block;width:min(360px,72vw);height:auto;margin:0 auto 30px;border-radius:18px;box-shadow:none;background:transparent}
+.offer-image{display:block;width:min(100%,620px);height:auto;margin:8px auto 28px;border-radius:16px;box-shadow:0 16px 36px rgba(24,17,11,.14)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:70px 0 82px;position:relative;overflow:hidden}.video-shell{width:min(920px,100%);margin:38px auto 0;border-radius:28px;padding:10px;background:linear-gradient(135deg,var(--rp),var(--roxo),var(--lilas));box-shadow:var(--shadow)}.video-box{aspect-ratio:16/9;border-radius:20px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(68,47,77,.98),rgba(107,75,114,.92));color:#fff;text-align:center;padding:24px}.play{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.32);margin:0 auto 16px;font-size:1.5rem}.video-box small{opacity:.77}.post-pitch{display:none}body.preview .post-pitch{display:block}.reveal-note{margin-top:14px;font-size:.87rem;color:var(--mut)}
+.band{background:var(--rp);color:white;padding:28px 0;text-align:center}.card{background:rgba(255,255,255,.80);border:1px solid var(--bd);border-radius:24px;box-shadow:0 14px 40px rgba(68,47,77,.07);padding:30px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.offer{background:linear-gradient(135deg,rgba(221,209,226,.70),rgba(216,200,191,.55));border:1px solid rgba(68,47,77,.12);border-radius:32px;padding:46px 30px;text-align:center;box-shadow:var(--shadow)}.price{font-family:Georgia,serif;color:var(--rp);font-size:clamp(2.45rem,5vw,4rem);font-weight:700;line-height:1;margin:8px 0}.installments{font-weight:800;font-size:1.08rem;margin-bottom:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 28px;border-radius:999px;text-decoration:none;font-weight:900;transition:.2s;border:none;cursor:pointer;text-align:center}.btn-primary{color:white;background:var(--rp);box-shadow:0 12px 30px rgba(68,47,77,.24)}.btn-secondary{color:var(--rp);background:transparent;border:1px solid rgba(68,47,77,.26);margin-top:14px}.badge-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}.badge{padding:9px 13px;border-radius:999px;background:#fff;border:1px solid var(--bd);color:var(--rp);font-weight:750;font-size:.88rem}.module{position:relative;overflow:hidden;min-height:245px}.module .num{position:absolute;right:20px;top:8px;font-family:Georgia,serif;font-size:5rem;color:rgba(107,75,114,.08);font-weight:700}.module .line{width:44px;height:3px;border-radius:10px;background:var(--lilas);margin-bottom:18px}.module p{color:var(--mut)}.quote{background:linear-gradient(135deg,var(--rp),#5b4063);color:white;border-radius:30px;padding:42px;box-shadow:var(--shadow)}.quote h2{color:white}.quote p{color:rgba(255,255,255,.82)}.objection{border-left:4px solid var(--lilas);padding-left:22px;margin:0 0 28px}.objection strong{color:var(--rp);font-size:1.08rem}.guarantee{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:center;background:white;border:1px solid var(--bd);border-radius:30px;padding:34px;box-shadow:0 14px 40px rgba(68,47,77,.06)}.seal{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:14px;background:var(--lav);color:var(--rp);border:10px solid rgba(184,161,193,.45);font-weight:900;line-height:1.15}.presenters{display:grid;grid-template-columns:.82fr 1.18fr;gap:36px;align-items:center}.photo{min-height:460px;border-radius:32px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,var(--bege),var(--lav));color:var(--rp);border:1px solid var(--bd)}.final{background:linear-gradient(180deg,rgba(221,209,226,.25),rgba(216,200,191,.43))}footer{background:var(--rp);color:rgba(255,255,255,.64);font-size:.83rem;padding:28px 0;text-align:center}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:46px}.photo-tile{position:relative;min-height:330px;overflow:hidden;border-radius:24px;box-shadow:var(--shadow);background:var(--rp)}.photo-tile img,.testimonial img,.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}.photo-tile:hover img{transform:scale(1.06)}.photo-tile:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(36,22,40,.78))}.photo-tile figcaption{position:absolute;z-index:1;left:20px;right:20px;bottom:18px;color:#fff;font-weight:800;font-size:1.05rem}.testimonial{padding:0 0 26px;overflow:hidden}.testimonial img{height:175px;margin-bottom:22px}.testimonial p,.testimonial strong{display:block;padding-inline:26px}.testimonial p{font-style:italic}.photo{min-height:470px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);background:var(--rp)}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;min-height:470px}.photo-pair figure{position:relative;min-width:0;margin:0;overflow:hidden;border-radius:22px;background:var(--rp)}.photo-pair img{width:100%;height:100%;object-fit:cover;display:block}.photo-pair figcaption{position:absolute;right:14px;bottom:14px;left:14px;padding:8px 10px;border-radius:10px;background:rgba(36,22,40,.72);color:#fff;font-weight:800;text-align:center;font-size:.9rem}
+.photo-pair figure:nth-child(2) img{object-position:66% center}
+.guarantee .seal{width:150px;height:150px;object-fit:contain;border:0;border-radius:0;padding:0;background:transparent;box-shadow:none}
+@media(max-width:840px){
+  .section{padding:70px 0}
+  .grid-3,.presenters{grid-template-columns:1fr}
+  .photo-strip{grid-template-columns:1fr 1fr}
+  .photo-tile:first-child{grid-column:1/-1}
+  .guarantee{grid-template-columns:1fr;text-align:center}
+  .seal{width:min(190px,70vw);margin:auto}
+  .photo{min-height:360px}
+  .photo-pair{min-height:420px}
+  .card{padding:25px}
+  .offer{padding:36px 20px}
+  .btn{width:100%;padding-inline:20px}
+
+  .photo-strip{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:28px;
+  }
+
+  .photo-tile{
+    min-height:220px;
+    border-radius:18px;
+  }
+
+  .photo-tile:first-child{grid-column:auto}
+
+  .photo-tile figcaption{
+    font-size:1.1rem;
+    bottom:16px;
+  }
+
+  .grid-3 {
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .testimonial {
+    min-height:unset;
+  }
+
+  .testimonial img {
+    height:220px;
+    margin-bottom:18px;
+  }
+}
+
+/* Identidade visual da oferta principal */
+.post-pitch{--roxo:#4F311A;--rp:#18110B;--lilas:#D7A864;--lav:#A99364;--off:#E9E2D9;--bege:#A99364;--txt:#18110B;--mut:#4F311A;--bd:rgba(79,49,26,.20);--shadow:0 22px 60px rgba(24,17,11,.16);background:linear-gradient(180deg,#E9E2D9 0%,#F5F0E9 48%,#E9E2D9 100%);color:var(--txt)}
+.post-pitch h1,.post-pitch h2,.post-pitch h3{color:var(--rp)}
+.post-pitch .quote h2{color:#fff}
+.post-pitch .eyebrow{background:rgba(255,255,255,.58);color:var(--roxo);border-color:rgba(79,49,26,.25)}
+.post-pitch .eyebrow:before{background:var(--lilas);box-shadow:0 0 0 5px rgba(215,168,100,.2)}
+.post-pitch .band{background:var(--rp);color:var(--off)}
+.post-pitch .card{background:rgba(255,255,255,.66);border-color:var(--bd);box-shadow:0 14px 40px rgba(24,17,11,.08)}
+.post-pitch .offer{background:linear-gradient(135deg,rgba(215,168,100,.28),rgba(169,147,100,.24));border-color:rgba(79,49,26,.25)}
+.post-pitch .price{color:var(--rp)}
+.post-pitch .btn-primary{background:var(--rp);box-shadow:0 12px 30px rgba(24,17,11,.24)}
+.post-pitch .btn-secondary{color:var(--roxo);border-color:rgba(79,49,26,.35)}
+.post-pitch .badge{background:rgba(255,255,255,.72);border-color:var(--bd);color:var(--roxo)}
+.post-pitch .module .num{color:rgba(152,102,33,.16)}
+.post-pitch .module .line{background:var(--lilas)}
+.post-pitch .module p,.post-pitch .muted{color:var(--mut)}
+.post-pitch .quote{background:linear-gradient(135deg,var(--rp),var(--roxo));box-shadow:var(--shadow)}
+.post-pitch .objection{border-left-color:var(--lilas)}
+.post-pitch .objection strong{color:var(--roxo)}
+.post-pitch .photo-tile,.post-pitch .photo,.post-pitch .photo-pair figure{background:var(--rp)}
+.post-pitch .photo-tile:after{background:linear-gradient(transparent,rgba(24,17,11,.82))}
+.post-pitch .photo-pair figcaption{background:rgba(24,17,11,.76)}
+.post-pitch .section[style*="background"]{background:rgba(255,255,255,.34)!important}
+.post-pitch .band + .section{background:#3B2413;color:#fff}
+.post-pitch .band + .section h2,.post-pitch .band + .section h3,.post-pitch .band + .section .lead{color:#fff}
+.post-pitch .band + .section .offer{background:#E9DCC5;border-color:#BDA98B}
+.post-pitch .band + .section .offer h3,.post-pitch .band + .section .offer .installments{color:#18110B}
+.post-pitch .band + .section .price{color:#18110B}
+.post-pitch .band + .section .btn-primary{background:#18110B;color:#fff}
+.post-pitch .band + .section .btn-secondary{background:#E9E2D9;color:#18110B;border-color:#D7A864}
+.post-pitch .band + .section .badge{background:rgba(255,255,255,.72);border-color:rgba(79,49,26,.20);color:#18110B}
+.post-pitch .band + .section ~ .section{padding:78px 0;background:#F7F3ED!important;border-top:1px solid rgba(79,49,26,.10)}
+.post-pitch .band + .section ~ .section:nth-of-type(even){background:#E9E2D9!important}
+.post-pitch .band + .section ~ .section h2{max-width:900px;margin-inline:auto}
+.post-pitch .band + .section ~ .section .lead{max-width:760px;color:#5B4633}
+.post-pitch .band + .section ~ .section .card{border-radius:12px;background:rgba(255,255,255,.78);box-shadow:0 10px 28px rgba(24,17,11,.07)}
+.post-pitch .band + .section ~ .section .module{min-height:230px}
+.post-pitch .band + .section ~ .section .offer{border-radius:16px;box-shadow:0 18px 42px rgba(24,17,11,.12)}
+.post-pitch .band + .section ~ .section .quote{border-radius:16px}
+.post-pitch .band + .section ~ .section .photo-tile,.post-pitch .band + .section ~ .section .photo,.post-pitch .band + .section ~ .section .photo-pair figure{border-radius:14px}
+.post-pitch .band + .section ~ .section .btn{border-radius:8px}
+.post-pitch .band + .section ~ .section{position:relative;overflow:hidden;background-image:radial-gradient(circle at 8% 18%,rgba(215,168,100,.13),transparent 18rem),radial-gradient(circle at 92% 82%,rgba(79,49,26,.06),transparent 22rem)!important}
+.post-pitch .band + .section ~ .section:nth-of-type(even){background-image:radial-gradient(circle at 90% 15%,rgba(215,168,100,.15),transparent 20rem),radial-gradient(circle at 10% 85%,rgba(79,49,26,.06),transparent 24rem)!important}
+.post-pitch .band + .section ~ .section .narrow.center{position:relative;padding-bottom:22px}
+.post-pitch .band + .section ~ .section .narrow.center:after{content:"";display:block;width:58px;height:3px;margin:28px auto 0;background:var(--lilas);box-shadow:18px 0 0 rgba(215,168,100,.25)}
+.post-pitch .band + .section ~ .section .eyebrow{border-radius:8px;box-shadow:0 5px 16px rgba(24,17,11,.06)}
+.post-pitch .band + .section ~ .section .module{border-top:3px solid var(--lilas);transition:transform .25s ease,box-shadow .25s ease;background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,255,255,.62))}
+.post-pitch .band + .section ~ .section .module:hover{transform:translateY(-5px);box-shadow:0 18px 34px rgba(24,17,11,.13)}
+.post-pitch .band + .section ~ .section .module .num{right:18px;top:12px;font-size:4.5rem}
+.post-pitch .band + .section ~ .section .photo-tile,.post-pitch .band + .section ~ .section .testimonial{transition:transform .25s ease,box-shadow .25s ease}
+.post-pitch .band + .section ~ .section .photo-tile:hover,.post-pitch .band + .section ~ .section .testimonial:hover{transform:translateY(-4px);box-shadow:0 18px 34px rgba(24,17,11,.14)}
+.post-pitch .band + .section ~ .section .quote{position:relative;border-left:5px solid var(--lilas);background:linear-gradient(135deg,#18110B,#4F311A)}
+.post-pitch .band + .section ~ .section .quote:after{content:"“";position:absolute;right:32px;top:8px;color:rgba(215,168,100,.25);font:700 7rem Georgia,serif;line-height:1}
+.post-pitch section:has(.offer .eyebrow){background:#3B2413!important;color:#fff}
+.post-pitch section:has(.offer .eyebrow) h2,.post-pitch section:has(.offer .eyebrow) h3,.post-pitch section:has(.offer .eyebrow) p{color:#fff}
+.post-pitch section:has(.offer .eyebrow) .offer{background:#E9DCC5;color:#18110B;border-color:#BDA98B}
+.post-pitch section:has(.offer .eyebrow) .offer h2,.post-pitch section:has(.offer .eyebrow) .offer h3,.post-pitch section:has(.offer .eyebrow) .offer p,.post-pitch section:has(.offer .eyebrow) .offer .price,.post-pitch section:has(.offer .eyebrow) .offer .installments{color:#18110B}
+.post-pitch section:has(.offer .eyebrow) .offer .btn-primary{background:#18110B;color:#fff}
+.post-pitch section:has(.offer .eyebrow) .offer .badge{background:#fff;color:#18110B;border-color:rgba(79,49,26,.20)}
+.post-pitch section:has(.offer .eyebrow) .offer .btn-secondary{background:#F7F3ED;color:#18110B;border-color:#D7A864}
+.post-pitch .band + .section ~ .section:has(.offer .eyebrow){background:#3B2413!important;background-image:none!important;color:#fff}
+.post-pitch .band + .section ~ .section:has(.offer .eyebrow) .offer{background:#E9DCC5}
+footer{background:#18110B;color:rgba(233,226,217,.72)}
+</style>
+</head>
+<body>
+<main>
+<section class="hero"><div class="wrap center"><span class="eyebrow">Boas-vindas</span><h1>Você acaba de iniciar uma mudança importante no seu casamento.</h1><p class="lead">Antes de começar, assista a esta aula de boas-vindas. Nela, você vai entender por que a reaproximação pode começar por você, mas existe uma parte do casamento que só se reconstrói quando os dois aprendem a caminhar na mesma direção.</p><div class="video-shell"><div class="video-box" id="vslPlaceholder" style="background-image:linear-gradient(90deg,rgba(38,22,42,.82),rgba(68,47,77,.2)),url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1400&q=85');background-size:cover;background-position:center"><div><div class="play">▶</div><strong>PLAYER DA VSL</strong><br><small>Substitua este bloco pelo seu vídeo.</small></div></div></div><p class="reveal-note">O restante da página permanece oculto até o momento do pitch da VSL.</p></div></section>
+<div class="post-pitch" id="postPitch">
+<div class="band"><div class="wrap"><strong>Você abriu espaço para a reconexão. Agora vocês podem aprender a construir, juntos, a relação que querem viver.</strong></div></div>
+<section class="section"><div class="wrap"><div class="narrow center"><span class="eyebrow">O próximo passo</span><h2>Da reaproximação para a parceria.</h2><p class="lead">O Guia Prático para Reapaixonar seu Marido mostra como mudar sua participação na dinâmica. O Viver a Dois é o passo para vocês transformarem essa reaproximação em uma construção feita pelos dois.</p></div><div class="offer narrow"><h3>Viver a Dois</h3><div class="price">R$697</div><div class="installments">ou 12x de R$69,70</div><img class="brand-logo" src="img/pc.png" alt="Viver a Dois"><a class="btn btn-primary" href="SEU_LINK_CHECKOUT_AQUI">SIM, QUERO VIVER A DOIS</a><div class="badge-row"><span class="badge">12 meses de acesso</span><span class="badge">7 dias de garantia</span><span class="badge">Acesso imediato</span></div><a class="btn btn-secondary" href="SEU_LINK_DOWNSELL_AQUI">NÃO, PREFIRO OUTRA OPORTUNIDADE</a></div></div></section>
+<section class="section" style="background:rgba(255,255,255,.42)"><div class="wrap"><div class="narrow center"><span class="eyebrow">O que vocês vão construir juntos</span><h2>Um casamento não melhora porque uma discussão termina. Ele melhora quando o casal volta a agir como um time.</h2><p class="lead">O Viver a Dois é uma jornada guiada para casais que ainda querem ficar juntos, mas sentem que a relação foi se perdendo entre responsabilidades, desgaste, diferenças e conversas que nunca chegam a uma solução.</p></div><div class="grid-3" style="margin-top:44px"><article class="card module"><span class="num">01</span><div class="line"></div><h3>Fundamentos do Casamento e da Aliança</h3><p>Para compreender o que sustenta uma relação madura, sair das expectativas silenciosas e reconstruir o “nós”.</p></article><article class="card module"><span class="num">02</span><div class="line"></div><h3>Comunicação e Intimidade</h3><p>Para transformar conversas defensivas em escuta, acolhimento, proximidade emocional, desejo e vida íntima.</p></article><article class="card module"><span class="num">03</span><div class="line"></div><h3>Vida Prática e Convivência</h3><p>Para lidar melhor com dinheiro, divisão de tarefas, filhos e a rotina que muitas vezes transforma o casal em uma equipe apenas funcional.</p></article><article class="card module"><span class="num">04</span><div class="line"></div><h3>Desafios e Crises Conjugais</h3><p>Para atravessar monotonia, mudanças, crises, confiança e dificuldades sem deixar que cada problema vire mais distância.</p></article><article class="card module"><span class="num">05</span><div class="line"></div><h3>Tempo, Prioridades e Equilíbrio</h3><p>Para proteger o espaço do casal, equilibrar individualidade, trabalho, família e limites com as famílias de origem.</p></article><article class="card module"><span class="num">06</span><div class="line"></div><h3>Crescimento Conjunto e Projeto de Vida</h3><p>Para construir direção, propósito comum e uma visão de futuro que os dois reconheçam como sua.</p></article></div><div class="center" style="margin-top:38px"><a class="btn btn-primary" href="SEU_LINK_CHECKOUT_AQUI">QUERO CONSTRUIR ESSA VIDA A DOIS</a><br><a class="btn btn-secondary" href="SEU_LINK_DOWNSELL_AQUI">NÃO, PREFIRO OUTRA OPORTUNIDADE</a></div></div></section>
+<section class="section" style="background:rgba(255,255,255,.42)"><div class="wrap"><div class="narrow center"><span class="eyebrow">A relação acontece no cotidiano</span><h2>Pequenas escolhas também reconstroem o vínculo.</h2><p class="lead">A jornada passa pelas conversas difíceis, mas também pelos momentos simples em que o casal volta a dividir presença, cuidado e planos.</p></div><div class="photo-strip"><figure class="photo-tile"><img src="img/Voltar%20a%20caminhar%20na%20mesma%20dire%C3%A7%C3%A3o.png" alt="Casal caminhando junto na mesma direção"><figcaption>Voltar a caminhar na mesma direção</figcaption></figure><figure class="photo-tile"><img loading="lazy" src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=900&q=85" alt="Casal conversando em um momento tranquilo"><figcaption>Escuta antes da resposta</figcaption></figure><figure class="photo-tile"><img loading="lazy" src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85" alt="Família reunida em casa"><figcaption>Construir uma vida compartilhada</figcaption></figure></div></div></section>
+<section class="section-sm"><div class="wrap"><div class="narrow center"><span class="eyebrow">A jornada na vida real</span><h2>Conexão também mora nos detalhes.</h2><p class="lead">As imagens abaixo representam os movimentos que o programa convida vocês a praticar: presença, clareza e construção compartilhada.</p></div><div class="grid-3" style="margin-top:30px"><article class="card testimonial"><img src="img/presen%C3%A7a.png" alt="Imagem representando presença no dia a dia"><strong>Presença no dia a dia</strong><p>Encontrar espaço para estar junto mesmo dentro da rotina possível.</p></article><article class="card testimonial"><img src="img/clareza.png" alt="Imagem representando clareza para escolher"><strong>Clareza para escolher</strong><p>Reconhecer sentimentos, limites e responsabilidades com mais consciência.</p></article><article class="card testimonial"><img loading="lazy" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=85" alt="Casal feliz abraçado ao ar livre"><strong>Construção compartilhada</strong><p>Voltar a olhar para o futuro como algo que pode ser criado pelos dois.</p></article></div></div></section>
+<section class="section"><div class="wrap"><div class="quote narrow"><h2>A diferença entre melhorar o clima e reconstruir a relação.</h2><p>Depois de aplicar os 3 Rs, você poderá perceber mais presença, mais conversa, mais carinho e menos peso dentro de casa. O Viver a Dois avança para outro nível: transformar essa melhora em parceria real para lidar com dinheiro, filhos, rotina, decisões, intimidade e futuro.</p><p><strong>A proposta é simples:</strong> aprender a olhar para o mesmo problema, em vez de se olharem como adversários.</p></div></div></section>
+<section class="section" style="background:rgba(255,255,255,.50)"><div class="wrap"><div class="narrow"><span class="eyebrow">“Mas e se...?”</span><h2>As dúvidas que normalmente aparecem antes de começar.</h2><div class="objection"><p><strong>“Meu marido não vai querer fazer.”</strong></p><p>Você não precisa esperar ele ver esta página para garantir a inscrição. Entre, conheça a proposta, assista às primeiras aulas e apresente o programa como ele é: uma oportunidade para vocês cuidarem da relação juntos, e não uma tentativa de provar que ele é o problema.</p></div><div class="objection"><p><strong>“Nós já tentamos conversar várias vezes.”</strong></p><p>Muitos casais conversam o tempo todo, mas repetem cobrança, defesa, silêncio e ressentimento. O Viver a Dois oferece uma estrutura para compreender o que cada conflito está revelando e construir acordos mais claros.</p></div><div class="objection"><p><strong>“Nós não temos tempo.”</strong></p><p>O programa fica disponível durante doze meses e foi pensado para ser feito no ritmo possível dentro da vida real. Não exige exposição em grupo, deslocamento ou conciliação de horário com terapeuta.</p></div><div class="objection"><p><strong>“E se só eu quiser mudar?”</strong></p><p>Uma pessoa pode iniciar um movimento importante. Mas o Viver a Dois é uma proposta honesta: a transformação completa de uma relação exige participação dos dois. O programa não promete mudar alguém à força.</p></div></div></div></section>
+<section class="section"><div class="wrap"><div class="offer narrow"><span class="eyebrow">Condição exclusiva para novas alunas</span><h2>Uma condição disponível apenas nesta página.</h2><img class="offer-image" src="img/pc.png" alt="Plataforma online do curso Viver a Dois"><p class="muted">O valor normal do Viver a Dois é <strong>R$997</strong>. Alunas que chegam em outro momento recebem uma condição especial de <strong>R$797</strong>.</p><p>Por você ter acabado de entrar no Guia Prático para Reapaixonar seu Marido, esta página libera:</p><div class="price">R$697</div><div class="installments">ou 12x de R$69,70</div><a class="btn btn-primary" href="SEU_LINK_CHECKOUT_AQUI">SIM, QUERO ENTRAR NO VIVER A DOIS</a><div class="badge-row"><span class="badge">6 módulos</span><span class="badge">12 meses de acesso</span><span class="badge">Exercícios para fazer em casa</span></div><a class="btn btn-secondary" href="SEU_LINK_DOWNSELL_AQUI">NÃO, PREFIRO OUTRA OPORTUNIDADE</a></div></div></section>
+<section class="section-sm"><div class="wrap"><div class="guarantee"><img class="seal" src="img/selo.png" alt="Selo de garantia de sete dias"><div><span class="eyebrow">Risco zero</span><h2>Vocês terão sete dias para conhecer o programa com calma.</h2><p>Você pode fazer a inscrição, acessar as primeiras aulas e convidar seu marido quando se sentir pronta para apresentar a proposta. Se ele não se identificar com o programa, ou se vocês entenderem que as aulas não atendem às expectativas do casal, basta solicitar o reembolso dentro dos sete dias completos.</p><p><strong>O risco da decisão fica com a gente.</strong></p></div></div></div></section>
+<section class="section"><div class="wrap"><div class="quote narrow"><span class="eyebrow" style="color:white;border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.08)">Condição desta página</span><h2>O programa continuará existindo. Esta condição, não necessariamente.</h2><p>Você pode continuar apenas com o Guia, e ele continua sendo um passo completo e importante para iniciar uma mudança na dinâmica do casamento. Mas a condição de R$697, com doze meses de acesso, foi liberada apenas nesta página.</p><p>Se você sair, o Viver a Dois continuará existindo. Só não estará disponível novamente por esta mesma condição.</p><a class="btn" style="background:white;color:var(--rp);margin-top:8px" href="SEU_LINK_CHECKOUT_AQUI">QUERO APROVEITAR A CONDIÇÃO DE NOVA ALUNA</a><br><a class="btn" style="color:white;border:1px solid rgba(255,255,255,.28);margin-top:12px" href="SEU_LINK_DOWNSELL_AQUI">NÃO, PREFIRO OUTRA OPORTUNIDADE</a></div></div></section>
+<section class="section" style="background:rgba(255,255,255,.46)"><div class="wrap presenters"><div class="photo-pair"><figure><img loading="lazy" src="img/priscila.jpeg" alt="Priscila Colella sorrindo em seu espaço de trabalho"><figcaption>Priscila Colella</figcaption></figure><figure><img loading="lazy" src="img/foto%20rafa.jpeg" alt="Rafa conduzindo uma apresentação"><figcaption>João Rafael</figcaption></figure></div><div><span class="eyebrow">Quem vai conduzir vocês</span><h2>Priscilla Colella e João Rafael</h2><p>Priscilla Colella é psicóloga clínica, com mais de duas décadas de experiência acompanhando casais, famílias e mulheres que desejam compreender melhor os desafios da vida afetiva.</p><p>Ao lado dela, João Rafael, terapeuta junguiano e seu marido, co-criou o Viver a Dois para levar os fundamentos trabalhados na prática clínica a uma jornada acessível, estruturada e aplicável dentro da própria casa.</p><p>O objetivo não é entregar regras rígidas. É ajudar vocês a entenderem a relação que construíram, reconhecerem onde estão os principais atritos e criarem uma forma mais consciente de seguir juntos.</p></div></div></section>
+<section class="section final"><div class="wrap"><div class="narrow center"><img class="brand-logo" src="img/logo.png" alt="Viver a Dois - construindo um relacionamento maduro"><h2>Você já começou a reabrir o espaço da conexão.</h2><p class="lead">Agora existe uma escolha simples: seguir tentando resolver sozinha questões que pertencem aos dois, ou convidar seu marido para construir com você uma relação em que comunicação, intimidade, responsabilidades e futuro não precisem mais ser uma fonte constante de distância.</p><div class="offer"><h3>Viver a Dois</h3><div class="price">R$697</div><div class="installments">ou 12x de R$69,70</div><img class="brand-logo" src="img/pc%202.png" alt="Viver a Dois"><a class="btn btn-primary" href="SEU_LINK_CHECKOUT_AQUI">SIM, QUERO VIVER A DOIS</a><div style="font-size:.88rem;color:var(--mut);margin-top:14px">12 meses de acesso • 7 dias de garantia incondicional</div><a class="btn btn-secondary" href="SEU_LINK_DOWNSELL_AQUI">NÃO, PREFIRO OUTRA OPORTUNIDADE</a></div></div></div></section>
+</div>
+</main>
+<footer><div class="wrap">Viver a Dois • Página de upsell</div></footer>
+<script>
+const PITCH_REVEAL_AT_SECONDS=999999;
+function revealOffer(){document.body.classList.add('preview');sessionStorage.setItem('viverADoisOfferRevealed','1')}
+if(new URLSearchParams(location.search).get('preview')==='1')revealOffer();
+if(sessionStorage.getItem('viverADoisOfferRevealed')==='1')revealOffer();
+const vslVideo=document.getElementById('vslVideo');if(vslVideo){vslVideo.addEventListener('timeupdate',()=>{if(vslVideo.currentTime>=PITCH_REVEAL_AT_SECONDS)revealOffer()})}
+</script>
+</body>
+</html>

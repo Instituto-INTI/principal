@@ -1,0 +1,16 @@
+VIVER A DOIS — PÁGINA DE UPSELL
+
+Substitua no HTML:
+- SEU_LINK_CHECKOUT_AQUI
+- SEU_LINK_DOWNSELL_AQUI
+
+A página foi construída com o restante oculto até o pitch.
+Para visualizar tudo durante a edição, abra index.html?preview=1
+
+Se usar vídeo HTML5 com id="vslVideo", ajuste PITCH_REVEAL_AT_SECONDS no JavaScript.
+Se usar player externo, chame revealOffer() no momento do pitch.
+
+Paleta usada:
+#6B4B72 / #442F4D / #B8A1C1 / #DDD1E2 / #F6F4F6 / #D8C8BF
+
+http://127.0.0.1:5500/index.html?preview=1
