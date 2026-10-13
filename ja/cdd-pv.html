@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Código do Desapego — Esqueça seu ex de verdade</title>
+<meta name="description" content="Um protocolo prático para interromper recaídas emocionais, parar de stalkear e recuperar o controle emocional após o término.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0C;
+    --coffee:#2A1E14;
+    --night:#16233F;
+    --gold:#C9973A;
+    --gold-soft:#E8C56A;
+    --bronze:#A87B3F;
+    --cream:#F4E7CC;
+    --body:#F1E7D4;
+    --p:#E2D5B8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--body);font-size:16px;line-height:1.625;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .font-display{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-.01em;line-height:1.12}
+  .gold-it{color:var(--gold);font-style:italic}
+  .wrap{max-width:1152px;margin:0 auto;padding:0 24px}
+  .wrap-narrow{max-width:800px;margin:0 auto;padding:0 24px}
+  section{padding:104px 0;position:relative}
+  .bg-ink{background:var(--ink)}
+  .bg-coffee{background:var(--coffee)}
+  .bg-night{background:var(--night)}
+
+  .eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;font-size:12px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:22px}
+  .eyebrow::before{content:'';width:2rem;height:1px;background:var(--bronze)}
+  h2.st{font-size:clamp(30px,4vw,48px);color:var(--cream);text-align:center;margin-bottom:22px}
+  .lead{text-align:center;color:var(--p);max-width:720px;margin:0 auto;opacity:.9}
+
+  /* divider */
+  .divider{height:1px;max-width:900px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(201,151,58,.3),transparent)}
+
+  /* CTA */
+  .btn-gold{position:relative;overflow:hidden;display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold-soft),var(--gold));
+    color:#14100a;font-weight:600;font-size:14px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+    padding:20px 56px;border-radius:999px;box-shadow:0 18px 40px -15px rgba(201,151,58,.7);transition:transform .3s,box-shadow .3s}
+  .btn-gold::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .6s}
+  .btn-gold:hover{transform:scale(1.03);box-shadow:0 22px 55px -12px rgba(201,151,58,.85)}
+  .btn-gold:hover::after{left:130%}
+  .cta-center{text-align:center;margin-top:40px}
+  .microcopy{margin-top:18px;font-size:14px;color:var(--p);opacity:.85}
+
+  /* HERO */
+  .hero{background:var(--ink);text-align:center;padding:88px 0 100px;overflow:hidden;position:relative}
+  .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:500px;
+    background:radial-gradient(ellipse,rgba(201,151,58,.2),transparent 70%);pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-220px;left:50%;transform:translateX(-50%);width:900px;height:440px;
+    background:radial-gradient(ellipse,rgba(26,42,74,.5),transparent 70%);pointer-events:none}
+  .hero .wrap-narrow{position:relative;z-index:1}
+  .hero-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(201,151,58,.45);color:var(--gold-soft);
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;padding:11px 28px;border-radius:999px;margin-bottom:34px}
+  .hero-badge svg{width:15px;height:15px}
+  .hero h1{font-size:clamp(36px,5.6vw,68px);color:var(--cream);margin-bottom:40px}
+  .video-frame{position:relative;max-width:820px;margin:0 auto 40px;border-radius:20px;overflow:hidden;
+    border:1px solid rgba(201,151,58,.2);box-shadow:0 30px 80px -20px rgba(201,151,58,.35);background:#0F0A07;aspect-ratio:16/9}
+  .video-frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(11,11,12,.25)}
+  .play-btn{width:88px;height:88px;border-radius:50%;background:rgba(201,151,58,.92);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 14px rgba(201,151,58,.22),0 16px 40px rgba(0,0,0,.5)}
+  .play-btn svg{width:34px;height:34px;color:#14100a;margin-left:4px}
+  .hero p.support{max-width:680px;margin:0 auto 44px;color:var(--p);font-size:17px}
+
+  /* PROBLEM */
+  .problem-card{max-width:780px;margin:0 auto}
+  .problem-card p{color:var(--p);margin-bottom:20px;font-size:17px}
+  .impact{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.2vw,34px);
+    color:var(--cream);text-align:center;margin:36px 0;line-height:1.4}
+  .impact.gold{color:var(--gold)}
+
+  /* SOLUTION */
+  .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:52px 0}
+  .step-card{border:1px solid rgba(201,151,58,.15);border-radius:22px;padding:40px 32px;text-align:center;
+    background:linear-gradient(160deg,var(--coffee),var(--ink));transition:border-color .35s,box-shadow .35s,transform .35s}
+  .step-card:hover{border-color:rgba(201,151,58,.5);box-shadow:0 18px 50px rgba(201,151,58,.18);transform:translateY(-5px)}
+  .step-num{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);opacity:.4;margin-bottom:12px}
+  .step-card h3{font-size:26px;color:var(--cream);margin-bottom:12px}
+  .step-card p{font-size:15px;color:var(--p)}
+  .pills2{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:860px;margin:36px auto 0}
+  .pill-item{display:flex;gap:14px;align-items:center;background:rgba(201,151,58,.06);border:1px solid rgba(201,151,58,.16);
+    border-radius:999px;padding:15px 24px;font-size:15px;color:var(--body)}
+  .pill-item svg{width:20px;height:20px;color:var(--gold);flex-shrink:0}
+
+  /* DIFFERENT */
+  .quote-card{max-width:680px;margin:40px auto;border:1px solid rgba(201,151,58,.35);border-radius:20px;
+    padding:44px 40px;text-align:center;background:rgba(201,151,58,.05)}
+  .quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,30px);color:var(--gold)}
+  .sep-list{max-width:720px;margin:40px auto 0}
+  .sep-item{border-left:3px solid var(--gold);padding:16px 0 16px 28px;margin-bottom:22px}
+  .sep-item h4{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--gold);margin-bottom:6px}
+  .sep-item p{color:var(--p);font-size:15.5px}
+
+  /* TESTIMONIALS */
+  .marquee{overflow:hidden;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee-track{display:flex;gap:20px;width:max-content;animation:scroll 60s linear infinite;padding:12px 0}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee-track.rev{animation:scroll-rev 70s linear infinite}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @keyframes scroll-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  .t-card{width:270px;flex-shrink:0;border:1px solid rgba(201,151,58,.28);border-radius:20px;overflow:hidden;
+    background:linear-gradient(170deg,#171310,#12100D);box-shadow:0 20px 50px rgba(0,0,0,.5);
+    transition:transform .4s,border-color .4s,box-shadow .4s}
+  .t-card:hover{transform:translateY(-5px);border-color:rgba(201,151,58,.6);box-shadow:0 26px 60px rgba(201,151,58,.18)}
+  .t-card img{width:100%;display:block;aspect-ratio:9/13;object-fit:cover;object-position:top}
+  .t-card .t-name{padding:12px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+
+  /* FOR WHOM */
+  .fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:48px auto 0}
+  .fw-card{border-radius:22px;padding:44px 38px;background:rgba(255,255,255,.02)}
+  .fw-card.no{border:1px solid rgba(168,123,63,.3)}
+  .fw-card.yes{border:1px solid rgba(201,151,58,.4);box-shadow:0 18px 55px rgba(201,151,58,.14)}
+  .fw-card h3{font-size:27px;color:var(--cream);margin-bottom:26px}
+  .fw-card ul{list-style:none}
+  .fw-card li{display:flex;gap:13px;align-items:flex-start;margin-bottom:15px;font-size:15.5px;color:var(--p)}
+  .fw-card li:last-child{margin-bottom:0}
+  .fw-ico{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:3px}
+  .fw-ico svg{width:12px;height:12px}
+  .fw-ico.no{border:1px solid var(--bronze)}
+  .fw-ico.no svg{color:var(--bronze)}
+  .fw-ico.yes{background:linear-gradient(135deg,var(--gold),var(--gold-soft))}
+  .fw-ico.yes svg{color:#14100a}
+
+  /* DELIVERABLES */
+  .prev-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin:48px 0 60px}
+  .prev-grid .prev-card:first-child{grid-row:span 1}
+  .prev-card{border:1px solid rgba(201,151,58,.2);border-radius:24px;overflow:hidden;background:linear-gradient(170deg,#1C1613,#131110);transition:transform .4s cubic-bezier(.2,.6,.2,1),border-color .4s,box-shadow .4s}
+  .prev-card:hover{transform:translateY(-7px);border-color:rgba(201,151,58,.55);box-shadow:0 26px 65px rgba(201,151,58,.2)}
+  .prev-card img{width:100%;display:block;aspect-ratio:1414/2000;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+  .prev-card:hover img{transform:scale(1.05)}
+  .prev-card .prev-body{padding:28px}
+  .prev-label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze);font-weight:700;display:block;margin-bottom:10px}
+  .prev-card h3{font-size:22px;color:var(--cream);margin-bottom:8px}
+  .prev-card p{font-size:14.5px;color:var(--p)}
+  .deliv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .deliv{border:1px solid rgba(201,151,58,.16);border-radius:18px;padding:32px 28px;background:rgba(255,255,255,.02);transition:border-color .3s,transform .3s}
+  .deliv:hover{border-color:rgba(201,151,58,.45);transform:translateY(-4px)}
+  .deliv .dnum{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;
+    background:linear-gradient(135deg,var(--gold),var(--bronze));color:#14100a;font-weight:700;font-size:16px;margin-bottom:18px}
+  .deliv h3{font-size:21px;color:var(--cream);margin-bottom:10px}
+  .deliv p{font-size:14.5px;color:var(--p)}
+
+  /* VEJA POR DENTRO */
+  .inside-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .inside-card{border:1px solid rgba(201,151,58,.2);border-radius:24px;overflow:hidden;background:linear-gradient(170deg,#1C1613,#131110);transition:transform .4s cubic-bezier(.2,.6,.2,1),border-color .4s,box-shadow .4s}
+  .inside-card:hover{transform:translateY(-7px);border-color:rgba(201,151,58,.55);box-shadow:0 26px 65px rgba(201,151,58,.2)}
+  .inside-card img{width:100%;display:block;aspect-ratio:1414/2000;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+  .inside-card:hover img{transform:scale(1.05)}
+  .inside-card .inside-body{padding:28px}
+  .inside-card .inside-body{padding:26px}
+  .inside-card h3{font-size:22px;color:var(--cream);margin-bottom:10px}
+  .inside-card p{font-size:14.5px;color:var(--p)}
+  .inside-text{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+  .inside-text .t{background:rgba(201,151,58,.05);border:1px solid rgba(201,151,58,.18);border-radius:18px;padding:30px}
+  .inside-text h3{font-size:22px;color:var(--cream);margin-bottom:10px}
+  .inside-text p{font-size:15px;color:var(--p)}
+
+  /* TRANSITION */
+  .transition{text-align:center}
+  .transition h2{font-size:clamp(30px,4.4vw,52px);color:var(--cream);margin-bottom:24px}
+  .transition p{color:var(--p);max-width:680px;margin:0 auto 16px;font-size:17px}
+  .price-box{max-width:560px;margin:44px auto 0;border:1px solid rgba(201,151,58,.45);border-radius:28px;padding:48px 40px;background:linear-gradient(170deg,#241A10,#14100B);box-shadow:0 30px 80px rgba(201,151,58,.18);text-align:center}
+  .price-box .eyebrow{margin-bottom:18px}
+  .price-from{color:var(--bronze);font-size:16px;margin-bottom:6px}
+  .price-main{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,6vw,66px);font-weight:600;color:var(--gold);line-height:1.1;margin:4px 0 10px}
+  .price-alt{color:var(--p);font-size:17px;margin-bottom:32px}
+  .price-alt strong{color:var(--cream)}
+
+  /* CREATOR */
+  .creator-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;max-width:1000px;margin:0 auto}
+  .creator-grid img{width:100%;border-radius:22px;border:1px solid rgba(201,151,58,.3);box-shadow:0 24px 70px rgba(0,0,0,.5)}
+  .creator-grid h2{font-size:clamp(30px,4vw,44px);color:var(--cream);margin-bottom:8px;text-align:left}
+  .creator-grid .role{color:var(--gold);font-size:14px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:24px;display:block}
+  .creator-grid p{color:var(--p);margin-bottom:18px;font-size:16px}
+  .creator-grid p strong{color:var(--gold-soft)}
+
+  /* GUARANTEE */
+  .seal{width:150px;height:150px;border-radius:50%;margin:0 auto 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:#14100a;box-shadow:0 20px 55px rgba(201,151,58,.4)}
+  .seal svg{width:34px;height:34px;margin-bottom:6px}
+  .seal .n{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;line-height:1}
+  .seal .t{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+
+  /* FAQ */
+  .faq-list{max-width:780px;margin:48px auto 0}
+  .faq-item{border:1px solid rgba(201,151,58,.18);border-radius:16px;margin-bottom:12px;background:rgba(255,255,255,.02);overflow:hidden;transition:border-color .3s}
+  .faq-item.open{border-color:rgba(201,151,58,.5)}
+  .faq-q{width:100%;background:none;border:none;color:var(--cream);font-family:'Inter',sans-serif;font-size:16px;font-weight:600;
+    text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-q svg{width:18px;height:18px;color:var(--gold);flex-shrink:0;transition:transform .35s}
+  .faq-item.open .faq-q svg{transform:rotate(180deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .faq-a p{padding:0 26px 24px;color:var(--p);font-size:15px}
+
+  /* FOOTER */
+  footer{padding:64px 24px 54px;text-align:center}
+  footer .fbrand{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--cream);margin-bottom:10px}
+  footer p{font-size:13.5px;color:var(--p);opacity:.7;max-width:640px;margin:0 auto 8px}
+
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .steps3,.deliv-grid,.inside-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+    .pills2,.fw-grid,.inside-text{grid-template-columns:1fr}
+    .fw-grid{max-width:560px;margin-left:auto;margin-right:auto}
+    .creator-grid{grid-template-columns:1fr;gap:40px}
+    .creator-grid .cimg{max-width:400px;margin:0 auto}
+    .prev-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+    section{padding:76px 0}
+    .price-box{padding:36px 24px}
+  }
+  @media(max-width:640px){
+    .t-card{width:220px}
+    .marquee-track{gap:14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap-narrow">
+    <span class="hero-badge reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+      Código do Desapego
+    </span>
+    <h1 class="font-display reveal">Esqueça seu ex agora,<br>começando pelo que <span class="gold-it">realmente</span><br>te prende a ele.</h1>
+    <div class="video-frame reveal">
+      <vturb-smartplayer id="vid-6a7cbea69ce229b9e74427d4" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6a7cbea69ce229b9e74427d4/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+    </div>
+    <p class="support reveal">Um protocolo prático para interromper recaídas emocionais, parar de stalkear, resistir à vontade de mandar mensagem e recuperar o controle emocional — sem depender apenas de tempo, bloqueio ou força de vontade.</p>
+    <div class="cta-center reveal" style="margin-top:0">
+      <a class="btn-gold" href="https://checkout.ticto.app/OE44217BB" target="_blank" rel="noopener">Quero fazer um detox do meu ex</a>
+      <p class="microcopy">De <s>R$ 197,00</s> por <strong>5x de R$ 5,97</strong> ou <strong>R$ 27,00/ano</strong> · Renovação anual · 7 dias de garantia</p>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- ============ PROBLEMA ============ -->
+<section class="bg-coffee">
+  <div class="wrap-narrow">
+    <div class="problem-card">
+      <span class="eyebrow reveal">O que está acontecendo com você</span>
+      <h2 class="font-display st reveal">Você sabe que precisa seguir em frente… <span class="gold-it">mas alguma coisa dentro de você ainda procura por ele.</span></h2>
+      <p class="reveal">Racionalmente, você já entendeu que acabou. Você sabe que essa relação te machucava, que ele não te entregava o mínimo, que você se sentia sozinha, ansiosa, insegura e emocionalmente em segundo plano.</p>
+      <p class="reveal">Mas, mesmo sabendo disso, você ainda pega o celular sem perceber. Olha o perfil dele. Relê conversas antigas. Procura sinais. Interpreta stories. Imagina se ele está com outra. Fantasia uma mensagem, uma volta, uma explicação, um arrependimento.</p>
+      <p class="reveal">E depois se sente pior.</p>
+      <p class="impact reveal">Não é só saudade.</p>
+      <p class="reveal">É a sensação de ter perdido o comando de si mesma. Você sabe o que deveria fazer… mas, quando a dor aperta, uma parte sua continua voltando para ele dentro da sua cabeça.</p>
+      <p class="reveal">E é exatamente por isso que frases como "bloqueia", "ocupa a cabeça", "segue sua vida" ou "tenha amor-próprio" não resolvem. Porque o problema não é falta de informação.</p>
+      <p class="reveal">Desde a infância, nos venderam a ideia de que o amor sempre vem de fora, que ele é eterno e imutável, e que nós precisamos ser preenchidas por alguém. É a famosa história do príncipe encantado que vem salvar a princesa — e que vivem juntos felizes para sempre.</p>
+      <p class="reveal">Essa ideia moldou a sua percepção do amor, e hoje você apenas projeta esse <strong style="color:var(--gold-soft)">relacionamento Disney</strong> em alguém: o seu ex.</p>
+      <p class="reveal">O seu emocional associa aquela pessoa a amor, validação, pertencimento, segurança e ao futuro que te ensinaram a esperar. Enquanto essa associação continuar ativa, você não sofre apenas pelo ex.</p>
+      <p class="impact gold reveal">Você sofre pela vida afetiva que acreditava que viveria através dele.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ SOLUÇÃO ============ -->
+<section class="bg-ink">
+  <div class="wrap">
+    <span class="eyebrow reveal">A solução</span>
+    <h2 class="font-display st reveal">O desapego começa quando você separa o homem real da <span class="gold-it">expectativa que projetou nele.</span></h2>
+    <p class="lead reveal">O Código do Desapego foi criado para ajudar você a interromper o circuito emocional que mantém seu ex no centro da sua mente. Não é joguinho. Não é fingir indiferença. Não é transformar amor em raiva.</p>
+    <div class="steps3">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <h3 class="font-display">Enxergar</h3>
+        <p>Enxergar a relação como ela realmente foi — não como a sua carência pinta.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <h3 class="font-display">Separar</h3>
+        <p>Separar a pessoa real da expectativa que você projetou inconscientemente nela.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <h3 class="font-display">Recuperar</h3>
+        <p>Recuperar a segurança emocional e tirar o ex do centro da sua vida.</p>
+      </div>
+    </div>
+    <p class="lead reveal">Porque, na verdade, você não está presa ao ex de carne e osso. Você está presa ao que ele <em>representava</em> dentro de você: a promessa de amor, a esperança de ser escolhida, a fantasia de futuro.</p>
+    <h3 class="font-display reveal" style="text-align:center;font-size:28px;color:var(--cream);margin-top:56px">Benefícios concretos</h3>
+    <div class="pills2">
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Parar de obedecer automaticamente à vontade de mandar mensagem</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Reduzir o impulso de stalkear, procurar sinais e reler conversas</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Enxergar com mais clareza quem ele realmente foi na relação</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Separar o que aconteceu daquilo que você esperava que acontecesse</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Parar de romantizar migalhas, ausências e momentos ambíguos</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Recuperar a sensação de dignidade depois de recaídas emocionais</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Criar um plano prático para atravessar crises de saudade e ansiedade</div>
+      <div class="pill-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Redirecionar a energia emocional presa nele para reconstruir você</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ POR QUE É DIFERENTE ============ -->
+<section class="bg-night">
+  <div class="wrap-narrow">
+    <span class="eyebrow reveal">Por que é diferente</span>
+    <h2 class="font-display st reveal">O Código não te proíbe de sentir. <span class="gold-it">Ele te ensina a desfazer a projeção que alimenta o impulso.</span></h2>
+    <p class="reveal" style="color:var(--p);margin-bottom:18px">A maioria dos conselhos sobre término tenta resolver o problema pela superfície: "bloqueia", "não manda mensagem", "some", "faz ele sentir sua falta", "pensa nos defeitos dele", "treina na academia", "foca no trabalho"...</p>
+    <p class="reveal" style="color:var(--p);margin-bottom:18px">Mas, quando a madrugada chega e a ansiedade sobe, esses conselhos ficam pequenos. Porque o impulso não nasce da sua razão — ele nasce de uma associação emocional mais profunda.</p>
+    <p class="reveal" style="color:var(--p)">Seu emocional aprendeu a projetar naquela pessoa alívio, validação, esperança e segurança. Por isso, tentar esquecer à força geralmente falha. O Código do Desapego segue o outro caminho. Ele não começa perguntando "como faço para esquecer?" — ele pergunta:</p>
+    <div class="quote-card reveal">
+      <p>"O que essa pessoa passou a representar dentro de mim?"</p>
+    </div>
+    <p class="reveal" style="color:var(--p);text-align:center;margin-bottom:8px">A partir disso, você aprende a separar:</p>
+    <div class="sep-list">
+      <div class="sep-item reveal"><h4>A relação real <span style="color:var(--p);font-size:18px">da relação imaginada</span></h4><p>O que de fato aconteceu — e a história que a carência conta.</p></div>
+      <div class="sep-item reveal"><h4>O ex real <span style="color:var(--p);font-size:18px">do ex projetado inconscientemente</span></h4><p>Quem ele foi de verdade — e quem você precisava que ele fosse.</p></div>
+      <div class="sep-item reveal"><h4>O amor real <span style="color:var(--p);font-size:18px">do sequestro da identidade afetiva</span></h4><p>Sentimento genuíno — e dependência disfarçada de amor.</p></div>
+      <div class="sep-item reveal"><h4>A saudade verdadeira <span style="color:var(--p);font-size:18px">da abstinência emocional</span></h4><p>Falta do que foi bom — e fissura pelo que te prendia.</p></div>
+      <div class="sep-item reveal"><h4>O desejo de voltar <span style="color:var(--p);font-size:18px">da necessidade de se sentir segura</span></h4><p>Vontade dele — e vontade de não se sentir sozinha.</p></div>
+    </div>
+    <p class="impact reveal" style="margin-top:44px">O Código não te coloca em guerra contra seus sentimentos.<br><span class="gold-it">Ele te dá um método para entender, interromper e ressignificar.</span></p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="bg-coffee" style="padding-left:0;padding-right:0">
+  <div class="wrap">
+    <span class="eyebrow reveal">Você não está sozinha</span>
+    <h2 class="font-display st reveal">O que mulheres dizem depois do <span class="gold-it">Código do Desapego</span></h2>
+    <p class="lead reveal">Relatos reais de mulheres que atravessaram o término e recuperaram a clareza emocional com o método.</p>
+  </div>
+  <div class="marquee reveal"><div class="marquee-track">
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/f978f77f-6451-4f77-a19b-cbdc4e861ade/cdd-depoimento-1.webp" alt="Depoimento de Juliana" loading="lazy"><div class="t-name">Juliana · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/5d16c158-866f-4dd9-bc3b-c1aa43c9725b/cdd-depoimento-2.webp" alt="Depoimento de Patrícia Soares" loading="lazy"><div class="t-name">Patrícia Soares · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/171a33a0-0269-4403-b019-a576bed64f59/cdd-depoimento-3.webp" alt="Depoimento de Renata Carini" loading="lazy"><div class="t-name">Renata Carini · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/dc2981fa-f1dd-4388-921b-c4b28a51a68b/cdd-depoimento-4.webp" alt="Depoimento de Camila" loading="lazy"><div class="t-name">Camila · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/969947c7-fb09-40c8-ba02-493723ff2043/cdd-depoimento-5.webp" alt="Depoimento de Fernanda Marques" loading="lazy"><div class="t-name">Fernanda Marques · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/f978f77f-6451-4f77-a19b-cbdc4e861ade/cdd-depoimento-1.webp" alt="Depoimento de Juliana" loading="lazy"><div class="t-name">Juliana · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/5d16c158-866f-4dd9-bc3b-c1aa43c9725b/cdd-depoimento-2.webp" alt="Depoimento de Patrícia Soares" loading="lazy"><div class="t-name">Patrícia Soares · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/171a33a0-0269-4403-b019-a576bed64f59/cdd-depoimento-3.webp" alt="Depoimento de Renata Carini" loading="lazy"><div class="t-name">Renata Carini · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/dc2981fa-f1dd-4388-921b-c4b28a51a68b/cdd-depoimento-4.webp" alt="Depoimento de Camila" loading="lazy"><div class="t-name">Camila · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/969947c7-fb09-40c8-ba02-493723ff2043/cdd-depoimento-5.webp" alt="Depoimento de Fernanda Marques" loading="lazy"><div class="t-name">Fernanda Marques · Aluna</div></div>
+  </div></div>
+  <div class="marquee reveal" style="margin-top:20px"><div class="marquee-track rev">
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/90b08730-02c2-44f1-b9e6-57240477643f/cdd-depoimento-6.webp" alt="Depoimento de Larissa Lopes" loading="lazy"><div class="t-name">Larissa Lopes · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/dddc0e4e-f928-4cfe-8d9f-6355d7c97ef8/cdd-depoimento-7.webp" alt="Depoimento de Aline" loading="lazy"><div class="t-name">Aline · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/f633a6d7-efa0-4273-b473-619232f816b6/cdd-depoimento-8.webp" alt="Depoimento de Vanessa Silva" loading="lazy"><div class="t-name">Vanessa Silva · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/c479a24f-6f82-45df-8efb-25bca359a4cb/cdd-depoimento-9.webp" alt="Depoimento de Tatiane" loading="lazy"><div class="t-name">Tatiane · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/cca5fd2c-df76-42cb-8081-6d1aabdf334f/cdd-depoimento-10.webp" alt="Depoimento de Bruna Cafarezzi" loading="lazy"><div class="t-name">Bruna Cafarezzi · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/90b08730-02c2-44f1-b9e6-57240477643f/cdd-depoimento-6.webp" alt="Depoimento de Larissa Lopes" loading="lazy"><div class="t-name">Larissa Lopes · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/dddc0e4e-f928-4cfe-8d9f-6355d7c97ef8/cdd-depoimento-7.webp" alt="Depoimento de Aline" loading="lazy"><div class="t-name">Aline · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/f633a6d7-efa0-4273-b473-619232f816b6/cdd-depoimento-8.webp" alt="Depoimento de Vanessa Silva" loading="lazy"><div class="t-name">Vanessa Silva · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/c479a24f-6f82-45df-8efb-25bca359a4cb/cdd-depoimento-9.webp" alt="Depoimento de Tatiane" loading="lazy"><div class="t-name">Tatiane · Aluna</div></div>
+    <div class="t-card"><img src="https://viveradois.lovable.app/__l5e/assets-v1/cca5fd2c-df76-42cb-8081-6d1aabdf334f/cdd-depoimento-10.webp" alt="Depoimento de Bruna Cafarezzi" loading="lazy"><div class="t-name">Bruna Cafarezzi · Aluna</div></div>
+  </div></div>
+  <div class="wrap"><p class="impact gold reveal" style="margin-top:48px">O Código foi criado justamente para esse momento: quando você já entendeu que precisa seguir, mas ainda não consegue sustentar essa decisão por dentro.</p></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ PARA QUEM É ============ -->
+<section class="bg-ink">
+  <div class="wrap">
+    <span class="eyebrow reveal">Para quem é</span>
+    <h2 class="font-display st reveal">O Código do Desapego é <span class="gold-it">para você?</span></h2>
+    <div class="fw-grid">
+      <div class="fw-card no reveal">
+        <h3 class="font-display">Não é para você se</h3>
+        <ul>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você procura joguinhos para fazer seu ex correr atrás.</li>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você quer fazer alguém voltar.</li>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você não acredita que foi programada a esperar a valorização de fora.</li>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você não quer olhar para a realidade da relação.</li>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você espera uma promessa mágica de apagar sentimentos em minutos.</li>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você não está disposta a aplicar o passo a passo quando os gatilhos aparecerem.</li>
+          <li><span class="fw-ico no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Você precisa de acompanhamento psicológico individual para um quadro emocional grave.</li>
+        </ul>
+      </div>
+      <div class="fw-card yes reveal">
+        <h3 class="font-display">É para você se</h3>
+        <ul>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você terminou e sente que perdeu o controle emocional.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você sabe que precisa seguir, mas continua pensando nele.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você sente vontade de mandar mensagem, stalkear ou procurar sinais.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você passa madrugadas imaginando se ele já está com outra pessoa.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você sente vergonha de ainda esperar algo dele.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você já tentou bloquear, ocupar a cabeça ou focar em você, mas ainda recai.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você quer um processo prático, direto e aplicável nos momentos de crise.</li>
+          <li><span class="fw-ico yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Você quer parar de transformar saudade em dor.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-center reveal">
+      <a class="btn-gold" href="https://checkout.ticto.app/OE44217BB" target="_blank" rel="noopener">O Código do Desapego é para mim!</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ O QUE VOCÊ RECEBE ============ -->
+<section class="bg-coffee">
+  <div class="wrap">
+    <span class="eyebrow reveal">O que você recebe</span>
+    <h2 class="font-display st reveal">O que você recebe dentro do <span class="gold-it">Código do Desapego</span></h2>
+    <p class="lead reveal">Um kit prático para aplicar durante os primeiros dias de maior dor emocional. Não é um curso longo, não é teoria: é um código de aplicação imediata para atravessar recaídas, gatilhos e impulsos.</p>
+    <div class="prev-grid">
+      <div class="prev-card reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/8fa0ac7f-3b01-45bc-bd10-e0b0689cae11/codigo-do-desapego-protocolo-pratico.png" alt="Protocolo prático central" loading="lazy">
+        <div class="prev-body"><span class="prev-label">Prévia do material</span><h3 class="font-display">Protocolo prático central</h3><p>O material principal, com os 5 passos para interromper recaídas e recuperar clareza emocional.</p></div>
+      </div>
+      <div class="prev-card reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/bd781506-409f-4e6d-9ee3-a83e16f6fd53/codigo-do-desapego-libertacao-7-dias-capa.png" alt="Libertação emocional em 7 dias" loading="lazy">
+        <div class="prev-body"><span class="prev-label">Prévia do material</span><h3 class="font-display">Libertação emocional em 7 dias</h3><p>Uma jornada guiada para atravessar a semana mais sensível com direção e autonomia.</p></div>
+      </div>
+      <div class="prev-card reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/18d6508a-e4ed-4f14-b30a-39904ee15e44/codigo-do-desapego-recuperacao-estado-capa.png" alt="Ritual de recuperação de estado" loading="lazy">
+        <div class="prev-body"><span class="prev-label">Prévia do material</span><h3 class="font-display">Ritual de recuperação de estado</h3><p>Um recurso rápido para voltar ao seu centro nos momentos de crise.</p></div>
+      </div>
+    </div>
+    <div class="deliv-grid">
+      <div class="deliv reveal"><span class="dnum">01</span><h3 class="font-display">Masterclass Código do Desapego</h3><p>Uma aula prática para entender por que você não consegue esquecer, o que realmente te prende ao ex e como começar a interromper esse circuito emocional.</p></div>
+      <div class="deliv reveal"><span class="dnum">02</span><h3 class="font-display">Protocolo de 5 Passos do Desapego</h3><p>O passo a passo central do método: interromper o impulso, nomear o gatilho, enxergar a realidade, separar a pessoa real da esperada e trocar a recaída por reconstrução.</p></div>
+      <div class="deliv reveal"><span class="dnum">03</span><h3 class="font-display">Exercícios de realidade e expectativa</h3><p>Ferramentas práticas para separar lembrança, fantasia, projeção e fatos concretos.</p></div>
+      <div class="deliv reveal"><span class="dnum">04</span><h3 class="font-display">Ritual de Recuperação Emocional</h3><p>Um guia para usar antes de mandar mensagem, desbloquear, stalkear ou buscar sinais.</p></div>
+      <div class="deliv reveal"><span class="dnum">05</span><h3 class="font-display">Áudio de emergência emocional</h3><p>Um áudio para momentos de ansiedade, saudade intensa e fissura emocional.</p></div>
+      <div class="deliv reveal"><span class="dnum">06</span><h3 class="font-display">Protocolo de Libertação Emocional de 7 Dias</h3><p>Um plano simples para atravessar a primeira semana com mais direção, clareza e controle.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ VEJA POR DENTRO ============ -->
+<section class="bg-coffee" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow reveal">Veja por dentro</span>
+    <h2 class="font-display st reveal">Materiais visuais pensados para te orientar <span class="gold-it">com clareza</span></h2>
+    <p class="lead reveal">Nos momentos mais sensíveis, você não precisa pensar — é só seguir o mapa.</p>
+    <div class="inside-grid">
+      <div class="inside-card reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/8b9d28f9-6831-43c6-aa20-6b5127235306/codigo-do-desapego-etapas-processo.png" alt="Mapa das etapas do processo" loading="lazy">
+        <div class="inside-body"><h3 class="font-display">Mapa das etapas do processo</h3><p>Visual organizado das etapas que ajudam você a sair do modo automático e voltar para si.</p></div>
+      </div>
+      <div class="inside-card reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/20c7d3e6-e164-4af7-b6e6-16329c1c7e2b/codigo-do-desapego-protocolo-madrugada.png" alt="Protocolo da madrugada" loading="lazy">
+        <div class="inside-body"><h3 class="font-display">Protocolo da madrugada</h3><p>Checklist e ações curtas para proteger você nos horários mais vulneráveis.</p></div>
+      </div>
+      <div class="inside-card reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/97995c8b-737c-4f07-a898-c67ab65a12d2/codigo-do-desapego-libertacao-7-dias-mapa.png" alt="Mapa dos 7 dias" loading="lazy">
+        <div class="inside-body"><h3 class="font-display">Mapa dos 7 dias</h3><p>Visão prática do caminho de reconstrução emocional ao longo da primeira semana.</p></div>
+      </div>
+    </div>
+    <div class="inside-text">
+      <div class="t reveal"><h3 class="font-display">Ritual da madrugada</h3><p>Um passo a passo curto para as horas em que a saudade aperta mais — e a vontade de mandar mensagem parece incontrolável.</p></div>
+      <div class="t reveal"><h3 class="font-display">Áudio de emergência — 10 min</h3><p>Para ouvir quando a ansiedade subir: uma âncora rápida para atravessar a fissura emocional sem recair.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ TRANSIÇÃO / PREÇO ============ -->
+<section class="bg-ink transition">
+  <div class="wrap-narrow">
+    <h2 class="font-display reveal">Você pode continuar tentando esquecer na força… <span class="gold-it">ou pode começar a desprogramar o que realmente te prende.</span></h2>
+    <p class="reveal">O tempo vai passar. Mas tempo sozinho não reorganiza o que continua ativo dentro de você.</p>
+    <p class="reveal">Bloquear pode ajudar. Mas bloqueio sozinho não desativa a esperança. Ocupar a cabeça pode aliviar por algumas horas. Mas não resolve a madrugada, o gatilho, a lembrança, a foto, a vontade de saber se ele sente falta.</p>
+    <p class="reveal">Por isso, o Código existe: para te dar um caminho prático quando a sua razão já entendeu, mas o seu emocional ainda não obedece.</p>
+    <div class="price-box reveal">
+      <span class="eyebrow">Oferta especial</span>
+      <p class="price-from">De <s>R$ 197,00</s> por apenas</p>
+      <p class="price-main">5x de R$ 5,97</p>
+      <p class="price-alt">ou <strong>R$ 27,00/ano</strong> à vista</p>
+      <a class="btn-gold" href="https://checkout.ticto.app/OE44217BB" target="_blank" rel="noopener">Quero entrar no Código do Desapego</a>
+      <p class="microcopy">Renovação anual · 7 dias de garantia incondicional</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ QUEM CRIOU ============ -->
+<section class="bg-night">
+  <div class="wrap">
+    <div class="creator-grid">
+      <div class="cimg reveal">
+        <img src="https://viveradois.lovable.app/__l5e/assets-v1/41a38e52-37c8-4e79-89cb-8b798c3a7e48/author-portrait.png" alt="João Rafael, terapeuta e criador do Código do Desapego">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow" style="justify-content:flex-start">Quem criou</span>
+        <h2 class="font-display">Quem criou o <span class="gold-it">Código do Desapego</span></h2>
+        <span class="role">João Rafael · Terapeuta</span>
+        <p>O Código do Desapego foi criado por <strong>João Rafael</strong>, terapeuta e fundador do Instituto Nacional de Terapias Integrativas (INTI) — e também criador do <strong>Viver a Dois</strong>.</p>
+        <p>A partir da observação clínica de mulheres que, mesmo conscientes, inteligentes e emocionalmente maduras em várias áreas da vida, não conseguiam se libertar de vínculos afetivos que já tinham acabado.</p>
+        <p>Em seus estudos de Jung, psicologia do espírito e, por fim, no consultório, João percebeu que o problema não era apenas "falta de amor-próprio", "apego afetivo" ou "saudade".</p>
+        <p>O que mantinha a mulher presa era uma confusão mais profunda entre a pessoa real, a expectativa projetada e a segurança emocional que ela acreditava que viveria através daquele vínculo.</p>
+        <p>O Código do Desapego nasceu para traduzir essa percepção em um processo simples, prático e aplicável: um protocolo para interromper recaídas, recuperar clareza e começar a retirar o ex do centro emocional da própria vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ GARANTIA ============ -->
+<section class="bg-coffee" style="text-align:center">
+  <div class="wrap-narrow">
+    <div class="seal reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span class="n">7</span><span class="t">dias de<br>garantia</span>
+    </div>
+    <h2 class="font-display st reveal">Você tem 7 dias para <span class="gold-it">testar sem risco.</span></h2>
+    <p class="reveal" style="color:var(--p);margin-bottom:16px">Ao entrar no Código do Desapego, você tem <strong style="color:var(--cream)">7 dias de garantia incondicional</strong>.</p>
+    <p class="reveal" style="color:var(--p);margin-bottom:16px">Isso significa que você pode acessar o conteúdo, assistir à masterclass, conhecer o método e decidir se faz sentido para você.</p>
+    <p class="reveal" style="color:var(--p);margin-bottom:16px">Se sentir que não é o momento, basta solicitar o reembolso dentro do prazo de garantia. Sem constrangimento. Sem justificativa. Sem risco.</p>
+    <p class="impact gold reveal" style="margin-bottom:0">Você só permanece se sentir que o Código pode te ajudar a atravessar essa fase com mais clareza, dignidade e controle emocional.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ FAQ ============ -->
+<section class="bg-ink">
+  <div class="wrap">
+    <span class="eyebrow reveal">Perguntas frequentes</span>
+    <h2 class="font-display st reveal">Dúvidas frequentes — <span class="gold-it">FAQ</span></h2>
+    <div class="faq-list">
+      <div class="faq-item open reveal">
+        <button class="faq-q">O Código do Desapego é um curso?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Não. É uma masterclass 100% prática, com exercícios e ferramentas para aplicar nos momentos de crise emocional — sem teoria enrolada.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Serve para quem terminou há pouco tempo?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Sim. Foi pensado exatamente para a fase da dor imediata: ansiedade, confusão, stalking e vontade de mandar mensagem.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Serve para quem terminou há meses ou anos?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Sim — se ainda houver apego, recaída, obsessão mental, idealização ou dificuldade de seguir em frente, o método se aplica.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Eu preciso ter bloqueado meu ex para funcionar?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Não. O Código trata o impulso por trás da vontade de procurar, mandar mensagem ou buscar sinais — o bloqueio é uma ferramenta, não um pré-requisito.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Isso vai me fazer esquecer meu ex imediatamente?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Não existe mágica para apagar memórias. O que o Código faz é interromper o circuito da recaída, reduzir a idealização e devolver seu controle emocional.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">E se eu ainda amo meu ex?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Você não precisa odiar para desapegar. O foco é enxergar a realidade da relação e parar de se abandonar por ela.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Esse método substitui terapia?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Não. É um material educativo de apoio e não substitui psicoterapia, diagnóstico ou acompanhamento médico individual.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Por quanto tempo terei acesso?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>1 ano de acesso ao conteúdo e aos bônus, pelo preço de lançamento para quem entrar hoje.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Tem garantia?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Sim. 7 dias de garantia incondicional: se não fizer sentido para você, basta solicitar o reembolso dentro do prazo.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Qual é o meu próximo passo?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Clicar no botão abaixo, entrar no Código do Desapego e começar hoje mesmo a aplicar o protocolo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="bg-ink" style="text-align:center">
+  <div class="wrap-narrow">
+    <h2 class="font-display reveal" style="font-size:clamp(32px,4.6vw,54px);color:var(--cream);margin-bottom:20px">Sua <span class="gold-it">paz de espírito</span> não precisa esperar o tempo passar.</h2>
+    <p class="reveal" style="color:var(--p);max-width:620px;margin:0 auto 10px">Comece hoje a desprogramar o que te prende — com um método claro para os momentos em que a razão já entendeu, mas o emocional ainda não obedece.</p>
+    <div class="cta-center reveal">
+      <a class="btn-gold" href="https://checkout.ticto.app/OE44217BB" target="_blank" rel="noopener">Quero entrar no Código do Desapego</a>
+      <p class="microcopy">5x de R$ 5,97 ou R$ 27,00/ano · Renovação anual · 7 dias de garantia</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="bg-ink">
+  <div class="fbrand font-display">Código do Desapego</div>
+  <p>© 2026 João Rafael · INTI. Todos os direitos reservados.</p>
+  <p>Este material é educativo e não substitui acompanhamento psicológico ou médico individual.</p>
+</footer>
+
+<script>
+(function(){
+  /* FAQ accordion (abre 1 por vez) */
+  var items = document.querySelectorAll('.faq-item');
+  function setHeight(item){
+    var a = item.querySelector('.faq-a');
+    a.style.maxHeight = item.classList.contains('open') ? a.scrollHeight + 'px' : '0px';
+  }
+  items.forEach(function(item){
+    setHeight(item);
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      items.forEach(function(i){ i.classList.remove('open'); setHeight(i); });
+      if(!wasOpen){ item.classList.add('open'); setHeight(item); }
+    });
+  });
+  window.addEventListener('resize', function(){ items.forEach(setHeight); });
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
