@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Garante que a oferta nao apareca antes da verificacao do progresso.
+    document.documentElement.classList.add("offer-gated");
+  </script>
 </head>
 <body>
   <main>
@@ -22,7 +26,7 @@
           <span class="eyebrow">CONDIÇÃO ESPECIAL</span>
           <h1>Antes de seguir somente com o Guia, existe uma <em>última condição especial</em> para você entrar no Viver a Dois.</h1>
           <p>Se o investimento de R$697 foi o que fez você recuar, assista ao vídeo abaixo. Eu consegui manter o programa completo com um investimento bem menor, reduzindo apenas o período de acesso de 12 para 6 meses.</p>
-          <a href="#oferta" class="btn">CONHECER A CONDIÇÃO ESPECIAL</a>
+          <a href="#oferta" class="btn gated-cta" id="heroOfferBtn" hidden>CONHECER A CONDIÇÃO ESPECIAL</a>
         </div>
         <div class="hero-visual">
           <div class="photo-card">
@@ -41,15 +45,14 @@
           <h2>Uma última chance para vocês cuidarem do casamento juntos</h2>
         </div>
         <div class="video-shell">
-          <div class="video-placeholder" id="videoBox">
-            <button class="play" aria-label="Reproduzir vídeo" id="playBtn">▶</button>
-            <div><strong>PLAYER DA VSL</strong><span>Substitua este bloco pelo embed do seu vídeo.</span></div>
-          </div>
+          <vturb-smartplayer id="vid-6ace55eafeba2f66a1f087f9" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
+            <div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div>
+          </vturb-smartplayer>
         </div>
       </div>
     </section>
 
-    <section class="intro">
+    <section class="intro gated-content">
       <div class="container split">
         <div>
           <span class="eyebrow">O MESMO PROGRAMA</span>
@@ -63,7 +66,7 @@
       </div>
     </section>
 
-    <section class="topics">
+    <section class="topics gated-content">
       <div class="container">
         <div class="section-heading centered">
           <span class="eyebrow">CONTEÚDO COMPLETO</span>
@@ -82,7 +85,7 @@
       </div>
     </section>
 
-    <section class="together">
+    <section class="together gated-content">
       <div class="container together-grid">
         <div class="hands-photo"></div>
         <div class="together-copy">
@@ -95,7 +98,7 @@
       </div>
     </section>
 
-    <section class="guarantee">
+    <section class="guarantee gated-content">
       <div class="container guarantee-grid">
         <div class="seal">✓</div>
         <div>
@@ -106,7 +109,7 @@
       </div>
     </section>
 
-    <section class="offer" id="oferta">
+    <section class="offer gated-content" id="oferta">
       <div class="container">
         <div class="offer-card">
           <div class="offer-copy">
@@ -134,5 +137,6 @@
     </section>
   </main>
   <script src="script.js"></script>
+  <script async src="https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6ace55eafeba2f66a1f087f9/v4/player.js"></script>
 </body>
 </html>
