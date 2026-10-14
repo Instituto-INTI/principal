@@ -24,9 +24,42 @@ const revealObserver = new IntersectionObserver(
 
 revealTargets.forEach((element) => revealObserver.observe(element));
 
-document.getElementById("playBtn").addEventListener("click", () => {
-  alert("Substitua o bloco PLAYER DA VSL pelo código embed do seu player de vídeo.");
-});
+// Liberação em 50% da duração real do vídeo (VTurb SmartPlayer V4).
+(() => {
+  const player = document.getElementById('vid-6ace55eafeba2f66a1f087f9');
+  const key = 'vturb-offer-unlocked-6ace55eafeba2f66a1f087f9-downsell';
+  const preview = new URLSearchParams(window.location.search).get('preview') === '1';
+  let unlocked = false;
+  let knownDuration = 0;
+
+  function unlock() {
+    if (unlocked) return;
+    unlocked = true;
+    document.documentElement.classList.add('offer-unlocked');
+    const heroButton = document.getElementById('heroOfferBtn');
+    if (heroButton) heroButton.hidden = false;
+    try { sessionStorage.setItem(key, '1'); } catch (_) {}
+  }
+
+  try {
+    if (preview || sessionStorage.getItem(key) === '1') unlock();
+  } catch (_) { if (preview) unlock(); }
+
+  function checkProgress(event) {
+    if (unlocked) return;
+    const time = Number(event?.detail?.time ?? player?.currentTime);
+    const duration = Number(player?.duration);
+    if (Number.isFinite(duration) && duration > 0) knownDuration = duration;
+    if (Number.isFinite(time) && knownDuration > 0 && time >= knownDuration * 0.5) {
+      unlock();
+    }
+  }
+
+  // Os eventos são registrados antes do carregamento assíncrono do player.
+  player.addEventListener('player:ready', checkProgress);
+  player.addEventListener('video:timeupdate', checkProgress);
+  player.addEventListener('video:ended', unlock);
+})();
 
 document.getElementById("buyBtn").addEventListener("click", (event) => {
   event.preventDefault();
