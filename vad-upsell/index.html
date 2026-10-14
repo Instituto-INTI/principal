@@ -131,7 +131,7 @@ footer{background:#18110B;color:rgba(233,226,217,.72)}
 </head>
 <body>
 <main>
-<section class="hero"><div class="wrap center"><span class="eyebrow">Boas-vindas</span><h1>Você acaba de iniciar uma mudança importante no seu casamento.</h1><p class="lead">Antes de começar, assista a esta aula de boas-vindas. Nela, você vai entender por que a reaproximação pode começar por você, mas existe uma parte do casamento que só se reconstrói quando os dois aprendem a caminhar na mesma direção.</p><div class="video-shell"><vturb-smartplayer id="vid-6ace55eafeba2f66a1f087f9" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer><script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6ace55eafeba2f66a1f087f9/v4/player.js",s.async=!0,document.head.appendChild(s);</script></div><p class="reveal-note">O restante da página permanece oculto até o momento do pitch da VSL.</p></div></section>
+<section class="hero"><div class="wrap center"><span class="eyebrow">Boas-vindas</span><h1>Você acaba de iniciar uma mudança importante no seu casamento.</h1><p class="lead">Antes de começar, assista a esta aula de boas-vindas. Nela, você vai entender por que a reaproximação pode começar por você, mas existe uma parte do casamento que só se reconstrói quando os dois aprendem a caminhar na mesma direção.</p><div class="video-shell"><vturb-smartplayer id="vid-6ace55eafeba2f66a1f087f9" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer></div><p class="reveal-note">O restante da página será exibido quando você assistir a 50% do vídeo.</p></div></section>
 <div class="post-pitch" id="postPitch">
 <div class="band"><div class="wrap"><strong>Você abriu espaço para a reconexão. Agora vocês podem aprender a construir, juntos, a relação que querem viver.</strong></div></div>
 <section class="section"><div class="wrap"><div class="narrow center"><span class="eyebrow">O próximo passo</span><h2>Da reaproximação para a parceria.</h2><p class="lead">O Guia Prático para Reapaixonar seu Marido mostra como mudar sua participação na dinâmica. O Viver a Dois é o passo para vocês transformarem essa reaproximação em uma construção feita pelos dois.</p></div><div class="offer narrow"><h3>Viver a Dois</h3><div class="price">R$697</div><div class="installments">ou 12x de R$69,70</div><img class="brand-logo" src="img/pc.png" alt="Viver a Dois"><a class="btn btn-primary" href="SEU_LINK_CHECKOUT_AQUI">SIM, QUERO VIVER A DOIS</a><div class="badge-row"><span class="badge">12 meses de acesso</span><span class="badge">7 dias de garantia</span><span class="badge">Acesso imediato</span></div><a class="btn btn-secondary" href="SEU_LINK_DOWNSELL_AQUI">NÃO, PREFIRO OUTRA OPORTUNIDADE</a></div></div></section>
@@ -149,11 +149,39 @@ footer{background:#18110B;color:rgba(233,226,217,.72)}
 </main>
 <footer><div class="wrap">Viver a Dois • Página de upsell</div></footer>
 <script>
-function revealOffer(){document.body.classList.add('preview');sessionStorage.setItem('viverADoisOfferRevealed','1')}
-if(new URLSearchParams(location.search).get('preview')==='1')revealOffer();
-if(sessionStorage.getItem('viverADoisOfferRevealed')==='1')revealOffer();
-const vturbPlayer=document.getElementById('vid-6ace55eafeba2f66a1f087f9');
-if(vturbPlayer){['player:ended','ended','player:complete','video:ended'].forEach(eventName=>vturbPlayer.addEventListener(eventName,revealOffer,{once:true}))}
+// Libera as seções após o vídeo atingir 50% da duração.
+const VTURB_ID = 'vid-6ace55eafeba2f66a1f087f9';
+const REVEAL_STORAGE_KEY = 'viverADoisOfferRevealed';
+const vturbPlayer = document.getElementById(VTURB_ID);
+
+function revealOffer() {
+  document.body.classList.add('preview');
+  try { sessionStorage.setItem(REVEAL_STORAGE_KEY, '1'); } catch (error) {}
+}
+
+// Modo de conferência visual: acrescente ?preview=1 ao endereço.
+if (new URLSearchParams(location.search).get('preview') === '1') revealOffer();
+try {
+  if (sessionStorage.getItem(REVEAL_STORAGE_KEY) === '1') revealOffer();
+} catch (error) {}
+
+if (vturbPlayer) {
+  // Os eventos da VTurb devem ser escutados no elemento vturb-smartplayer.
+  // A duração pode ser zero na inicialização; verificamos novamente a cada atualização.
+  vturbPlayer.addEventListener('video:timeupdate', function (event) {
+    const duration = Number(vturbPlayer.duration);
+    const currentTime = Number(event.detail && event.detail.time);
+    if (Number.isFinite(duration) && duration > 0 &&
+        Number.isFinite(currentTime) && currentTime >= duration * 0.5) {
+      revealOffer();
+    }
+  });
+
+  const script = document.createElement('script');
+  script.src = 'https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6ace55eafeba2f66a1f087f9/v4/player.js';
+  script.async = true;
+  document.head.appendChild(script);
+}
 </script>
 </body>
 </html>
