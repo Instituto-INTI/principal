@@ -26,8 +26,8 @@ revealTargets.forEach((element) => revealObserver.observe(element));
 
 // Liberação em 50% da duração real do vídeo (VTurb SmartPlayer V4).
 (() => {
-  const player = document.getElementById('vid-6ace55eafeba2f66a1f087f9');
-  const key = 'vturb-offer-unlocked-6ace55eafeba2f66a1f087f9-downsell';
+  const player = document.getElementById('vid-6ace55895c7e85022d10fd74');
+  const key = 'vturb-offer-unlocked-6ace55895c7e85022d10fd74-downsell';
   const preview = new URLSearchParams(window.location.search).get('preview') === '1';
   let unlocked = false;
   let knownDuration = 0;
