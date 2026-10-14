@@ -572,3 +572,9 @@ h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.08; color: v
   .laptop { height: 250px; top: 70px; }
   .phone { height: 235px; width: 118px; }
 }
+
+/* Libera o conteúdo apenas depois que a VTurb atingir 50% do vídeo. */
+.offer-gated:not(.offer-unlocked) .gated-content { display: none !important; }
+.gated-cta[hidden] { display: none !important; }
+/* Player vertical da VTurb: preservar proporção e largura fornecidas no embed. */
+.video-shell vturb-smartplayer { max-width: 400px; }
