@@ -55,8 +55,8 @@
     .video-placeholder small{position:absolute;bottom:18px;color:rgba(255,255,255,.72)}
     .demo-note{margin-top:14px;font-size:.9rem;color:var(--muted)}
     .unlock{margin-top:16px;border:0;border-radius:999px;background:transparent;color:var(--roxo);font-weight:700;text-decoration:underline;cursor:pointer}
-    .post-pitch{display:none}
-    .post-pitch.visible{display:block}
+    .post-pitch, .delayed-footer{display:none}
+    .post-pitch.visible, .delayed-footer.visible{display:block}
     .section{padding:78px 0}
     .section.alt{background:#fff}
     .section.soft{background:linear-gradient(180deg,var(--lavanda),#eee7f1)}
@@ -122,13 +122,8 @@
       <h1>Como reapaixonar seu marido sem cobrar atenção, fazer joguinhos ou depender da iniciativa dele</h1>
       <p class="sub">Veja esta aula simples até o final, porque aqui eu vou explicar os 3 Rs do Casamento, uma sequência que desenvolvi ao longo de mais de duas décadas de prática clínica, e como você pode aplicá-los no seu casamento hoje — e começar a reconstruir admiração, interesse e conexão dentro da própria rotina de vocês.</p>
       <div class="video-shell">
-        <div class="video-placeholder">
-          <div class="play">▶</div>
-          <small>PLAYER DA VSL — substitua este bloco pelo seu vídeo</small>
-        </div>
+        <vturb-smartplayer id="vid-6ace5697af7cf329e0c44007" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
       </div>
-      <div class="demo-note">Na página final, o conteúdo abaixo pode ser liberado quando a VSL chegar ao pitch.</div>
-      <button class="unlock" id="unlock">Visualizar conteúdo pós-pitch</button>
     </div>
   </header>
 
@@ -258,16 +253,51 @@
     </section>
   </main>
 
-  <footer><div class="container">Página demonstrativa. Substitua o player, depoimentos, foto, checkout e informações legais antes de publicar.</div></footer>
+  <footer class="delayed-footer" id="delayedFooter"><div class="container">Página demonstrativa. Revise depoimentos, foto, checkout e informações legais antes de publicar.</div></footer>
 
   <script>
-    const postPitch = document.getElementById('postPitch');
-    const unlock = document.getElementById('unlock');
-    unlock.addEventListener('click',()=>{
-      postPitch.classList.add('visible');
-      unlock.textContent='Conteúdo pós-pitch liberado';
-      setTimeout(()=>postPitch.scrollIntoView({behavior:'smooth',block:'start'}),120);
-    });
+    // O evento oficial video:timeupdate informa o tempo assistido, em segundos.
+    // A duração é disponibilizada pelo próprio SmartPlayer após carregar o vídeo.
+    (() => {
+      const player = document.getElementById('vid-6ace5697af7cf329e0c44007');
+      const postPitch = document.getElementById('postPitch');
+      const footer = document.getElementById('delayedFooter');
+      const storageKey = 'reapaixonar-vsl-6ace5697af7cf329e0c44007-50';
+      let unlocked = false;
+
+      function reveal() {
+        if (unlocked) return;
+        unlocked = true;
+        postPitch.classList.add('visible');
+        footer.classList.add('visible');
+        try { localStorage.setItem(storageKey, '1'); } catch (_) {}
+      }
+
+      const preview = new URLSearchParams(window.location.search).get('preview') === '1';
+      try {
+        if (preview || localStorage.getItem(storageKey) === '1') reveal();
+      } catch (_) {
+        if (preview) reveal();
+      }
+
+      function checkTime(event) {
+        if (unlocked) return;
+        const time = Number(event?.detail?.time ?? player.currentTime);
+        const duration = Number(player.duration);
+        if (Number.isFinite(time) && Number.isFinite(duration) && duration > 0 && time >= duration * 0.5) {
+          reveal();
+        }
+      }
+      player.addEventListener('video:timeupdate', checkTime);
+      player.addEventListener('video:ended', reveal);
+      player.addEventListener('player:ready', () => checkTime());
+    })();
+  </script>
+  <script type="text/javascript">
+    var s = document.createElement('script');
+    s.src = 'https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6ace5697af7cf329e0c44007/v4/player.js';
+    s.async = true;
+    document.head.appendChild(s);
   </script>
 </body>
 </html>
