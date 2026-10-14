@@ -209,6 +209,11 @@ h1, h2, h3 { font-family: "Playfair Display", serif; line-height: 1.08; color: v
   box-shadow: 0 25px 60px rgba(59, 36, 19, 0.12);
 }
 
+.video-cta {
+  margin-top: 28px;
+  text-align: center;
+}
+
 .video-placeholder {
   aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, rgba(59, 36, 19, 0.86), rgba(79, 49, 26, 0.54)),
