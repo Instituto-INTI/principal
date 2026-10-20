@@ -1,6 +1,6 @@
 // CONFIGURAÇÃO RÁPIDA
 // Se quiser, informe uma URL de página de obrigado em THANK_YOU_URL.
-const THANK_YOU_URL = '';
+const THANK_YOU_URL = 'obrigado.html';
 
 function getBrasiliaNow() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -94,11 +94,14 @@ form.addEventListener('submit', async e => {
   // Aqui você pode enviar os dados para Kiwify, ActiveCampaign, Make, n8n,
   // webhook próprio, Supabase ou outra ferramenta antes do redirecionamento.
   const data = Object.fromEntries(new FormData(form).entries());
-  console.log('Inscrição capturada:', data);
+  // ATENÇÃO: é necessário conectar um endpoint de captura antes de publicar.
+  // O redirecionamento abaixo, sozinho, não salva os dados.
+  // Não registrar informações pessoais no console.
+  void data;
 
   form.hidden = true;
   success.hidden = false;
-  if(THANK_YOU_URL){ setTimeout(() => window.location.href = THANK_YOU_URL, 700); }
+  if(THANK_YOU_URL){ window.location.assign(THANK_YOU_URL); }
 });
 
 const revealTargets = document.querySelectorAll(

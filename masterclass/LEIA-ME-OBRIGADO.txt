@@ -1,0 +1,25 @@
+PÁGINA DE OBRIGADO — A CORAGEM DE SE ESCOLHER
+
+ARQUIVOS NOVOS
+- obrigado.html (página final)
+- obrigado.css (estilo)
+- obrigado.js (configuração do grupo + data)
+
+O QUE JÁ ESTÁ PRONTO
+- Ao enviar o formulário em index.html, o visitante vai para obrigado.html.
+- Visual responsivo seguindo a identidade original.
+- Botão para o grupo do WhatsApp, pronto para receber o link real.
+- Data automática da próxima sessão (segunda a quinta, 19h30, Brasília).
+
+OBRIGATÓRIO ANTES DE PUBLICAR
+1. Abra obrigado.js e preencha WHATSAPP_GROUP_URL com seu link real de convite https://chat.whatsapp.com/...
+   Sem esse link, o botão fica desativado para não enviar visitantes a um grupo inexistente.
+2. Integre o formulário do index.html a uma plataforma de captura de leads.
+   IMPORTANTE: NO SITE ORIGINAL O FORMULÁRIO NÃO SALVA NENHUM DADO.
+   O redirecionamento funciona, mas não equivale a uma inscrição registrada.
+   Para evitar inscrições perdidas, implemente e teste o envio e confirmação
+   no script.js ANTES do redirecionamento, ajustando as mensagens de confirmação.
+3. Faça upload de todos os arquivos preservando a mesma estrutura de pastas.
+
+URL DA PÁGINA NOVA: https://SEU-DOMINIO/obrigado.html
+Se desejar mudar o destino, altere THANK_YOU_URL em script.js.
