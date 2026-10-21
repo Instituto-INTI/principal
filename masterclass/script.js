@@ -1,6 +1,7 @@
 // CONFIGURAÇÃO RÁPIDA
 // Se quiser, informe uma URL de página de obrigado em THANK_YOU_URL.
 const THANK_YOU_URL = 'obrigado.html';
+const FORM_WEBHOOK_URL = 'https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/ea5ae026-31d9-47ef-804a-c8fa2c7dbf15/c55443e4-3034-4d4a-9af9-a77401676d1c';
 
 function getBrasiliaNow() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -59,6 +60,8 @@ document.querySelectorAll('[data-event-time]').forEach(el => {
 const modal = document.getElementById('signupModal');
 const form = document.getElementById('signupForm');
 const success = document.getElementById('formSuccess');
+const formError = document.getElementById('formError');
+const submitButton = form.querySelector('button[type="submit"]');
 const sticky = document.querySelector('.mobile-sticky');
 
 function openModal(){
@@ -90,14 +93,34 @@ form.addEventListener('submit', async e => {
   e.preventDefault();
   if(!form.reportValidity()) return;
 
-  // Integração futura:
-  // Aqui você pode enviar os dados para Kiwify, ActiveCampaign, Make, n8n,
-  // webhook próprio, Supabase ou outra ferramenta antes do redirecionamento.
   const data = Object.fromEntries(new FormData(form).entries());
-  // ATENÇÃO: é necessário conectar um endpoint de captura antes de publicar.
-  // O redirecionamento abaixo, sozinho, não salva os dados.
-  // Não registrar informações pessoais no console.
-  void data;
+  const buttonText = submitButton.textContent;
+  formError.hidden = true;
+  submitButton.disabled = true;
+  submitButton.textContent = 'ENVIANDO...';
+
+  let response;
+  try {
+    response = await fetch(FORM_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  } catch {
+    formError.textContent = 'Não foi possível enviar seus dados. Verifique sua conexão e tente novamente.';
+    formError.hidden = false;
+    submitButton.disabled = false;
+    submitButton.textContent = buttonText;
+    return;
+  }
+
+  if (!response.ok) {
+    formError.textContent = `O envio falhou (HTTP ${response.status}). Tente novamente.`;
+    formError.hidden = false;
+    submitButton.disabled = false;
+    submitButton.textContent = buttonText;
+    return;
+  }
 
   form.hidden = true;
   success.hidden = false;
