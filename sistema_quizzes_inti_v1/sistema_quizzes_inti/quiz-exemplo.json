@@ -1,0 +1,473 @@
+{
+  "slug": "padroes-relacionamentos",
+  "title": "Você está repetindo o mesmo padrão nos seus relacionamentos sem perceber?",
+  "internal_name": "Padrões nos relacionamentos — exemplo",
+  "subtitle": "Faça o teste e descubra o que pode estar impedindo você de viver o relacionamento que realmente merece.",
+  "intro": "Perguntas rápidas sobre a forma como você escolhe, reage e se posiciona nos seus relacionamentos.",
+  "cover_image": "",
+  "logo_url": "",
+  "start_cta": "COMEÇAR O TESTE",
+  "privacy_url": "",
+  "weights_reviewed": false,
+  "neutral_result": {
+    "id": "NEUTRAL",
+    "title": "Não apareceu um padrão dominante claro",
+    "summary": "Pelas suas respostas, não há indícios suficientes para destacar um único padrão. Esse resultado também faz parte do autoconhecimento.",
+    "video_intro": "Seus comportamentos podem variar conforme a situação. Evite tirar conclusões definitivas a partir deste teste.",
+    "video_url": ""
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "text": "Pensando nos seus últimos relacionamentos e envolvimentos, alguma situação parece se repetir?",
+      "image_url": "",
+      "key_question": false,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q01_1",
+          "text": "Acabo me envolvendo com pessoas que não conseguem se entregar por inteiro.",
+          "weights": {
+            "P1": 2
+          }
+        },
+        {
+          "id": "q01_2",
+          "text": "No começo parece promissor, mas depois começo a receber cada vez menos.",
+          "weights": {
+            "P1": 2
+          }
+        },
+        {
+          "id": "q01_3",
+          "text": "Frequentemente sou eu quem se esforça mais para fazer a relação funcionar.",
+          "weights": {
+            "P2": 2
+          }
+        },
+        {
+          "id": "q01_4",
+          "text": "Não consigo perceber um padrão claro.",
+          "weights": {}
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "text": "Quando percebe que a outra pessoa está oferecendo menos do que você gostaria, o que costuma acontecer?",
+      "image_url": "",
+      "key_question": false,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q02_1",
+          "text": "Consigo perceber e avaliar se ainda quero continuar.",
+          "weights": {}
+        },
+        {
+          "id": "q02_2",
+          "text": "Tento conversar e espero para ver se a situação melhora.",
+          "weights": {
+            "P1": 1
+          }
+        },
+        {
+          "id": "q02_3",
+          "text": "Começo a me esforçar mais para recuperar o que existia no início.",
+          "weights": {
+            "P2": 2,
+            "P1": 1
+          }
+        },
+        {
+          "id": "q02_4",
+          "text": "Acabo aceitando menos do que gostaria porque tenho medo de perder a relação.",
+          "weights": {
+            "P1": 2,
+            "P3": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "text": "Quando alguém de quem você gosta começa a se afastar, como você costuma reagir?",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q03_1",
+          "text": "Consigo respeitar o espaço e continuar vivendo minha vida.",
+          "weights": {}
+        },
+        {
+          "id": "q03_2",
+          "text": "Fico incomodada, mas tento não tirar conclusões precipitadas.",
+          "weights": {
+            "P4": 1
+          }
+        },
+        {
+          "id": "q03_3",
+          "text": "Começo a prestar atenção em cada mensagem, silêncio ou mudança de comportamento.",
+          "weights": {
+            "P4": 2
+          }
+        },
+        {
+          "id": "q03_4",
+          "text": "Sinto necessidade de fazer alguma coisa para impedir que essa pessoa se afaste.",
+          "weights": {
+            "P2": 2,
+            "P3": 1,
+            "P4": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "text": "Quando alguma atitude da outra pessoa te machuca, o que acontece com mais frequência?",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q04_1",
+          "text": "Consigo falar sobre o que senti de forma clara.",
+          "weights": {}
+        },
+        {
+          "id": "q04_2",
+          "text": "Falo, mas fico bastante preocupada com a reação da pessoa.",
+          "weights": {
+            "P4": 1
+          }
+        },
+        {
+          "id": "q04_3",
+          "text": "Acabo escolhendo muito as palavras para não criar conflito.",
+          "weights": {
+            "P3": 2
+          }
+        },
+        {
+          "id": "q04_4",
+          "text": "Muitas vezes prefiro ficar quieta para não colocar a relação em risco.",
+          "weights": {
+            "P3": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "text": "Quando você coloca um limite e percebe que a outra pessoa não gostou…",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q05_1",
+          "text": "Consigo manter o que decidi.",
+          "weights": {}
+        },
+        {
+          "id": "q05_2",
+          "text": "Fico desconfortável, mas tento sustentar meu limite.",
+          "weights": {
+            "P3": 1
+          }
+        },
+        {
+          "id": "q05_3",
+          "text": "Começo a me perguntar se estou sendo exigente demais.",
+          "weights": {
+            "P3": 2
+          }
+        },
+        {
+          "id": "q05_4",
+          "text": "Muitas vezes acabo voltando atrás para evitar afastamento ou conflito.",
+          "weights": {
+            "P3": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "text": "Quando você gosta muito de alguém, o que costuma acontecer com a sua própria vida?",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q06_1",
+          "text": "Continuo cuidando dos meus projetos, amizades e prioridades.",
+          "weights": {}
+        },
+        {
+          "id": "q06_2",
+          "text": "Faço alguns ajustes, mas procuro manter minha rotina.",
+          "weights": {}
+        },
+        {
+          "id": "q06_3",
+          "text": "Começo a deixar algumas coisas minhas para depois.",
+          "weights": {
+            "P3": 2
+          }
+        },
+        {
+          "id": "q06_4",
+          "text": "Aos poucos, minha vida começa a girar muito em torno da relação.",
+          "weights": {
+            "P3": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "text": "Quando sente que alguém importante pode estar perdendo o interesse por você…",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q07_1",
+          "text": "Consigo observar a situação antes de agir.",
+          "weights": {}
+        },
+        {
+          "id": "q07_2",
+          "text": "Fico preocupada, mas tento continuar fazendo minhas coisas.",
+          "weights": {
+            "P4": 1
+          }
+        },
+        {
+          "id": "q07_3",
+          "text": "Começo a buscar sinais de que ainda está tudo bem.",
+          "weights": {
+            "P4": 2
+          }
+        },
+        {
+          "id": "q07_4",
+          "text": "Sinto vontade de fazer mais, agradar mais ou me adaptar para não perder a pessoa.",
+          "weights": {
+            "P2": 3,
+            "P3": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "text": "Quando precisa tomar uma decisão que pode desagradar alguém importante para você…",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q08_1",
+          "text": "Consigo ouvir a pessoa e ainda assim manter minha escolha.",
+          "weights": {}
+        },
+        {
+          "id": "q08_2",
+          "text": "Fico insegura, mas tento fazer o que considero melhor para mim.",
+          "weights": {
+            "P3": 1
+          }
+        },
+        {
+          "id": "q08_3",
+          "text": "Preciso de muita confirmação para sentir que estou fazendo a coisa certa.",
+          "weights": {
+            "P4": 1,
+            "P3": 1
+          }
+        },
+        {
+          "id": "q08_4",
+          "text": "Muitas vezes mudo minha decisão para evitar rejeição, culpa ou conflito.",
+          "weights": {
+            "P3": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "text": "Quando recebe pouco de alguém por quem está emocionalmente envolvida, o que mais se parece com você?",
+      "image_url": "",
+      "key_question": true,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q09_1",
+          "text": "Consigo reconhecer quando aquilo não é suficiente para mim.",
+          "weights": {}
+        },
+        {
+          "id": "q09_2",
+          "text": "Demoro um pouco, mas começo a questionar se quero continuar.",
+          "weights": {
+            "P1": 1
+          }
+        },
+        {
+          "id": "q09_3",
+          "text": "Fico presa à esperança de que a pessoa volte a ser como era no começo.",
+          "weights": {
+            "P1": 3
+          }
+        },
+        {
+          "id": "q09_4",
+          "text": "Acabo valorizando pequenos sinais de atenção porque tenho medo de perder completamente a relação.",
+          "weights": {
+            "P1": 2,
+            "P4": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Pensando nos seus relacionamentos, qual dessas frases mais se aproxima do que você gostaria de mudar?",
+      "image_url": "",
+      "key_question": false,
+      "style": "choices",
+      "options": [
+        {
+          "id": "q10_1",
+          "text": "Quero escolher melhor com quem me envolvo.",
+          "weights": {}
+        },
+        {
+          "id": "q10_2",
+          "text": "Quero parar de tentar provar meu valor para ser escolhida.",
+          "weights": {}
+        },
+        {
+          "id": "q10_3",
+          "text": "Quero conseguir sustentar meus limites sem medo de perder alguém.",
+          "weights": {}
+        },
+        {
+          "id": "q10_4",
+          "text": "Quero parar de perder minha paz toda vez que sinto alguém se afastar.",
+          "weights": {}
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "P1",
+      "title": "Você tende a insistir onde recebe menos do que precisa",
+      "summary": "Suas respostas mostram que pode ser difícil se afastar quando ainda existe esperança de que a relação volte a ser aquilo que parecia no começo.",
+      "video_intro": "Quero te explicar por que esse padrão pode fazer você permanecer presa ao potencial de uma relação em vez de olhar para aquilo que ela realmente está oferecendo.",
+      "video_url": "",
+      "priority": 1
+    },
+    {
+      "id": "P2",
+      "title": "Você tende a se esforçar mais quando sente que pode perder alguém",
+      "summary": "Suas respostas mostram que a distância do outro pode fazer você aumentar ainda mais o seu investimento na relação.",
+      "video_intro": "Assista à minha explicação sobre por que tentar fazer mais pode acabar colocando você numa posição em que sente que precisa conquistar aquilo que gostaria de receber naturalmente.",
+      "video_url": "",
+      "priority": 2
+    },
+    {
+      "id": "P3",
+      "title": "Você tende a se abandonar para preservar o vínculo",
+      "summary": "Suas respostas mostram que o medo da reação do outro pode fazer você recuar em coisas importantes para você.",
+      "video_intro": "Quero te mostrar como esse padrão pode fazer você preservar a relação enquanto, aos poucos, deixa partes de você mesma para trás.",
+      "video_url": "",
+      "priority": 3
+    },
+    {
+      "id": "P4",
+      "title": "Você tende a perder a paz quando sente o outro se afastar",
+      "summary": "Suas respostas mostram que pequenas mudanças no comportamento de alguém podem mexer profundamente com o seu estado emocional.",
+      "video_intro": "Quero te explicar por que uma mensagem, um silêncio ou uma mudança de comportamento pode acabar ganhando tanto espaço dentro de você.",
+      "video_url": "",
+      "priority": 4
+    }
+  ],
+  "capacities": [
+    {
+      "id": "C1",
+      "title": "Confiar mais em mim",
+      "expansion": "Imagine tomar suas decisões sem precisar que alguém confirme o tempo todo se você está fazendo a coisa certa."
+    },
+    {
+      "id": "C2",
+      "title": "Desenvolver mais segurança emocional",
+      "expansion": "Imagine conseguir gostar de alguém sem perder sua paz toda vez que essa pessoa muda, se afasta ou reage diferente do que você gostaria."
+    },
+    {
+      "id": "C3",
+      "title": "Sustentar meus limites sem culpa",
+      "expansion": "Imagine conseguir dizer o que você pensa, colocar seus limites e continuar firme mesmo quando alguém não gosta da sua decisão."
+    },
+    {
+      "id": "C4",
+      "title": "Parar de me abandonar para ser escolhida",
+      "expansion": "Imagine viver um relacionamento sem precisar deixar seus desejos, seus projetos e partes da sua vida para depois para manter alguém por perto."
+    },
+    {
+      "id": "C5",
+      "title": "Não perder minha paz quando alguém se afasta",
+      "expansion": "Imagine perceber alguém mais distante sem deixar que isso controle o seu dia, suas decisões ou a forma como você se enxerga."
+    },
+    {
+      "id": "C6",
+      "title": "Escolher relacionamentos mais recíprocos",
+      "expansion": "Imagine viver uma relação em que você não precise correr atrás, convencer ou fazer todo o esforço sozinha para sentir que existe interesse dos dois lados."
+    },
+    {
+      "id": "C7",
+      "title": "Voltar a colocar minha vida e meus projetos em primeiro plano",
+      "expansion": "Imagine gostar de alguém e, ao mesmo tempo, continuar cuidando dos seus planos, amizades, projetos e da mulher que você quer se tornar."
+    }
+  ],
+  "offer": {
+    "title": "A Coragem de se Escolher",
+    "invite_title": "Boa notícia",
+    "invite_text": "Pelo seu resultado e pelo que você disse que gostaria de fortalecer, você liberou um convite para participar de A Coragem de se Escolher.",
+    "intro_video_text": "Antes de liberar seu acesso, quero te explicar rapidamente o que é A Coragem de se Escolher e por que eu criei essa masterclass.",
+    "video_url": "",
+    "free": true,
+    "price": 0,
+    "reference_price": 0,
+    "voucher": "",
+    "access_url": "",
+    "access_cta": "ACESSAR A MASTERCLASS",
+    "registration_cta": "LIBERAR MEU ACESSO GRATUITO"
+  },
+  "flow": {
+    "microcommitment": true,
+    "capacity": true,
+    "expansion": true,
+    "invite": true,
+    "offer_video": true,
+    "pricing": true,
+    "registration": true
+  },
+  "theme": {
+    "accent": "#934e64",
+    "bg": "#f7f1ed",
+    "surface": "#ffffff",
+    "text": "#342c32"
+  },
+  "consent_text": "Autorizo o uso dos meus dados para enviar o acesso solicitado, conforme a política de privacidade.",
+  "marketing_text": "Quero receber outros conteúdos e convites do INTI (opcional).",
+  "notice": "Este teste é uma ferramenta de reflexão e não constitui diagnóstico clínico."
+}
