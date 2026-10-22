@@ -1,0 +1,13 @@
+# Deployment uses the repository root as the static assets directory.
+# Never upload Git history or local build/dependency metadata.
+.git/
+.git/**
+**/.git/**
+.wrangler/
+**/.wrangler/**
+node_modules/
+**/node_modules/**
+.env
+.env.*
+.dev.vars
+.dev.vars.*
