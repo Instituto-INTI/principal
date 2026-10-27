@@ -1,0 +1,153 @@
+:root {
+  color-scheme: light;
+  --paper: #faf7f1;
+  --navy: #1c2d50;
+  --gold: #985c00;
+  --muted: #93939c;
+  font-family: "Lato", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23b7a17a' opacity='.3' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.page { width: 100%; max-width: 1080px; margin: 0 auto; padding-bottom: 72px; }
+.event-header {
+  height: 135px;
+  text-align: center;
+  border-bottom: 2px solid #ecddca;
+  padding-top: 20px;
+  background: linear-gradient(#fff 0%, rgb(255 255 255 / 88%) 80%, rgb(255 255 255 / 30%));
+}
+.event-date { margin: 0; color: #595a64; font-size: 24px; font-weight: 700; letter-spacing: 4px; line-height: 31px; }
+.countdown { margin: -2px 0 0; color: #d88a0c; font-size: 49px; font-weight: 400; letter-spacing: -2.8px; line-height: 55px; text-shadow: 1px 3px 0 #e3c9a0; font-variant-numeric: tabular-nums; }
+.countdown .separator { letter-spacing: -2px; }
+.hero { padding-top: 47px; }
+h1 { margin: 0 25px 39px; color: #050403; text-align: center; font-family: "Cormorant Garamond", Georgia, serif; font-size: 60px; font-weight: 600; line-height: .985; letter-spacing: -2.15px; }
+.headline-line { display: block; }
+.headline-gold { color: var(--gold); }
+.video-description { margin: 0 50px; padding: 0 12px 32px; border-radius: 29px; box-shadow: 0 13px 23px -12px rgb(170 133 78 / 22%), 0 2px 3px rgb(255 255 255 / 90%); }
+.video-frame { position: relative; width: 100%; aspect-ratio: 960 / 474; border-radius: 29px; overflow: hidden; background: #22221e; }
+.video-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-cover { position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer; background: #22221e; }
+.video-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-cover[hidden] { display: none; }
+.video-cover:focus-visible { outline: 4px solid #e5aa43; outline-offset: -5px; }
+.hero-description { margin: 19px -1px 0; color: var(--navy); text-align: center; font-size: 36px; font-weight: 400; line-height: 1.14; letter-spacing: -1.05px; }
+.registration { margin: 83px auto 0; text-align: center; }
+.register-button { display: flex; align-items: center; justify-content: center; width: calc(100% - 208px); min-height: 87px; margin: 0 auto; padding: 15px 18px; border: 1px solid #cfb387; border-radius: 19px; background: linear-gradient(180deg, #b88745 0%, #a9732f 57%, #8e5d25 100%); box-shadow: inset 0 1px 2px rgb(255 255 255 / 30%); color: #fff; text-decoration: none; font-size: 38px; font-weight: 700; letter-spacing: 1.1px; line-height: 1.2; transition: filter .2s, transform .2s; }
+.register-button:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.register-button:focus-visible { outline: 3px solid var(--navy); outline-offset: 5px; }
+.register-button { font-family: inherit; cursor: pointer; }
+body:has(.registration-dialog[open]) { overflow: hidden; }
+.registration-dialog { position: fixed; width: min(480px, calc(100% - 32px)); max-height: calc(100dvh - 40px); margin: auto; padding: 36px 30px 25px; overflow-y: auto; border: 1px solid #dcc39e; border-radius: 22px; background: var(--paper); color: var(--navy); box-shadow: 0 22px 90px rgb(0 0 0 / 25%); }
+.registration-dialog::backdrop { background: rgb(20 22 28 / 65%); backdrop-filter: blur(4px); }
+.dialog-close { position: absolute; top: 7px; right: 9px; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #68615b; font-size: 30px; cursor: pointer; }
+.dialog-close:hover { background: #efe6d9; }
+.dialog-eyebrow { margin: 0 0 10px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 2px; }
+.registration-dialog h2 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: 37px; font-weight: 600; line-height: 1.05; }
+#registration-description { margin: 14px 0 23px; color: #76737a; font-size: 16px; line-height: 1.45; }
+#registration-form { display: flex; flex-direction: column; }
+#registration-form label { margin: 0 0 7px; font-size: 14px; font-weight: 700; }
+#registration-form input { width: 100%; min-height: 48px; margin: 0 0 17px; padding: 12px 14px; border: 1px solid #d8cbb8; border-radius: 9px; background: #fffdfa; color: var(--navy); font-family: inherit; font-size: 16px; }
+#registration-form input::placeholder { color: #9a9590; }
+#registration-form input:focus-visible { outline: 2px solid #b88745; outline-offset: 2px; }
+#registration-form input[readonly] { opacity: .7; }
+#registration-whatsapp { margin-bottom: 7px !important; }
+.field-help { margin: 0 0 20px; color: #76737a; font-size: 12px; line-height: 1.4; }
+.form-submit { width: 100%; min-height: 51px; padding: 14px 12px; border: 1px solid #cfb387; border-radius: 10px; background: linear-gradient(180deg, #b88745, #8e5d25); color: #fff; font-family: inherit; font-size: 15px; font-weight: 700; letter-spacing: .4px; cursor: pointer; }
+.form-submit:hover { filter: brightness(1.08); }
+.form-submit:focus-visible, .dialog-close:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.form-submit:disabled { opacity: .65; cursor: wait; }
+.dialog-close:disabled { opacity: .4; cursor: wait; }
+.form-status { margin: 12px 0 0; color: var(--navy); font-size: 14px; line-height: 1.4; }
+.form-status:empty { display: none; }
+.form-status[data-state="error"] { color: #a22f28; }
+@media (max-width: 380px) {
+  .registration-dialog { padding: 34px 20px 22px; }
+  .registration-dialog h2 { font-size: 32px; }
+}
+.whatsapp-note { display: flex; justify-content: center; align-items: center; gap: 14px; margin: 33px 30px 0; color: #99969a; text-shadow: .5px 1px 0 #e7cda7; font-size: 25px; line-height: 1.3; letter-spacing: -.7px; }
+.whatsapp-icon { width: 46px; height: 46px; flex: 0 0 46px; }
+.presenter { display: flex; align-items: center; gap: 23px; min-height: 269px; margin: 48px 74px 0 81px; padding: 17px 28px 13px 58px; border: 4px dotted #111; border-radius: 24px; }
+.presenter-photo { display: block; width: 234px; height: 234px; flex: 0 0 234px; border: 3px solid #fff; border-radius: 50%; object-fit: cover; }
+.presenter-information { flex: 1; min-width: 0; }
+.presenter h2 { margin: 0 0 16px -8px; color: #070706; font-size: 29px; font-weight: 700; line-height: 1.12; letter-spacing: -1px; white-space: nowrap; }
+.presenter-name { margin: 0; color: #30291f; font-family: "Cormorant Garamond", Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.1; }
+.gold-rule { display: block; width: 67px; height: 3px; margin: 17px 0 3px 34px; background: linear-gradient(90deg, #c68e36, #e9c37c, #c68e36); }
+.presenter-role { margin: 0; color: #d88a00; font-family: "Cormorant Garamond", Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1.18; letter-spacing: -.8px; white-space: nowrap; }
+.presenter-bio { margin: 4px 0 0; color: var(--muted); font-size: 24px; font-weight: 700; line-height: 1.08; letter-spacing: -.2px; }
+.benefits { display: grid; grid-template-columns: repeat(3, 1fr); margin: 80px 95px 0 142px; color: var(--navy); text-align: center; }
+.benefit { display: flex; flex-direction: column; justify-content: center; min-height: 94px; padding: 0 19px; }
+.benefit + .benefit { border-left: 2px solid #e4c7a3; }
+.benefit h2 { margin: 0 0 6px; font-size: 25px; font-weight: 900; line-height: .96; letter-spacing: -.45px; }
+.benefit p { margin: 0; color: var(--muted); font-size: 17px; font-weight: 700; line-height: 1.2; letter-spacing: 2.2px; }
+
+@media (min-width: 601px) and (max-width: 1079px) {
+  .event-header { height: 12.5vw; padding-top: 1.85vw; }
+  .event-date { font-size: 2.22vw; line-height: 2.87vw; letter-spacing: .37vw; }
+  .countdown { font-size: 4.54vw; line-height: 5.1vw; letter-spacing: -.26vw; }
+  .hero { padding-top: 4.35vw; }
+  h1 { margin: 0 2.31vw 3.61vw; font-size: 5.5556vw; letter-spacing: -.199vw; }
+  .video-description { margin: 0 4.63vw; padding: 0 1.11vw 2.96vw; border-radius: 2.68vw; }
+  .video-frame { border-radius: 2.68vw; }
+  .hero-description { margin-top: 1.76vw; font-size: 3.3333vw; letter-spacing: -.097vw; }
+  .registration { margin-top: 7.685vw; }
+  .register-button { width: 80.74%; min-height: 8.06vw; padding: 1.39vw 1.67vw; border-radius: 1.76vw; font-size: 3.52vw; letter-spacing: .102vw; }
+  .whatsapp-note { gap: 1.3vw; margin-top: 3.06vw; font-size: 2.315vw; letter-spacing: -.065vw; }
+  .whatsapp-icon { width: 4.26vw; height: 4.26vw; flex-basis: 4.26vw; }
+  .presenter { gap: 2.13vw; min-height: 24.91vw; margin: 4.44vw 6.85vw 0 7.5vw; padding: 1.57vw 2.59vw 1.2vw 5.37vw; border-width: 3px; border-radius: 2.22vw; }
+  .presenter-photo { width: 21.67vw; height: 21.67vw; flex-basis: 21.67vw; }
+  .presenter h2 { margin: 0 0 1.48vw -.74vw; font-size: 2.685vw; letter-spacing: -.093vw; }
+  .presenter-name { font-size: 2.5vw; }
+  .gold-rule { width: 6.2vw; height: 2px; margin: 1.57vw 0 .28vw 3.15vw; }
+  .presenter-role { font-size: 2.22vw; letter-spacing: -.074vw; }
+  .presenter-bio { margin-top: .37vw; font-size: 2.22vw; letter-spacing: -.0185vw; }
+  .benefits { margin: 7.41vw 8.8vw 0 13.15vw; }
+  .benefit { min-height: 8.7vw; padding: 0 1.76vw; }
+  .benefit h2 { margin-bottom: .56vw; font-size: 2.315vw; letter-spacing: -.042vw; }
+  .benefit p { font-size: 1.575vw; letter-spacing: .204vw; }
+  .page { padding-bottom: 6.67vw; }
+}
+
+@media (max-width: 600px) {
+  .page { padding-bottom: 35px; }
+  .event-header { height: 92px; padding: 14px 10px 10px; }
+  .event-date { font-size: clamp(12px, 3.25vw, 18px); line-height: 22px; letter-spacing: 1.5px; }
+  .countdown { margin-top: 0; font-size: 34px; line-height: 39px; letter-spacing: -1.8px; }
+  .hero { padding-top: 27px; }
+  h1 { margin: 0 14px 24px; font-size: clamp(23px, 5.58vw, 34px); line-height: 1.06; letter-spacing: -.75px; }
+  .video-description { margin: 0 13px; padding: 0 5px 18px; border-radius: 16px; }
+  .video-frame { border-radius: 14px; }
+  .hero-description { margin: 17px 6px 0; font-size: clamp(18px, 4.7vw, 26px); line-height: 1.22; letter-spacing: -.45px; }
+  .desktop-break { display: none; }
+  .registration { margin-top: 31px; }
+  .register-button { width: calc(100% - 42px); min-height: 61px; padding: 15px 10px; border-radius: 12px; font-size: clamp(15px, 4vw, 23px); letter-spacing: .25px; }
+  .whatsapp-note { gap: 8px; margin: 16px 25px 0; text-align: left; font-size: 14px; line-height: 1.35; letter-spacing: -.2px; }
+  .whatsapp-icon { width: 31px; height: 31px; flex-basis: 31px; }
+  .presenter { gap: 13px; min-height: auto; margin: 27px 20px 0; padding: 17px 12px; border-width: 3px; border-radius: 17px; }
+  .presenter-photo { width: 91px; height: 91px; flex-basis: 91px; border-width: 2px; }
+  .presenter h2 { margin: 0 0 10px; font-size: 15px; line-height: 1.16; letter-spacing: -.35px; white-space: normal; }
+  .presenter-name { font-size: 20px; }
+  .gold-rule { width: 37px; height: 2px; margin: 7px 0 5px; }
+  .presenter-role { font-size: 17px; line-height: 1.05; letter-spacing: -.4px; white-space: normal; }
+  .presenter-bio { margin-top: 7px; font-size: 13px; line-height: 1.2; }
+  .benefits { margin: 32px 15px 0; }
+  .benefit { min-height: 78px; padding: 0 8px; }
+  .benefit h2 { margin-bottom: 8px; font-size: clamp(13px, 3.6vw, 20px); line-height: 1.05; letter-spacing: -.3px; }
+  .benefit p { font-size: clamp(9px, 2.4vw, 13px); line-height: 1.35; letter-spacing: .75px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .register-button { transition: none; }
+}

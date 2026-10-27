@@ -1,0 +1,11 @@
+{
+  "name": "a-coragem-de-se-escolher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Página da masterclass A Coragem de se Escolher, reproduzida a partir do design fornecido.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check script.js && node --check server.mjs"
+  }
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#faf7f0" />
+    <meta name="description" content="Masterclass gratuita A Coragem de se Escolher com João Rafael. Recupere sua autoestima, fortaleça seus limites e volte a se escolher. Todas as terças e quintas, às 19h30, no horário da Bahia." />
+    <title>A Coragem de se Escolher — Masterclass gratuita</title>
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="event-header" aria-label="Data e horário do evento">
+        <p class="event-date">Terças e quintas · 19h30 · Evento Online</p>
+        <p class="countdown" aria-label="Tempo restante para a próxima edição">
+          <span id="days">00</span><span class="unit">d</span><span class="separator"> : </span><span id="hours">00</span><span class="unit">h</span><span class="separator"> : </span><span id="minutes">00</span><span class="unit">m</span><span class="separator"> : </span><span id="seconds">00</span><span class="unit">s</span>
+        </p>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="headline">
+          <h1 id="headline">
+            <span class="headline-line">O mais perigoso da dependência emocional não é o medo de perder alguém.</span>
+            <span class="headline-line headline-gold">É quando você se abandona para não ser abandonada.</span>
+          </h1>
+
+          <div class="video-description">
+            <div class="video-frame">
+              <video id="masterclass-video" poster="img/capa-video.jpg" preload="auto" autoplay muted playsinline controls loop aria-label="Assista ao vídeo A Coragem de se Escolher">
+                <source src="img/video%20coragem.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo. <a href="img/video%20coragem.mp4">Abra o vídeo aqui.</a>
+              </video>
+              <button class="video-cover" type="button" aria-label="Reproduzir vídeo A Coragem de se Escolher">
+                <img src="img/capa-video.jpg" alt="A Coragem de se Escolher. Como parar de se abandonar e se tornar protagonista da própria vida. Evento online · Masterclass." width="960" height="474" fetchpriority="high" />
+              </button>
+            </div>
+            <p class="hero-description">Descubra como fortalecer sua autoestima,<br class="desktop-break" />desenvolver segurança emocional e parar de depender da atenção,<br class="desktop-break" /> da presença ou da aprovação de alguém para se sentir bem.</p>
+          </div>
+
+          <div class="registration">
+            <button id="dependencia" class="register-button" type="button" aria-haspopup="dialog" aria-controls="registration-dialog">QUERO PARTICIPAR GRATUITAMENTE</button>
+            <p class="whatsapp-note">
+              <svg class="whatsapp-icon" viewBox="0 0 48 48" aria-hidden="true"><path fill="#fff" d="M24 1a22 22 0 0 0-19 33L1 47l13-4A23 23 0 1 0 24 1Z"/><path fill="#35c653" d="M24 5A19 19 0 0 0 8 34L5 43l10-3A19 19 0 1 0 24 5Z"/><path fill="#fff" d="M16 12c-.8 0-1.7.3-2.2 1-1.1 1.1-2 2.7-1.7 4.8.7 5.5 7.8 13.8 14.7 15.8 2.2.6 4.2.4 5.7-.8 1.3-1 2-2.7 1.6-3.6-.2-.4-4.5-2.8-5.1-2.6-.6.2-1.8 2.4-2.4 2.6-1 .3-4-1.7-5.5-3.2-1.4-1.5-3.2-3.7-3-4.6.1-.6 2-1.7 2-2.4.1-.6-1.9-5.9-2.6-6.5-.3-.4-1.1-.5-1.5-.5Z"/></svg>
+              <span>Link enviado no grupo do WhatsApp <span class="note-dot">•</span> lembrete 10 min antes.</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="presenter" aria-labelledby="presenter-title">
+          <img class="presenter-photo" src="img/joao-rafael.jpg" alt="João Rafael, psicoterapeuta e criador do Mapa da Autoestima" width="234" height="234" />
+          <div class="presenter-information">
+            <h2 id="presenter-title">QUEM VAI CONDUZIR ESSA CONVERSA</h2>
+            <p class="presenter-name">JOÃO RAFAEL</p>
+            <span class="gold-rule" aria-hidden="true"></span>
+            <p class="presenter-role">Psicoterapeuta e criador do Mapa da Autoestima</p>
+            <p class="presenter-bio">Seu trabalho é voltado ao desenvolvimento<br class="desktop-break" /> de autoestima, autonomia emocional<br class="desktop-break" /> e direção pessoal.</p>
+          </div>
+        </section>
+
+        <section class="benefits" aria-label="O que você vai encontrar na masterclass">
+          <div class="benefit"><h2>Mais clareza</h2><p>PARA RECONHECER<br />A MANIPULAÇÃO</p></div>
+          <div class="benefit"><h2>Mais estrutura<br />emocional</h2><p>PARA SUSTENTAR<br />LIMITES</p></div>
+          <div class="benefit"><h2>Mais autoestima</h2><p>PARA VOLTAR<br />A SE ESCOLHER</p></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="registration-dialog" class="registration-dialog" aria-labelledby="registration-title" aria-describedby="registration-description">
+      <button class="dialog-close" type="button" aria-label="Fechar formulário">×</button>
+      <p class="dialog-eyebrow">MASTERCLASS GRATUITA</p>
+      <h2 id="registration-title">Dê o primeiro passo para se escolher.</h2>
+      <p id="registration-description">Preencha seus dados para participar e acessar o grupo do WhatsApp.</p>
+      <form id="registration-form" action="https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/ea5ae026-31d9-47ef-804a-c8fa2c7dbf15/c55443e4-3034-4d4a-9af9-a77401676d1c" method="post" data-whatsapp-url="https://sndflw.com/i/vPRiTJylSxHXR1hAZ9LU?src=vSt1381972f23ce4bb99d64e1416ebf55f0&amp;sck=vSt1381972f23ce4bb99d64e1416ebf55f0&amp;utm_source=vSt1381972f23ce4bb99d64e1416ebf55f0&amp;utm_medium=vSt1381972f23ce4bb99d64e1416ebf55f0&amp;utm_campaign=vSt1381972f23ce4bb99d64e1416ebf55f0&amp;utm_content=vSt1381972f23ce4bb99d64e1416ebf55f0">
+        <label for="registration-name">Nome</label>
+        <input id="registration-name" name="nome" type="text" autocomplete="name" placeholder="Seu nome" minlength="2" maxlength="120" required autofocus />
+
+        <label for="registration-email">E-mail</label>
+        <input id="registration-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="seuemail@exemplo.com" maxlength="254" required />
+
+        <label for="registration-whatsapp">WhatsApp com DDD</label>
+        <input id="registration-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="(71) 99999-9999" maxlength="25" required aria-describedby="whatsapp-help" />
+        <p id="whatsapp-help" class="field-help">Use o DDD. Para outros países, inclua + e o código do país.</p>
+
+        <button class="form-submit" type="submit">ENVIAR E ENTRAR NO GRUPO</button>
+        <p id="registration-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      </form>
+    </dialog>
+  </body>
+</html>
