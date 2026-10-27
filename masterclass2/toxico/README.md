@@ -1,6 +1,6 @@
 # A Coragem de se Escolher
 
-Página estática criada a partir de `img/design pagina.png`, com vídeo em loop, contador para a próxima terça ou quinta às 19h30 (Bahia), apresentação do João Rafael e botão para o link de inscrição fornecido.
+Página estática criada a partir de `img/design pagina.png`, com vídeo em loop, contador para a próxima segunda ou quinta às 19h30 (Bahia), apresentação do João Rafael e botão para o link de inscrição fornecido.
 
 ## Abrir a página
 
@@ -22,7 +22,7 @@ Acesse http://localhost:3000. Não é necessário instalar dependências.
 
 Para hospedar em um serviço estático, envie `index.html`, `styles.css`, `script.js`, `fonts/` e `img/`. A imagem `img/design pagina.png` é apenas a referência e não é carregada pela página.
 
-O cabeçalho e o contador mostram a próxima edição: toda terça e quinta, às 19h30, no horário da Bahia (UTC−3), independentemente do fuso do visitante. Ao atingir o horário, ambos passam automaticamente para a edição seguinte, inclusive com a página aberta. O contador também é atualizado ao retornar à aba. Para alterar a programação, ajuste `getNextEventTime` e o horário exibido em `updateEventDate`, no arquivo `script.js`, e os textos de apresentação no HTML.
+O cabeçalho e o contador mostram a próxima edição: toda segunda e quinta, às 19h30, no horário da Bahia (UTC−3), independentemente do fuso do visitante. Ao atingir o horário, ambos passam automaticamente para a edição seguinte, inclusive com a página aberta. O contador também é atualizado ao retornar à aba. Para alterar a programação, ajuste `getNextEventTime` e o horário exibido em `updateEventDate`, no arquivo `script.js`, e os textos de apresentação no HTML.
 
 ## Formulário de inscrição
 

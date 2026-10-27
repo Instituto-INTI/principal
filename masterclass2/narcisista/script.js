@@ -23,7 +23,7 @@ function getNextEventTime(now) {
     ));
     const weekday = candidate.getUTCDay();
     const candidateTime = candidate.getTime() + bahiaUtcOffset;
-    if ((weekday === 2 || weekday === 4) && candidateTime > now) return candidateTime;
+    if ((weekday === 1 || weekday === 4) && candidateTime > now) return candidateTime;
   }
 }
 
