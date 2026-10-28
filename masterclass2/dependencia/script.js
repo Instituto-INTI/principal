@@ -146,8 +146,8 @@ registrationForm.addEventListener("submit", async (event) => {
     });
     if (!response.ok) throw new Error("Registration failed");
     registrationStatus.dataset.state = "success";
-    registrationStatus.textContent = "Inscrição enviada! Abrindo o grupo do WhatsApp...";
-    window.location.assign(registrationForm.dataset.whatsappUrl);
+    registrationStatus.textContent = "Inscrição enviada! Abrindo a página de obrigado...";
+    window.location.assign(registrationForm.dataset.redirectUrl);
     isRedirecting = true;
   } catch (error) {
     registrationStatus.dataset.state = "error";
@@ -162,7 +162,7 @@ registrationForm.addEventListener("submit", async (event) => {
       closeDialogButton.disabled = false;
       registrationInputs.forEach((input) => { input.readOnly = false; });
       registrationForm.removeAttribute("aria-busy");
-      submitButton.textContent = "ENVIAR E ENTRAR NO GRUPO";
+      submitButton.textContent = "CONFIRMAR INSCRIÇÃO";
     }
   }
 });

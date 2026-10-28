@@ -40,4 +40,4 @@ O formulário envia um POST JSON ao webhook Datacrazy definido em `action` no HT
 
 No fluxo Datacrazy, os campos recebidos são `nome`, `email` e `whatsapp`; associe-os aos campos correspondentes do contato, caso o fluxo ainda não tenha esse mapeamento. O endpoint permite POST com JSON pelo navegador (verificado via OPTIONS, sem criar cadastro).
 
-Após uma resposta HTTP de sucesso, a pessoa é redirecionada na mesma aba para o link do WhatsApp em `data-whatsapp-url`, preservando todos os parâmetros do link fornecido. Durante o envio, novos cliques são bloqueados. Se a requisição falhar ou exceder 20 segundos, o formulário preserva os dados, mostra um aviso e permite tentar novamente, sem redirecionar.
+Após uma resposta HTTP de sucesso, a pessoa é redirecionada na mesma aba para a página de obrigado `https://gt.institutointi.com/masterclass/obrigado`, definida em `data-redirect-url`. Durante o envio, novos cliques são bloqueados. Se a requisição falhar ou exceder 20 segundos, o formulário preserva os dados, mostra um aviso e permite tentar novamente, sem redirecionar.
