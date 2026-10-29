@@ -1,0 +1,12 @@
+MAPA DA AUTOESTIMA — SITE DE VENDAS
+
+1. Abra esta pasta no Visual Studio Code.
+2. Abra index.html com a extensão Live Server (ou diretamente no navegador).
+3. Configure CHECKOUT_URL no início de script.js.
+4. Substitua a área de vídeo por seu player oficial (YouTube, Vimeo, VTurb etc.).
+5. Substitua o espaço de depoimentos por prints reais autorizados.
+6. Substitua o espaço da fotografia do João Rafael e o mockup ilustrativo por materiais oficiais.
+7. Revise os termos de compra e garantia antes de publicar.
+
+Arquivos: index.html, style.css, script.js, assets/logo-referencia.png.
+As fontes do Google Fonts exigem internet; caso contrário o navegador usa fontes de reserva.
