@@ -48,8 +48,9 @@ assert.ok(html.indexOf('class="seven-layers"') < html.indexOf('id="nivel-i"'), '
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
 assert.equal(new Set(ids).size, ids.length, 'Duplicate IDs');
 for (const m of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(m[1]), `Missing anchor ${m[1]}`);
-const paths = new Set([...html.matchAll(/(?:src|srcSet|poster)="(\/[^" ]+)"/g)].map(m => m[1]));
-for (const path of paths) assert.ok((await stat('public' + decodeURIComponent(path))).isFile(), `Missing media ${path}`);
+const paths = new Set([...html.matchAll(/(?:src|srcSet|poster)="((?:\.\/|\/)?images\/[^" ]+)"/g)].map(m => m[1]));
+assert.ok(paths.size > 0, 'Local media must be checked');
+for (const path of paths) assert.ok((await stat('public/' + decodeURIComponent(path).replace(/^\.?\//, ''))).isFile(), `Missing media ${path}`);
 for (const path of ['/fonts/cormorant-latin.woff2','/fonts/cormorant-italic-latin.woff2','/fonts/manrope-latin.woff2']) assert.ok((await stat('public' + path)).size > 0);
 // Exercise the configured states without changing the delivered configuration.
 const original = { ...siteConfig };

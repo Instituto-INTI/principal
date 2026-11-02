@@ -7,7 +7,7 @@ Página de vendas em português, criada a partir da copy final e do briefing for
 No PowerShell:
 
 ```powershell
-cd C:\Users\israe\Music\INTI\cleopatra\codigo-do-magnetismo
+cd "C:\Users\israe\Music\INTI\INTI GitHub\principal\cleopatra2\codigo-do-magnetismo"
 npm install
 npm run dev
 ```
@@ -30,6 +30,7 @@ O preview de produção normalmente fica em **http://127.0.0.1:4173/**. `dist/` 
 | `src/content.ts` | Copy aprovada, mantendo a sequência original |
 | `src/config.ts` | Checkout, condições comerciais, imagens, vídeos e depoimentos |
 | `src/App.tsx` | Estrutura e componentes |
+| `src/index.html` | Template de entrada do Vite e metadados da página |
 | `src/SevenLayersInfographic.tsx` | Sete camadas concêntricas em SVG e legenda HTML com links para os dias |
 | `src/refinements.css` | Ajustes por seção do plano: legibilidade, disposição responsiva e infográfico |
 | `src/Symbol.tsx` | Família de sete símbolos vetoriais e assinatura alada |
@@ -64,9 +65,11 @@ A seção 09 só aparece se `testimonials` contiver relatos autorizados, especí
 
 ## Publicação e manutenção
 
-O projeto de Sites está identificado em `.openai/hosting.json`. A publicação inicial mantém acesso privado. O diretório de publicação é `dist/`; os arquivos de documentação, a configuração TypeScript e as imagens fonte não fazem parte da pasta pública. Nunca coloque segredos em `src/config.ts`: tudo importado pela página pode ser lido por visitantes.
+A página pública atual é https://gt.institutointi.com/cleopatra2/codigo-do-magnetismo/. O host serve diretamente os arquivos do repositório. Após editar o código em `src/` ou as mídias em `public/`, execute `npm run prepare:publish` e envie ao GitHub também o `index.html` gerado, `assets/`, `images/`, `fonts/` e `favicon.svg` desta pasta. O comando gera `dist/` e copia a versão pronta para a pasta atual, sem apagar arquivos de outras páginas. Os caminhos relativos permitem a publicação nesta subpasta.
 
-Ao publicar em outro domínio, atualize canonical, `og:url`, `og:image` e `twitter:image` em `index.html`. A página não inventa identificação jurídica, políticas ou canais de contato: forneça esses textos antes do lançamento comercial se fizerem parte da sua operação.
+O `index.html` da raiz desta pasta é gerado; edite o template em `src/index.html`. `npm run dev` usa esse template e `npm run preview` usa `dist/`. O projeto original de Sites continua identificado em `.openai/hosting.json` e usa `dist/` para uma publicação independente. Nunca coloque segredos em `src/config.ts`: tudo importado pela página pode ser lido por visitantes.
+
+Ao publicar em outro domínio, atualize canonical, `og:url`, `og:image` e `twitter:image` em `src/index.html` e gere novamente a versão de publicação. A página não inventa identificação jurídica, políticas ou canais de contato: forneça esses textos antes do lançamento comercial se fizerem parte da sua operação.
 
 Para regenerar imagens WebP a partir dos PNGs locais em `.asset-sources/`, execute `node scripts/prepare-images.mjs`. Os PNGs originais ficam fora da publicação e do versionamento. Para reinstalar as fontes com suas licenças OFL, use `node scripts/download-fonts.mjs` com acesso à rede.
 
