@@ -1,0 +1,149 @@
+/* Motion is scoped to section 02 onward. No continuous or flashing effects. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-section]:not([data-section="01"]) .reveal-ready {
+    transition: opacity .75s ease, transform .85s cubic-bezier(.2,.65,.3,1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-section]:not([data-section="01"]) .reveal-ready:focus-within {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0ms;
+  }
+
+  .contrast {
+    position: relative;
+    transition: border-color .35s, background-color .35s;
+  }
+
+  .contrast::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c5a46d95, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(.2,.65,.3,1);
+    transition-delay: var(--reveal-delay, 0ms);
+    pointer-events: none;
+  }
+
+  .contrast.is-visible::after { transform: scaleX(1); }
+  .contrast > svg { transition: transform .35s, color .35s; }
+
+  .level-line { position: relative; overflow: hidden; }
+  .level-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #c5a46d, #e6c88f, transparent);
+    transform: scaleX(var(--level-progress, 0));
+    transform-origin: left;
+  }
+
+  .level-heading.is-visible .level-roman {
+    animation: sovereign-glow 1.2s ease-out both;
+  }
+
+  .portal-art, .method-art { isolation: isolate; }
+  .portal-art::before, .method-art::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    z-index: -1;
+    border-radius: 48% 48% 8px 8px;
+    background: radial-gradient(ellipse at var(--light-x, 50%) var(--light-y, 48%), #c5a46d22, #c5a46d06 42%, transparent 72%);
+    opacity: 0;
+    transition: opacity .6s ease;
+    pointer-events: none;
+  }
+
+  .portal.is-visible .portal-art::before,
+  .method-step.is-visible .method-art::before { opacity: .5; }
+
+  .portal-art--image::before, .method-art--image::before { z-index: 1; mix-blend-mode: screen; }
+  .portal-art--image > img, .method-art--image > img { transition: filter .4s ease; }
+
+  .portal.is-visible .portal-day {
+    animation: sovereign-glow 1.1s ease-out both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  .media-frame {
+    transition: border-color .35s, box-shadow .4s;
+  }
+  .media-frame:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 25px #c5a46d12;
+  }
+
+  [data-section]:not([data-section="01"]) .cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  [data-section]:not([data-section="01"]) .cta::before {
+    content: '';
+    position: absolute;
+    inset: -70% auto -70% -50%;
+    width: 28%;
+    background: linear-gradient(90deg, transparent, #fff7df55, transparent);
+    transform: skewX(-22deg) translateX(0);
+    pointer-events: none;
+  }
+  [data-section]:not([data-section="01"]) .cta:focus-visible::before {
+    animation: gold-sweep .75s ease-out;
+  }
+  [data-section]:not([data-section="01"]) .cta > svg {
+    transition: transform .25s ease;
+  }
+
+  .faq details[open] .faq-answer {
+    animation: answer-entrance .28s ease-out;
+  }
+  .faq summary { transition: color .25s, background-color .25s; }
+
+  @media (hover: hover) and (pointer: fine) {
+    .contrast:hover { background-color: #c5a46d04; }
+    .contrast:hover > svg { transform: translate(3px, -3px); color: var(--light-gold); }
+    .portal:hover .portal-art::before, .method-step:hover .method-art::before { opacity: 1; }
+    .portal:hover .portal-art--image > img, .method-step:hover .method-art--image > img { filter: brightness(1.06); }
+    .method-art > .symbol { transition: transform .55s, filter .55s; }
+    .method-step:hover .method-art > .symbol {
+      transform: translateY(-4px);
+      filter: drop-shadow(0 0 16px #c5a46d35);
+    }
+    .symbolic-scene .scene-mirror {
+      transform: translate3d(0, var(--scene-shift, 0px), 0);
+    }
+    .finale-image > img {
+      transform: translate3d(0, var(--scene-shift, 0px), 0) scale(1.045);
+      transform-origin: center;
+    }
+    .media-frame:hover { border-color: #c5a46d99; box-shadow: 0 8px 30px #0003; }
+    .digital-display { transition: transform .65s cubic-bezier(.2,.65,.3,1), box-shadow .65s; }
+    .offer-visual:hover .digital-display {
+      transform: perspective(1100px) rotateY(3deg) rotateZ(-2deg) translateY(-5px);
+      box-shadow: 8px 35px 85px #0009, 0 0 35px #c5a46d0c;
+    }
+    [data-section]:not([data-section="01"]) .cta:hover::before { animation: gold-sweep .75s ease-out; }
+    [data-section]:not([data-section="01"]) .cta:hover > svg { transform: translate(2px, -2px); }
+    .faq summary:hover { color: var(--light-gold); background-color: #c5a46d04; }
+  }
+}
+
+@keyframes sovereign-glow {
+  0% { color: var(--gold); text-shadow: none; }
+  45% { color: var(--light-gold); text-shadow: 0 0 22px #c5a46d55; }
+  100% { text-shadow: none; }
+}
+@keyframes gold-sweep {
+  to { transform: skewX(-22deg) translateX(650%); }
+}
+@keyframes answer-entrance {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: none; }
+}

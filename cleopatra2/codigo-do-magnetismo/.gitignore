@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.npm-cache/
+.env*
+public/images/*-source.png
+.asset-sources/
+.qa/
+*.tsbuildinfo
+.openai/*.tmp
+*.log
