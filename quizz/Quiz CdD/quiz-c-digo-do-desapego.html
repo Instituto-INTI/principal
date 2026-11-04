@@ -291,7 +291,8 @@
       #send-btn.ready{ opacity:1; }
 
       /* ---------- Processing ---------- */
-      #view-processing{ align-items:center; justify-content:center; text-align:center; padding:30px 28px; }
+      #view-processing{ align-items:center; justify-content:safe center; overflow-y:auto; text-align:center; padding:30px 28px; }
+      #view-processing > *{ flex-shrink:0; }
       .proc-visual{ position:relative; width:148px; height:148px; margin-bottom:8px; }
       .proc-glow{
         position:absolute; inset:-26px; border-radius:50%;
@@ -728,6 +729,10 @@
             <a class="btn-gold" id="main-cta" href="https://payment.ticto.app/OE44217BB" target="_blank" rel="noopener">QUERO ENTRAR NO CÓDIGO DO DESAPEGO POR R$ 27</a>
           </div>
 
+          <div style="margin:26px 0;">
+            <vturb-smartplayer id="vid-6a7cbea69ce229b9e74427d4" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+          </div>
+
           <div class="guarantee">
             <svg class="seal" viewBox="0 0 100 100" aria-label="Selo de 7 dias de garantia">
               <defs><path id="seal-circle" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs>
@@ -1058,6 +1063,7 @@
           var stepAt = [0.30, 0.62, 0.92];
           var startT = null;
 
+          await new Promise(function(resolve){
           function frame(ts){
             if (!startT) startT = ts;
             var p = Math.min((ts - startT) / DURATION, 1);
@@ -1071,9 +1077,11 @@
               else if (i === 0 || p >= stepAt[i - 1]){ li.classList.add("active"); }
             });
             if (p < 1) requestAnimationFrame(frame);
+            else resolve();
           }
           requestAnimationFrame(frame);
-          await wait(DURATION + 500);
+          });
+          await wait(500);
           showSales();
         }
 
@@ -1087,6 +1095,10 @@
           stage.classList.remove("fixed");
           var sales = document.getElementById("view-sales");
           sales.classList.add("active");
+          var s = document.createElement("script");
+          s.src = "https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6a7cbea69ce229b9e74427d4/v4/player.js";
+          s.async = true;
+          document.head.appendChild(s);
           window.scrollTo({ top: 0 });
           var offer = document.getElementById("offer");
           var sticky = document.getElementById("sticky-cta");
