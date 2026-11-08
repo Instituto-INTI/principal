@@ -56,8 +56,7 @@
     .video-placeholder small{position:absolute;bottom:18px;color:rgba(255,255,255,.72)}
     .demo-note{margin-top:14px;font-size:.9rem;color:var(--muted)}
     .unlock{margin-top:16px;border:0;border-radius:999px;background:transparent;color:var(--roxo);font-weight:700;text-decoration:underline;cursor:pointer}
-    .post-pitch, .delayed-footer{display:none}
-    .post-pitch.visible, .delayed-footer.visible{display:block}
+    .vturb-delayed{display:none}
     .section{padding:78px 0}
     .section.alt{background:#fff}
     .section.soft{background:linear-gradient(180deg,var(--lavanda),#eee7f1)}
@@ -128,7 +127,7 @@
     </div>
   </header>
 
-  <main class="post-pitch" id="postPitch">
+  <main class="post-pitch vturb-delayed" id="postPitch">
     <section class="section alt">
       <div class="container center">
         <a class="btn" href="https://pay.kiwify.com.br/FFYjG14">Quero Reapaixonar Meu Marido</a>
@@ -254,46 +253,8 @@
     </section>
   </main>
 
-  <footer class="delayed-footer" id="delayedFooter"><div class="container">Página demonstrativa. Revise depoimentos, foto, checkout e informações legais antes de publicar.</div></footer>
+  <footer class="delayed-footer vturb-delayed" id="delayedFooter"><div class="container">Página demonstrativa. Revise depoimentos, foto, checkout e informações legais antes de publicar.</div></footer>
 
-  <script>
-    // O evento oficial video:timeupdate informa o tempo assistido, em segundos.
-    // A duração é disponibilizada pelo próprio SmartPlayer após carregar o vídeo.
-    (() => {
-      const player = document.getElementById('vid-6ace5697af7cf329e0c44007');
-      const postPitch = document.getElementById('postPitch');
-      const footer = document.getElementById('delayedFooter');
-      const storageKey = 'reapaixonar-vsl-6ace5697af7cf329e0c44007-50';
-      let unlocked = false;
-
-      function reveal() {
-        if (unlocked) return;
-        unlocked = true;
-        postPitch.classList.add('visible');
-        footer.classList.add('visible');
-        try { localStorage.setItem(storageKey, '1'); } catch (_) {}
-      }
-
-      const preview = new URLSearchParams(window.location.search).get('preview') === '1';
-      try {
-        if (preview || localStorage.getItem(storageKey) === '1') reveal();
-      } catch (_) {
-        if (preview) reveal();
-      }
-
-      function checkTime(event) {
-        if (unlocked) return;
-        const time = Number(event?.detail?.time ?? player.currentTime);
-        const duration = Number(player.duration);
-        if (Number.isFinite(time) && Number.isFinite(duration) && duration > 0 && time >= duration * 0.5) {
-          reveal();
-        }
-      }
-      player.addEventListener('video:timeupdate', checkTime);
-      player.addEventListener('video:ended', reveal);
-      player.addEventListener('player:ready', () => checkTime());
-    })();
-  </script>
   <script type="text/javascript">
     var s = document.createElement('script');
     s.src = 'https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6ace5697af7cf329e0c44007/v4/player.js';
