@@ -1,0 +1,24 @@
+.priority-dialog{width:530px;padding:46px 42px 38px;background:radial-gradient(ellipse at 50% 0,#9b71351c,transparent 65%),#171510;text-align:center}
+.priority-symbol{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 22px;border:1px solid #d9b97855;border-radius:50%;color:var(--gold);font-size:32px;line-height:1}
+.priority-dialog .eyebrow{margin:0 0 15px;font-size:8px;letter-spacing:2px}
+.priority-dialog h2{font-size:43px;line-height:1.08;letter-spacing:-1.4px}
+.priority-intro{max-width:340px;margin:18px auto 25px;font-size:12px;line-height:1.85;color:#bdb2a0}
+#priority-form{text-align:left;display:grid;gap:0}
+#priority-form label{font-size:11px;font-weight:600;color:#e3d8c6;margin:15px 0 8px}
+#priority-form label:first-child{margin-top:0}
+#priority-form input{display:block;width:100%;min-height:51px;padding:13px 15px;border:1px solid #d9b97833;border-radius:7px;background:#0c0b09a6;color:#f6f0e5;font:400 16px/1.5 var(--body);outline:none;transition:border-color .2s,box-shadow .2s}
+#priority-form input::placeholder{color:#827a6c;font-size:13px}
+#priority-form input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #d9b9781c}
+#priority-form small{font-size:10px;color:#a99f8f;line-height:1.7;margin-top:7px}
+.priority-permission{margin:19px 0 20px;font-size:10px;line-height:1.85;color:#aea393}
+.priority-dialog .priority-submit{width:100%;font-size:11px;gap:15px;min-height:55px}
+.priority-error{margin:0 0 16px;padding:12px 14px;background:#a043341a;border:1px solid #c8786455;border-radius:6px;color:#f2b6a7;font-size:12px;line-height:1.7}
+.priority-dialog[aria-busy=true] .priority-submit{cursor:wait}
+.priority-check{font-size:24px;background:#d9b9780e}
+.priority-message{text-align:left;display:grid;gap:17px;margin:25px 0 27px}
+.priority-message p{font-size:12px;line-height:1.9;color:#bdb2a0}
+.priority-message strong{color:#ebd7ae;font-weight:650}
+#priority-success:not([hidden]){animation:priority-appear .35s ease-out both}
+@keyframes priority-appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.priority-dialog{padding:45px 23px 28px;max-height:calc(100dvh - 28px)}.priority-dialog h2{font-size:35px}.priority-message{gap:15px}.priority-message p{font-size:12px}.priority-dialog .priority-submit{font-size:10px;padding:16px}.priority-symbol{width:46px;height:46px;margin-bottom:18px}}
+@media(prefers-reduced-motion:reduce){#priority-success:not([hidden]){animation:none}#priority-form input{transition:none}}

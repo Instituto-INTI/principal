@@ -1,0 +1,30 @@
+.hero-opening {
+  display: contents;
+}
+
+.vsl-section .vsl-player-frame {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #cbb47e55;
+  border-radius: 10px;
+  background: #000;
+  box-shadow: 0 14px 45px #0004;
+}
+
+.vsl-accessible-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+[data-vsl-delayed][hidden] {
+  display: none !important;
+}

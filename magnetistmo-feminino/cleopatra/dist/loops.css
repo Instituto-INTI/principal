@@ -1,0 +1,24 @@
+.story-photo>.section-loop,.story-photo>.loop-fallback{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 28%;filter:saturate(.72);transition:transform 1.2s var(--ease)}
+.story-row:hover .section-loop{transform:scale(1.06)}
+.author-visual>.author-portrait{clip-path:none;transform:none;border-radius:50%}
+.testimonial-screenshot.testimonial-screenshot-full{height:auto;max-height:none}
+.testimonial-screenshot>img.testimonial-print{margin-top:0}
+.testimonial-carousel{touch-action:pan-y}
+.testimonial-carousel .testimonial-track{transition:none;will-change:transform}
+.kit-image>.section-loop,.kit-image>.loop-fallback{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform 1s var(--ease)}
+.kit-card:hover .section-loop{transform:scale(1.05)}
+@media(max-width:800px){.kit-image>.section-loop{object-position:center 47%}}
+@media(max-width:600px){.story-photo>.section-loop{object-position:50% 31%}.kit-image>.section-loop{object-position:center}}
+@media(prefers-reduced-motion:reduce){.story-row:hover .section-loop,.kit-card:hover .section-loop{transform:none}}
+
+/* Larger offer artwork, with its own silent loop and gentle floating frame. */
+.offer-product{flex-direction:column;align-items:center;justify-content:center;gap:23px;margin-top:39px;padding:10px 0 0}
+.offer-art{position:relative;display:block;width:min(100%,330px);aspect-ratio:9/16;z-index:1;border:1px solid #c69a5680;border-radius:13px;overflow:hidden;box-shadow:0 23px 55px #0007,0 0 45px #d5a75912;animation:offer-art-float 8s ease-in-out infinite}
+.offer-product .offer-art>video,.offer-product .offer-art>img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;border:0;border-radius:12px;transform:none;animation:none;box-shadow:none}
+.offer-product .product-orbit{width:400px;max-width:100%;height:auto;aspect-ratio:1;top:22px;left:50%;transform:translateX(-50%)}
+.offer-product .product-caption{text-align:center;font-size:10px;letter-spacing:2px;line-height:1.9}
+@keyframes offer-art-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:1100px){.offer-art{width:min(100%,300px)}}
+@media(max-width:800px){.offer-art{width:min(100%,275px)}.offer-product{gap:20px}.offer-product .product-caption{font-size:9px}}
+@media(max-width:600px){.offer-art{width:min(100%,310px)}.offer-product{margin-top:33px;padding-top:10px;gap:22px}.offer-product .product-orbit{width:355px;top:25px}.offer-product .product-caption{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.offer-art{animation:none;transform:none}}

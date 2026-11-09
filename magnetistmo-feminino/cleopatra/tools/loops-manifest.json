@@ -1,0 +1,76 @@
+{
+  "style": "restrained gold light and subtle cyclical motion; no sound, no text overlays",
+  "clips": [
+    {
+      "name": "presenca",
+      "type": "heygen-free-quota",
+      "path": "dist\\assets\\loop-presenca.mp4",
+      "approximate_duration": 5.17,
+      "fps": 24
+    },
+    {
+      "name": "fascinio",
+      "type": "heygen-free-quota",
+      "path": "dist\\assets\\loop-fascinio.mp4",
+      "approximate_duration": 5.17,
+      "fps": 24
+    },
+    {
+      "name": "magnetismo",
+      "type": "heygen-free-quota",
+      "path": "dist\\assets\\loop-magnetismo.mp4",
+      "approximate_duration": 5.17,
+      "fps": 24
+    },
+    {
+      "name": "ativacao",
+      "type": "local-light-animation",
+      "source": "pdf-4-1.jpg",
+      "path": "dist\\assets\\loop-ativacao.mp4",
+      "duration": 6,
+      "fps": 24,
+      "width": 720,
+      "height": 720
+    },
+    {
+      "name": "audios",
+      "type": "local-light-animation",
+      "source": "pdf-4-2.jpg",
+      "path": "dist\\assets\\loop-audios.mp4",
+      "duration": 6,
+      "fps": 24,
+      "width": 720,
+      "height": 720
+    },
+    {
+      "name": "cards",
+      "type": "local-light-animation",
+      "source": "pdf-5-1.jpg",
+      "path": "dist\\assets\\loop-cards.mp4",
+      "duration": 6,
+      "fps": 24,
+      "width": 720,
+      "height": 720
+    },
+    {
+      "name": "imaginacao",
+      "type": "local-light-animation",
+      "source": "pdf-5-2.jpg",
+      "path": "dist\\assets\\loop-imaginacao.mp4",
+      "duration": 6,
+      "fps": 24,
+      "width": 720,
+      "height": 720
+    },
+    {
+      "name": "oferta",
+      "type": "local-light-animation",
+      "source": "pdf-6-1.jpg",
+      "path": "dist/assets/loop-oferta.mp4",
+      "duration": 6,
+      "fps": 24,
+      "width": 430,
+      "height": 580
+    }
+  ]
+}
