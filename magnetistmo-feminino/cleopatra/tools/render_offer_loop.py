@@ -8,7 +8,7 @@ PROJECT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument("--ffmpeg", default=str(PROJECT.parent / ".tools/node_modules/ffmpeg-static/ffmpeg.exe"))
 args = parser.parse_args()
-assets = PROJECT / "dist/assets"
+assets = PROJECT.parent.parent / "magnetismo-feminino/assets"
 fields = []
 for index, (x, y) in enumerate([(.13,.26),(.86,.18),(.87,.54),(.15,.59),(.85,.91)]):
     phase = f"(2*PI*T/6+{index*1.37:.3f})"
@@ -32,6 +32,6 @@ if result.returncode:
 manifest = PROJECT / "tools/loops-manifest.json"
 ledger = json.loads(manifest.read_text(encoding="utf-8"))
 ledger["clips"] = [clip for clip in ledger["clips"] if clip["name"] != "oferta"]
-ledger["clips"].append({"name":"oferta","type":"local-light-animation","source":"pdf-6-1.jpg","path":"dist/assets/loop-oferta.mp4","duration":6,"fps":24,"width":430,"height":580})
+ledger["clips"].append({"name":"oferta","type":"local-light-animation","source":"pdf-6-1.jpg","path":"magnetismo-feminino/assets/loop-oferta.mp4","duration":6,"fps":24,"width":430,"height":580})
 manifest.write_text(json.dumps(ledger,ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Offer loop ready: 430x580, 6s, no audio, {output.stat().st_size} bytes.",flush=True)

@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "private": true,
   "description": "Página editorial do Protocolo do Magnetismo Feminino",
-  "scripts": { "dev": "node server.mjs", "start": "node server.mjs", "check": "node --check dist/app.js && node --check dist/config.js && node --check dist/priority-form.js && node --check server.mjs && node --check priority-list.mjs", "test:priority": "node tools/test-priority-list.mjs && node tools/test-priority-form.mjs" }
+  "scripts": { "dev": "node server.mjs", "start": "node server.mjs", "check": "node --check ../../magnetismo-feminino/app.js && node --check ../../magnetismo-feminino/config.js && node --check ../../magnetismo-feminino/priority-form.js && node --check server.mjs && node --check priority-list.mjs", "test:priority": "node tools/test-priority-list.mjs && node tools/test-priority-form.mjs" }
 }

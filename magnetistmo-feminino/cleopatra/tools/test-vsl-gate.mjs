@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
-const code=fs.readFileSync(new URL('../dist/vsl-gate.js',import.meta.url),'utf8');
+const code=fs.readFileSync(new URL('../../../magnetismo-feminino/vsl-gate.js',import.meta.url),'utf8');
 
 class Events {
   handlers=new Map();
@@ -69,7 +69,7 @@ for(const duration of [0,NaN,Infinity,-10]){
   const {player,blocks}=setup();player.emit('video:ended');assert(!blocks[0].hidden,'Fim da VSL garante liberação');
   assert(setup().blocks.every(b=>b.hidden),'Novo carregamento começa bloqueado novamente');
 }
-const html=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');
+const html=fs.readFileSync(new URL('../../../magnetismo-feminino/index.html',import.meta.url),'utf8');
 assert.equal((html.match(/data-vsl-delayed hidden inert/g)||[]).length,4,'Oculta conteúdo, rodapé, oferta fixa e botão principal já no HTML');
 assert(/class="button" data-vsl-delayed hidden inert>Quero despertar meu magnetismo/.test(html),'O botão principal usa a mesma liberação da VSL');
 const wrapper=html.indexOf('id="vsl-delayed-content"');

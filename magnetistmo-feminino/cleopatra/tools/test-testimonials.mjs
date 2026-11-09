@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
-const source=fs.readFileSync(new URL('../dist/testimonials.js',import.meta.url),'utf8');
+const source=fs.readFileSync(new URL('../../../magnetismo-feminino/testimonials.js',import.meta.url),'utf8');
 class Element {
   listeners=new Map();children=[];style={};attributes={};index=0;
   classList={toggle(){}};

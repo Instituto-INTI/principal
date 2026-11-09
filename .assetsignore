@@ -11,3 +11,7 @@ node_modules/
 .env.*
 .dev.vars
 .dev.vars.*
+
+# Source project, private registrations, archives and local rendering tools.
+# The public page is served from magnetismo-feminino/.
+/magnetistmo-feminino/

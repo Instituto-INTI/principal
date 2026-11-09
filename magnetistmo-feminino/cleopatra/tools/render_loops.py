@@ -13,7 +13,7 @@ import subprocess
 
 PROJECT = Path(__file__).resolve().parents[1]
 WORKSPACE = PROJECT.parent
-ASSETS = PROJECT / "dist" / "assets"
+ASSETS = WORKSPACE.parent / "magnetismo-feminino" / "assets"
 QA = WORKSPACE / "tmp" / "loop-review"
 QA.mkdir(parents=True, exist_ok=True)
 parser = argparse.ArgumentParser()
@@ -64,14 +64,14 @@ def render_kit(spec):
                "-map", "[v]", "-frames:v", str(FPS*SECONDS), "-an", "-c:v", "libx264", "-preset", "fast",
                "-crf", "22", "-pix_fmt", "yuv420p", "-threads", "2", "-movflags", "+faststart", str(output)])
     print(f"Rendered {name}: {output.stat().st_size} bytes", flush=True)
-    return {"name":name, "type":"local-light-animation", "source":image, "path":str(output.relative_to(PROJECT)), "duration":SECONDS, "fps":FPS, "width":SIZE, "height":SIZE}
+    return {"name":name, "type":"local-light-animation", "source":image, "path":str(output.relative_to(WORKSPACE.parent)), "duration":SECONDS, "fps":FPS, "width":SIZE, "height":SIZE}
 
 ledger = []
 for name in ["presenca", "fascinio", "magnetismo"]:
     source = PROJECT / "tools/sources" / (name + ".mp4")
     output = ASSETS / ("loop-" + name + ".mp4")
     run(name, ["-i", str(source), "-map", "0:v:0", "-an", "-vf", "setpts=PTS-STARTPTS", "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-pix_fmt", "yuv420p", "-r", "24", "-threads", "2", "-movflags", "+faststart", str(output)])
-    ledger.append({"name":name, "type":"heygen-free-quota", "path":str(output.relative_to(PROJECT)), "approximate_duration":5.17, "fps":24})
+    ledger.append({"name":name, "type":"heygen-free-quota", "path":str(output.relative_to(WORKSPACE.parent)), "approximate_duration":5.17, "fps":24})
     print(f"Prepared {name}: silent, timestamps reset, web encode ready", flush=True)
 
 if args.portraits_only:

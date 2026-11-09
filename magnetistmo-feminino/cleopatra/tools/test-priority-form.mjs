@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
-const code = fs.readFileSync(new URL('../dist/priority-form.js', import.meta.url), 'utf8');
+const code = fs.readFileSync(new URL('../../../magnetismo-feminino/priority-form.js', import.meta.url), 'utf8');
 class Element {
   handlers = {};
   attributes = {};
@@ -65,7 +65,7 @@ for (const fetchImpl of [async () => { throw Error('network'); }, async () => ({
   const state = setup(() => { throw Error('should not fetch'); }, 'file:'); await state.submit();
   assert(state['priority-success'].hidden && state['priority-error'].textContent.includes('servidor local'));
 }
-const html = fs.readFileSync(new URL('../dist/index.html', import.meta.url), 'utf8');
+const html = fs.readFileSync(new URL('../../../magnetismo-feminino/index.html', import.meta.url), 'utf8');
 for (const status of [404, 405]) {
   const calls = [];
   const state = setup(async (url, options) => {
