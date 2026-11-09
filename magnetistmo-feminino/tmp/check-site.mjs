@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root = path.resolve('cleopatra/dist');
+const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const paths = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map(m => m[1]).filter(p => !p.startsWith('#') && !p.startsWith('http'));
+for (const asset of paths) if (!fs.existsSync(path.join(root, asset))) throw Error('Missing asset: ' + asset);
+const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
+if (new Set(ids).size !== ids.length) throw Error('Duplicate IDs');
+for (const match of html.matchAll(/href="#([^"]+)"/g)) if (!ids.includes(match[1])) throw Error('Missing anchor: ' + match[1]);
+console.log('OK:', paths.length, 'asset references;', ids.length, 'unique IDs; all anchors valid.');
+const assetSize = fs.readdirSync(path.join(root, 'assets')).reduce((size, file) => size + fs.statSync(path.join(root, 'assets', file)).size, 0);
+console.log('Asset total:', Math.round(assetSize / 1024), 'KB');
+const resources = ['/', '/styles.css', '/app.js', '/config.js', ...paths.filter(p => p.startsWith('assets/')).map(p => '/' + p)];
+await Promise.all(resources.map(async resource => {
+  const response = await fetch('http://127.0.0.1:4173' + resource);
+  if (!response.ok) throw Error('HTTP ' + response.status + ': ' + resource);
+  const content = await response.arrayBuffer();
+  if (!content.byteLength) throw Error('Empty resource: ' + resource);
+}));
+console.log('OK: HTTP 200 for page, styles, scripts, and every referenced image.');

@@ -1,0 +1,30 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const app=fs.readFileSync('cleopatra/dist/app.js','utf8');
+const snippet=app.slice(app.indexOf('  const reducedMotion'),app.indexOf('  const validHttps'));
+const preference={matches:false,addEventListener(name,fn){this.changed=fn;}};
+const connection={saveData:false,addEventListener(name,fn){this.changed=fn;}};
+const observers=[];
+const videos=Array.from({length:8},(_,i)=>({dataset:i?{src:'assets/loop-'+i+'.mp4'}:{},poster:'poster.jpg',plays:0,pauses:0,loads:0,
+  play(){this.plays++;return Promise.resolve();},pause(){this.pauses++;},load(){this.loads++;},
+  removeAttribute(){},getAttribute(){return 'Illustration';},addEventListener(name,fn){this[name]=fn;},replaceWith(image){this.fallback=image;}}));
+const document={hidden:false,querySelectorAll(){return videos;},addEventListener(name,fn){this[name]=fn;},createElement(){return {};}};
+const context={window:{matchMedia(){return preference;}},document,navigator:{connection},IntersectionObserver:class{constructor(callback){this.callback=callback;observers.push(this);}observe(){}}};
+context.window.IntersectionObserver=context.IntersectionObserver;
+vm.runInNewContext(snippet,context);
+assert.equal(videos.filter(v=>v.loads).length,0,'Nenhum download de seção antes de entrar na tela');
+const visibility=observers[0].callback;
+visibility([{target:videos[1],isIntersecting:true}]);
+assert.equal(videos[1].loads,1);assert.equal(videos[1].plays,1);assert.equal(videos[2].loads,0);
+visibility([{target:videos[1],isIntersecting:false}]);assert.equal(videos[1].pauses,1);
+preference.matches=true;preference.changed();
+visibility([{target:videos[2],isIntersecting:true}]);assert.equal(videos[2].loads,0,'Movimento reduzido mantém o poster');
+preference.matches=false;preference.changed();assert.equal(videos[2].loads,1);
+document.hidden=true;document.visibilitychange();assert(videos[2].pauses>0,'Aba oculta pausa a reprodução');
+document.hidden=false;connection.saveData=true;connection.changed();
+visibility([{target:videos[3],isIntersecting:true}]);assert.equal(videos[3].loads,0,'Economia de dados mantém o poster');
+connection.saveData=false;connection.changed();assert.equal(videos[3].loads,1);
+videos[3].error();assert.equal(videos[3].fallback.src,'poster.jpg','Falha restaura a imagem original');
+assert(videos.every(video=>video.muted&&video.defaultMuted),'Todos os loops ficam sem som');
+console.log('OK: carregamento ao entrar na tela, pausa fora dela/aba oculta, movimento reduzido, economia de dados, fallback e reprodução sem som.');

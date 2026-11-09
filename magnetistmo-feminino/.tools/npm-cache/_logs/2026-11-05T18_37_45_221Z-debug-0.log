@@ -1,0 +1,148 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.14.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\.npmrc
+5 silly config load:file:C:\Users\israe\.npmrc
+6 silly config load:file:C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\etc\npmrc
+7 verbose title npm install pdfjs-dist @napi-rs/canvas
+8 verbose argv "install" "--no-save" "--prefix" ".tools" "--cache" ".tools/npm-cache" "--fetch-retries" "0" "--fetch-timeout" "20000" "pdfjs-dist" "@napi-rs/canvas"
+9 verbose logfile logs-max:10 dir:C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\npm-cache\_logs\2026-11-05T18_37_45_221Z-
+10 verbose logfile C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\npm-cache\_logs\2026-11-05T18_37_45_221Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 silly idealTree buildDeps
+14 silly fetch manifest pdfjs-dist@*
+15 silly packumentCache full:https://registry.npmjs.org/pdfjs-dist cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/pdfjs-dist 445ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/pdfjs-dist set size:undefined disposed:false
+18 silly fetch manifest @napi-rs/canvas@*
+19 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas 111ms (cache miss)
+21 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas set size:undefined disposed:false
+22 silly placeDep ROOT @napi-rs/canvas@1.1.0 OK for:  want: *
+23 silly placeDep ROOT pdfjs-dist@6.5.438 OK for:  want: *
+24 silly fetch manifest @napi-rs/canvas-darwin-x64@1.1.0
+25 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-x64 cache-miss
+26 silly fetch manifest @napi-rs/canvas-darwin-arm64@1.1.0
+27 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-arm64 cache-miss
+28 silly fetch manifest @napi-rs/canvas-android-arm64@1.1.0
+29 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-android-arm64 cache-miss
+30 silly fetch manifest @napi-rs/canvas-linux-x64-gnu@1.1.0
+31 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-gnu cache-miss
+32 silly fetch manifest @napi-rs/canvas-linux-x64-musl@1.1.0
+33 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-musl cache-miss
+34 silly fetch manifest @napi-rs/canvas-win32-x64-msvc@1.1.0
+35 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-x64-msvc cache-miss
+36 silly fetch manifest @napi-rs/canvas-linux-arm64-gnu@1.1.0
+37 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-gnu cache-miss
+38 silly fetch manifest @napi-rs/canvas-linux-arm64-musl@1.1.0
+39 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-musl cache-miss
+40 silly fetch manifest @napi-rs/canvas-win32-arm64-msvc@1.1.0
+41 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-arm64-msvc cache-miss
+42 silly fetch manifest @napi-rs/canvas-linux-riscv64-gnu@1.1.0
+43 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-riscv64-gnu cache-miss
+44 silly fetch manifest @napi-rs/canvas-linux-arm-gnueabihf@1.1.0
+45 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm-gnueabihf cache-miss
+46 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-x64 132ms (cache miss)
+47 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-x64 set size:undefined disposed:false
+48 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-win32-arm64-msvc 245ms (cache miss)
+49 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-arm64-msvc set size:undefined disposed:false
+50 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-gnu 258ms (cache miss)
+51 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-gnu set size:undefined disposed:false
+52 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-riscv64-gnu 261ms (cache miss)
+53 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-riscv64-gnu set size:undefined disposed:false
+54 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-arm64 279ms (cache miss)
+55 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-darwin-arm64 set size:undefined disposed:false
+56 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-musl 281ms (cache miss)
+57 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-x64-musl set size:undefined disposed:false
+58 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-android-arm64 290ms (cache miss)
+59 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-android-arm64 set size:undefined disposed:false
+60 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-win32-x64-msvc 291ms (cache miss)
+61 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-win32-x64-msvc set size:undefined disposed:false
+62 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm-gnueabihf 292ms (cache miss)
+63 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm-gnueabihf set size:undefined disposed:false
+64 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-gnu 298ms (cache miss)
+65 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-gnu set size:undefined disposed:false
+66 http fetch GET 200 https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-musl 306ms (cache miss)
+67 silly packumentCache full:https://registry.npmjs.org/@napi-rs%2fcanvas-linux-arm64-musl set size:undefined disposed:false
+68 silly placeDep ROOT @napi-rs/canvas-android-arm64@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+69 silly placeDep ROOT @napi-rs/canvas-darwin-arm64@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+70 silly placeDep ROOT @napi-rs/canvas-darwin-x64@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+71 silly placeDep ROOT @napi-rs/canvas-linux-arm-gnueabihf@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+72 silly placeDep ROOT @napi-rs/canvas-linux-arm64-gnu@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+73 silly placeDep ROOT @napi-rs/canvas-linux-arm64-musl@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+74 silly placeDep ROOT @napi-rs/canvas-linux-riscv64-gnu@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+75 silly placeDep ROOT @napi-rs/canvas-linux-x64-gnu@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+76 silly placeDep ROOT @napi-rs/canvas-linux-x64-musl@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+77 silly placeDep ROOT @napi-rs/canvas-win32-arm64-msvc@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+78 silly placeDep ROOT @napi-rs/canvas-win32-x64-msvc@1.1.0 OK for: @napi-rs/canvas@1.1.0 want: 1.1.0
+79 silly reify moves {}
+80 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-win32-arm64-msvc
+81 silly reify mark deleted [
+81 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-win32-arm64-msvc'
+81 silly reify ]
+82 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-linux-x64-musl
+83 silly reify mark deleted [
+83 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-linux-x64-musl'
+83 silly reify ]
+84 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-linux-x64-gnu
+85 silly reify mark deleted [
+85 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-linux-x64-gnu'
+85 silly reify ]
+86 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-linux-riscv64-gnu
+87 silly reify mark deleted [
+87 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-linux-riscv64-gnu'
+87 silly reify ]
+88 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-linux-arm64-musl
+89 silly reify mark deleted [
+89 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-linux-arm64-musl'
+89 silly reify ]
+90 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-linux-arm64-gnu
+91 silly reify mark deleted [
+91 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-linux-arm64-gnu'
+91 silly reify ]
+92 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-linux-arm-gnueabihf
+93 silly reify mark deleted [
+93 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-linux-arm-gnueabihf'
+93 silly reify ]
+94 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-darwin-x64
+95 silly reify mark deleted [
+95 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-darwin-x64'
+95 silly reify ]
+96 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-darwin-arm64
+97 silly reify mark deleted [
+97 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-darwin-arm64'
+97 silly reify ]
+98 verbose reify failed optional dependency C:\Users\israe\Music\INTI\magnetistmo-feminino\.tools\node_modules\@napi-rs\canvas-android-arm64
+99 silly reify mark deleted [
+99 silly reify   'C:\\Users\\israe\\Music\\INTI\\magnetistmo-feminino\\.tools\\node_modules\\@napi-rs\\canvas-android-arm64'
+99 silly reify ]
+100 http cache pdfjs-dist@https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.5.438.tgz 0ms (cache hit)
+101 http cache @napi-rs/canvas-win32-x64-msvc@https://registry.npmjs.org/@napi-rs/canvas-win32-x64-msvc/-/canvas-win32-x64-msvc-1.1.0.tgz 0ms (cache hit)
+102 silly tarball no local data for pdfjs-dist@https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.5.438.tgz. Extracting by manifest.
+103 silly tarball no local data for @napi-rs/canvas-win32-x64-msvc@https://registry.npmjs.org/@napi-rs/canvas-win32-x64-msvc/-/canvas-win32-x64-msvc-1.1.0.tgz. Extracting by manifest.
+104 http cache @napi-rs/canvas@https://registry.npmjs.org/@napi-rs/canvas/-/canvas-1.1.0.tgz 0ms (cache hit)
+105 silly tarball no local data for @napi-rs/canvas@https://registry.npmjs.org/@napi-rs/canvas/-/canvas-1.1.0.tgz. Extracting by manifest.
+106 http fetch GET 200 https://registry.npmjs.org/@napi-rs/canvas/-/canvas-1.1.0.tgz 217ms (cache miss)
+107 http fetch GET 200 https://registry.npmjs.org/@napi-rs/canvas-win32-x64-msvc/-/canvas-win32-x64-msvc-1.1.0.tgz 2263ms (cache miss)
+108 http fetch GET 200 https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.5.438.tgz 4076ms (cache miss)
+109 silly ADD node_modules/@napi-rs/canvas-win32-x64-msvc
+110 silly ADD
+111 silly ADD
+112 silly ADD
+113 silly ADD
+114 silly ADD
+115 silly ADD
+116 silly ADD
+117 silly ADD
+118 silly ADD
+119 silly ADD
+120 silly ADD node_modules/pdfjs-dist
+121 silly ADD node_modules/@napi-rs/canvas
+122 verbose cwd C:\Users\israe\Music\INTI\magnetistmo-feminino
+123 verbose os Windows_NT 10.0.26300
+124 verbose node v22.14.0
+125 verbose npm  v10.9.2
+126 verbose exit 0
+127 info ok
