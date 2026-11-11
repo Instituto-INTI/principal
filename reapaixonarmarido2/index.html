@@ -37,6 +37,9 @@
     }
     .hero-inner{text-align:center;position:relative;z-index:2}
     .video-shell{max-width:900px;margin:0 auto;background:#211827;border-radius:28px;padding:14px;box-shadow:var(--shadow)}
+    .pitch-cta{margin:24px 0 0}
+    .esconder{display:none}
+    .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--roxo-profundo);color:#fff;padding:17px 30px;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 10px 28px rgba(68,47,77,.2)}
     @media (max-width:840px){
       .hero{padding-top:48px}
     }
@@ -48,6 +51,9 @@
       <div class="video-shell">
         <vturb-smartplayer id="vid-6af39ec1beaed0427bf3d2cc" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
       </div>
+      <div class="pitch-cta esconder">
+        <a class="btn" href="https://pay.kiwify.com.br/AY8gyfA">Quero Reapaixonar Meu Marido</a>
+      </div>
     </div>
   </header>
 
@@ -55,6 +61,11 @@
     var s = document.createElement('script');
     s.src = 'https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6af39ec1beaed0427bf3d2cc/v4/player.js';
     s.async = true;
+    const player = document.querySelector('vturb-smartplayer');
+    player.addEventListener('player:ready', () => {
+      // Match the original pitch (13:52) to the edit used in this player.
+      player.displayHiddenElements(832.333, ['.esconder'], { persist: false });
+    }, { once: true });
     document.head.appendChild(s);
   </script>
 </body>
