@@ -266,6 +266,11 @@
     var s = document.createElement('script');
     s.src = 'https://scripts.converteai.net/5e971d8f-4dc9-4092-90b8-55044e7b18bc/players/6af39ec1beaed0427bf3d2cc/v4/player.js';
     s.async = true;
+    const player = document.querySelector('vturb-smartplayer');
+    player.addEventListener('player:ready', () => {
+      // Match the original pitch (13:52) to the edit used in this player.
+      player.displayHiddenElements(832.333, ['.esconder'], { persist: false });
+    }, { once: true });
     document.head.appendChild(s);
   </script>
 </body>
