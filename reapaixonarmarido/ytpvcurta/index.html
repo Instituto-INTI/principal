@@ -69,8 +69,8 @@
     s.async = true;
     const player = document.querySelector('vturb-smartplayer');
     player.addEventListener('player:ready', () => {
-      // Match the original pitch (13:52) to the edit used in this player.
-      player.displayHiddenElements(832.333, ['.esconder'], { persist: false });
+      // Exibe o botao abaixo do video aos 13:48 de reproducao.
+      player.displayHiddenElements(828, ['.pitch-cta'], { persist: false });
     }, { once: true });
     document.head.appendChild(s);
   </script>
