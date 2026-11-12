@@ -1,0 +1,239 @@
+/* Legibility and layout adjustments requested in the November correction PDF. */
+:root { --muted: #c6bcad; }
+body { font-size: 17px; }
+.eyebrow { font-size: 14px; letter-spacing: 1.6px; }
+.button {
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.5;
+  padding: 18px 24px;
+  min-height: 64px;
+}
+.header { justify-content: space-between; }
+.header nav a { font-size: 14px; }
+.brand-icon {
+  width: 65px;
+  height: auto;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+}
+.brand-icon img { width: 100%; height: auto; }
+.brand small { font-size: 9px; letter-spacing: 1.5px; }
+
+.hero.wrap { min-height: 0; padding-top: 165px; padding-bottom: 32px; }
+.hero-copy { width: 100%; max-width: 800px; margin: 0 auto; text-align: center; }
+.hero .eyebrow { font-size: 14px; letter-spacing: 1.5px; padding: 10px 18px; }
+.status-dot { flex-shrink: 0; }
+.hero h1 { font-size: clamp(64px, 7vw, 100px); }
+.hero-lead { font-size: 25px; }
+.hero-description { max-width: 620px; margin: 22px auto 0; font-size: 19px; line-height: 1.8; color: #e0d8ca; }
+.hero-actions { justify-content: center; align-items: center; }
+.hero-actions > .button { width: min(100%, 460px); max-width: none; min-width: 0; font-size: 17px; }
+.hero-visual { width: 100%; }
+.hero-image img { object-position: 50% 30%; }
+.hero-visual::after { background: linear-gradient(90deg, #0f0e0cd9, #0f0e0c9c, #0f0e0cd9), linear-gradient(0deg, #0f0e0c, #0f0e0c88 50%, #0f0e0c99); }
+.video-section { padding-top: 0; padding-bottom: 64px; }
+
+.section-heading, .kit-heading, .offer-intro, .testimonials-heading, .author-copy, .faq-heading { text-align: center; }
+.section-heading > p:last-child { font-size: 19px; }
+.essence { gap: 24px; }
+.story-copy { padding: 4px 25px 30px; }
+.story-copy h3 { min-height: 0; font-size: 31px; line-height: 1.2; }
+.story-copy > p { min-height: 0; font-size: 17px; line-height: 1.85; color: #c6bcad; }
+.story-footnote { min-height: 0; font-size: 15px; color: #ddc9a4; }
+.photo-tag { font-size: 12px; }
+.chapter-number { font-size: 14px; width: 36px; height: 36px; }
+.quote-section .eyebrow { font-size: 14px; letter-spacing: 1.3px; }
+
+.kit-heading { display: block; }
+.kit-heading > p { max-width: 720px; margin: 24px auto 0; padding: 0; font-size: 19px; color: #655c50; }
+.kit-heading h2 { font-size: clamp(36px, 4.2vw, 55px); }
+.kit-card { display: flex; flex-direction: column; }
+.kit-image { height: 340px; min-height: 0; }
+.kit-image img { object-fit: contain; object-position: center; }
+.kit-index { top: 18px; left: 18px; padding: 7px 10px; font-size: 12px; }
+.kit-body { padding: 30px; flex: 1; }
+.kit-body .eyebrow { font-size: 12px; letter-spacing: 1px; }
+.kit-body h3 { min-height: 0; font-size: 30px; line-height: 1.2; }
+.kit-body p { min-height: 0; font-size: 17px; line-height: 1.85; color: #655c50; }
+.kit-format { font-size: 12px; }
+.kit-endnote { font-size: 17px; color: #6d5d46; }
+
+.offer-layout { gap: 65px; align-items: start; }
+.offer-intro h2 { font-size: clamp(43px, 5vw, 64px); }
+.offer-intro > p:not(.eyebrow) { max-width: 500px; margin: 24px auto 0; font-size: 19px; line-height: 1.85; }
+.offer-product { justify-content: center; margin-top: 34px; padding: 0; }
+.offer-art {
+  position: relative;
+  width: min(100%, 330px);
+  aspect-ratio: 431 / 580;
+  border: 1px solid #c69a5680;
+  border-radius: 13px;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 23px 55px #0007;
+}
+.offer-product .offer-art > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  transform: none;
+  animation: none;
+  box-shadow: none;
+}
+.offer-product .product-orbit { top: 30px; left: 50%; transform: translateX(-50%); width: min(100%, 400px); height: auto; aspect-ratio: 1; }
+.offer-card { min-width: 0; padding: 36px 32px; }
+.offer-card-top { flex-wrap: wrap; justify-content: center; }
+.offer-card-top > .eyebrow { font-size: 12px; }
+.access-badge { font-size: 11px; padding: 6px 9px; }
+.offer-card h3 { text-align: center; font-size: 34px; }
+.offer-subtitle { text-align: center; font-size: 17px; }
+.price { justify-content: center; }
+.installments { font-size: 16px; }
+.cash-price { font-size: 17px; text-align: center; }
+.offer-includes { gap: 16px; }
+.offer-includes li { font-size: 17px; line-height: 1.6; align-items: baseline; }
+.offer-button { width: 100%; font-size: 17px; }
+.purchase-security { display: block; width: 100%; max-width: 360px; height: auto; margin: 25px auto; }
+.guarantee-detail { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+.guarantee-badge { width: 100px; height: 100px; flex-shrink: 0; }
+.guarantee-detail p { color: #c6bcad; font-size: 16px; line-height: 1.8; }
+.guarantee-detail b { font-size: 19px; line-height: 1.4; color: #ead8b7; margin-bottom: 12px; }
+.checkout-status { font-size: 15px; }
+
+.testimonials-heading { flex-direction: column; align-items: center; gap: 25px; }
+.testimonials-heading .eyebrow { font-size: 14px; letter-spacing: 1.5px; }
+.carousel-controls { justify-content: center; max-width: none; gap: 12px; padding: 0; flex-wrap: nowrap; }
+.arrow-button { width: 48px; height: 48px; }
+.carousel-pause { width: 44px; height: 44px; font-size: 16px; }
+.testimonial-header > span:nth-child(2) { font-size: 12px; letter-spacing: 1px; }
+.testimonial-header .testimonial-mark { font-size: 40px; }
+.testimonial-card figcaption { font-size: 13px; }
+.testimonial-screenshot.testimonial-screenshot-full { height: auto; max-height: none; }
+.testimonial-screenshot > img.testimonial-print { margin-top: 0; }
+.testimonial-carousel { touch-action: pan-y pinch-zoom; }
+.testimonial-carousel .testimonial-track { transition: none; will-change: transform; }
+.carousel-footer p { max-width: 540px; text-align: right; font-size: 15px; color: #c6bcad; }
+.carousel-dots button { min-height: 24px; width: 12px; background: transparent; position: relative; }
+.carousel-dots button::after { content: ''; position: absolute; inset: 9px 0; border-radius: 5px; background: #645237; }
+.carousel-dots button.active { background: transparent; width: 26px; }
+.carousel-dots button.active::after { background: var(--gold); }
+
+.author-copy > .eyebrow { font-size: 14px; }
+.author-copy h2 { font-size: clamp(36px, 4vw, 47px); }
+.author-copy > p:not(.eyebrow) { font-size: 18px; line-height: 1.85; max-width: none; color: #655c50; }
+.author-visual { padding: 0 0 36px; margin: 0 auto; }
+.author-visual > .author-portrait { height: auto; aspect-ratio: 1; border-radius: 50%; clip-path: none; transform: none; filter: none; }
+.author-frame { inset: 0 0 36px; }
+.author-signature { font-size: 24px; }
+.faq { display: block; }
+.faq-heading { margin-bottom: 40px; }
+.faq-list { max-width: 850px; margin: 0 auto; }
+.faq-list summary { font-size: 18px; }
+.faq-list details p { font-size: 17px; }
+.final-invitation .eyebrow { max-width: 760px; margin: 0 auto 25px; font-size: 24px; font-weight: 500; line-height: 1.6; letter-spacing: 0; }
+.final-invitation .button { width: min(100%, 470px); min-width: 0; font-size: 18px; }
+.footer { padding-top: 24px; padding-bottom: 100px; }
+.footer-bottom { border-top: 0; padding-top: 0; }
+.footer-bottom p { font-size: 13px; }
+.sticky-offer > div > span { font-size: 11px; }
+.sticky-offer p { font-size: 15px; }
+.sticky-offer .button { font-size: 14px; }
+
+.priority-dialog { width: 580px; }
+.priority-dialog .eyebrow { font-size: 13px; margin-top: 12px; }
+.priority-dialog h2 { font-size: 44px; margin-bottom: 30px; }
+#priority-form label { font-size: 16px; }
+#priority-form small { font-size: 13px; }
+#priority-form input::placeholder { font-size: 15px; }
+.priority-permission { font-size: 14px; line-height: 1.7; }
+.priority-dialog .priority-submit { justify-content: center; text-align: center; font-size: 17px; min-height: 64px; }
+.priority-error { font-size: 15px; }
+.confirmation-page { min-height: 100svh; padding: 48px 22px; background: radial-gradient(ellipse at 50% 0, #9b71352b, transparent 65%), var(--bg); }
+.confirmation-card { width: 100%; max-width: 680px; margin: 0 auto; text-align: center; padding: 44px; border: 1px solid #d9b97855; border-radius: 16px; background: #171510; }
+.confirmation-card h1 { font-size: clamp(36px, 5vw, 52px); margin-top: 22px; }
+.confirmation-card .eyebrow { font-size: 13px; }
+.confirmation-card .priority-message { margin-top: 32px; }
+.confirmation-card .priority-message p { font-size: 18px; line-height: 1.85; }
+.confirmation-note { border-top: 1px solid var(--line); padding-top: 24px; font-size: 15px; }
+
+@media (max-width: 1000px) and (min-width: 601px) {
+  .essence { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .essence .story-row:last-child { grid-column: 1 / -1; max-width: 580px; justify-self: center; }
+  .offer-layout { grid-template-columns: 1fr; max-width: 720px; }
+  .author-layout { gap: 45px; }
+}
+
+@media (max-width: 600px) {
+  .header { height: 90px; justify-content: center; }
+  .brand { font-size: 18px; }
+  .brand-icon { width: 60px; height: auto; }
+  .brand small { font-size: 8px; }
+  .hero-opening { margin-top: -90px; padding: 125px 22px 48px; text-align: center; }
+  .hero-opening .hero-visual { width: 100%; height: 100%; max-height: none; min-height: 0; margin: 0; }
+  .hero-opening .hero-copy > .eyebrow { justify-self: center; font-size: 13px; letter-spacing: 1px; padding: 9px 12px; }
+  .hero h1 { font-size: clamp(53px, 14.5vw, 80px); letter-spacing: -2.5px; margin: 25px 0; }
+  .hero-lead { font-size: 23px; }
+  .hero-description { font-size: 18px; line-height: 1.8; }
+  .hero-opening .vsl-section { margin-top: 28px; }
+  .hero-actions { margin-top: 25px; }
+  .hero-actions > .button { font-size: 16px; padding: 18px; }
+  .eyebrow { font-size: 13px; }
+  .section-heading h2, .kit-heading h2, .testimonials-heading h2, .faq-heading h2 { font-size: 36px; }
+  .section-heading > p:last-child { font-size: 18px; }
+  .story-copy { padding: 0 25px 28px; }
+  .story-copy h3 { font-size: 30px; }
+  .story-copy > p { font-size: 17px; }
+  .story-footnote { font-size: 15px; }
+  .photo-tag { font-size: 12px; }
+  .quote-section .eyebrow { font-size: 12px; line-height: 1.9; }
+  .kit-heading > p { font-size: 18px; }
+  .kit-card { display: flex; flex-direction: column; }
+  .kit-image { height: 320px; min-height: 0; }
+  .kit-index { font-size: 12px; }
+  .kit-body { padding: 27px; }
+  .kit-body .eyebrow { font-size: 12px; }
+  .kit-body h3 { font-size: 29px; }
+  .kit-body p { font-size: 17px; }
+  .kit-format { font-size: 12px; }
+  .kit-endnote { font-size: 16px; }
+  .offer-intro h2 { font-size: 48px; }
+  .offer-intro > p:not(.eyebrow) { font-size: 18px; }
+  .offer-art { width: min(100%, 310px); }
+  .offer-card { padding: 30px 23px; }
+  .offer-card h3 { font-size: 32px; }
+  .offer-card-top > .eyebrow { font-size: 12px; }
+  .access-badge { font-size: 11px; }
+  .offer-includes li, .offer-subtitle, .cash-price { font-size: 17px; }
+  .offer-button { font-size: 16px; padding: 18px 13px; }
+  .guarantee-detail p { font-size: 16px; }
+  .guarantee-detail b { font-size: 19px; }
+  .testimonials-heading .eyebrow { font-size: 13px; }
+  .testimonials-heading { align-items: center; }
+  .testimonial-header > span:nth-child(2) { font-size: 12px; }
+  .testimonial-card figcaption { font-size: 13px; }
+  .carousel-footer { flex-direction: column; align-items: center; }
+  .carousel-footer p { font-size: 15px; max-width: 100%; text-align: center; }
+  .author-copy > .eyebrow { font-size: 13px; }
+  .author-copy > p:not(.eyebrow) { font-size: 17px; }
+  .faq-list summary, .faq-list details p { font-size: 17px; }
+  .final-invitation .eyebrow { font-size: 21px; }
+  .final-invitation h2 { font-size: 39px; }
+  .final-invitation .button { font-size: 17px; }
+  .footer-bottom p { font-size: 12px; }
+  .sticky-offer { gap: 12px; padding: 12px; }
+  .sticky-offer > div > span { font-size: 10px; }
+  .sticky-offer p { font-size: 13px; }
+  .sticky-offer .button { font-size: 12px; gap: 10px; padding: 12px; }
+  .priority-dialog { padding: 48px 23px 28px; }
+  .priority-dialog h2 { font-size: 38px; }
+  .priority-dialog .priority-submit { font-size: 16px; padding: 18px 14px; }
+  .confirmation-card { padding: 30px 23px; }
+  .confirmation-card .priority-message p { font-size: 17px; }
+}

@@ -1,4 +1,4 @@
-/* Keep the desktop composition intact; layer the hero video behind mobile copy. */
+/* Place the opening artwork behind the mobile copy and keep the same VSL player. */
 @media (max-width: 600px) {
   .hero.wrap {
     display: block;

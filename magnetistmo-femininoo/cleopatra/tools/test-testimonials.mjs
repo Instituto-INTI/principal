@@ -62,4 +62,9 @@ s.carousel.emit('touchstart',{changedTouches:[{clientX:200}]});assert.equal(s.pe
 s.carousel.emit('touchend',{changedTouches:[{clientX:100}]});assert.equal(s.pending.size,1);
 const r=setup(true);r.width(320);r.visible(true);assert.equal(r.pending.size,0,'Movimento reduzido não inicia o automático');
 r.next.emit('click');assert.equal(r.offset(),320,'Movimento reduzido mantém navegação manual');
+const beforePinch=r.offset();
+r.carousel.emit('touchstart',{touches:[{clientX:200},{clientX:300}],changedTouches:[{clientX:200}]});
+r.carousel.emit('touchend',{touches:[{clientX:100}],changedTouches:[{clientX:0}]});
+r.carousel.emit('touchend',{touches:[],changedTouches:[{clientX:0}]});
+assert.equal(r.offset(),beforePinch,'Pinça para ampliar a imagem não avança o carrossel');
 console.log('OK: deslocamento contínuo à esquerda, múltiplos ciclos sem salto, pausa, visibilidade, redimensionamento, controles e movimento reduzido.');

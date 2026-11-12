@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createPriorityListHandler } from './priority-list.mjs';
 const root = path.resolve(fileURLToPath(new URL('../../magnetismo-feminino/', import.meta.url)));
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.woff2': 'font/woff2', '.mp4': 'video/mp4', '.webm': 'video/webm' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.woff2': 'font/woff2', '.mp4': 'video/mp4', '.webm': 'video/webm' };
 const port = Number(process.env.PORT || 4173);
 export function createApp({ dataDirectory = process.env.CLEOPATRA_DATA_DIR || fileURLToPath(new URL('./data/', import.meta.url)), allowLocalPreview = false } = {}) {
 const priorityList = createPriorityListHandler(path.join(dataDirectory, 'priority-list.jsonl'), { allowLocalPreview });

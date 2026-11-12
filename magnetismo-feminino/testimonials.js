@@ -20,7 +20,7 @@
   let offset = 0, cycleWidth = 0, cardStep = 0, active = -1;
   let frame = 0, lastTime = null;
   let paused = reducedMotion.matches, hovered = false, focused = false, touching = false;
-  let onScreen = !('IntersectionObserver' in window), touchStart;
+  let onScreen = !('IntersectionObserver' in window), touchStart, pinching = false;
 
   const wrap = value => cycleWidth > 0 ? ((value % cycleWidth) + cycleWidth) % cycleWidth : 0;
   const canMove = () => !paused && !hovered && !focused && !touching && !document.hidden && onScreen && cycleWidth > 0;
@@ -102,22 +102,33 @@
     }
   });
   carousel.addEventListener('touchstart', event => {
+    // Native pinch-to-zoom must not advance the carousel.
+    if (event.touches?.length > 1) {
+      pinching = true;
+      touchStart = undefined;
+      touching = true;
+      syncMotion();
+      return;
+    }
     touchStart = event.changedTouches[0].clientX;
     touching = true;
     syncMotion();
   }, { passive: true });
   carousel.addEventListener('touchend', event => {
-    if (touchStart !== undefined) {
+    if (!pinching && touchStart !== undefined) {
       const delta = touchStart - event.changedTouches[0].clientX;
       if (Math.abs(delta) > 40) jumpTo(active + (delta > 0 ? 1 : -1));
     }
     touchStart = undefined;
+    if (event.touches?.length) return;
+    pinching = false;
     touching = false;
     syncMotion();
   }, { passive: true });
   carousel.addEventListener('touchcancel', () => {
     touching = false;
     touchStart = undefined;
+    pinching = false;
     syncMotion();
   }, { passive: true });
 

@@ -2,9 +2,6 @@
   'use strict';
   const dialog = document.getElementById('checkout-dialog');
   const form = document.getElementById('priority-form');
-  const registration = document.getElementById('priority-registration');
-  const success = document.getElementById('priority-success');
-  const successTitle = document.getElementById('priority-success-title');
   const error = document.getElementById('priority-error');
   const phone = form.elements.whatsapp;
   const name = form.elements.name;
@@ -21,10 +18,8 @@
   phone.addEventListener('input', validate);
   name.addEventListener('input', validate);
   dialog.addEventListener('close', () => {
-    // Preserve a request already in progress; a later open will show its result.
+    // Closing the dialog must not interrupt a request already in progress.
     if (sending) return;
-    registration.hidden = false;
-    success.hidden = true;
     error.hidden = true;
     dialog.setAttribute('aria-labelledby', 'checkout-title');
   });
@@ -49,10 +44,12 @@
         body: JSON.stringify({ name: name.value.trim(), whatsapp: phone.value.trim(), email: form.elements.email.value.trim(), consent: true }),
         signal: controller.signal
       };
-      let response = await fetch(form.getAttribute('action'), request);
+      // A production API can be supplied without changing the registration flow.
+      const endpoint = window.CLEOPATRA_CONFIG?.priorityEndpoint || form.getAttribute('action');
+      let response = await fetch(endpoint, request);
       // Live Server serves the page but cannot receive POST requests.
       // Retry only its explicit missing-route response, never a failed save.
-      if (localPreview && [404, 405].includes(response.status)) {
+      if (localPreview && endpoint === form.getAttribute('action') && [404, 405].includes(response.status)) {
         try { response = await fetch('http://127.0.0.1:4173/api/priority-list', request); }
         catch { throw new Error('local-service-unavailable'); }
       }
@@ -63,16 +60,12 @@
       form.reset();
       name.setCustomValidity('');
       phone.setCustomValidity('');
-      registration.hidden = true;
-      success.hidden = false;
-      dialog.setAttribute('aria-labelledby', 'priority-success-title');
-      dialog.scrollTop = 0;
-      if (dialog.open) successTitle.focus({ preventScroll: true });
+      window.location.assign(form.getAttribute('data-success-url'));
     } catch (reason) {
       const messages = {
-        'local-file': 'Abra esta página pelo servidor local em http://127.0.0.1:4173 para enviar seu cadastro. Seus dados ainda não foram enviados.',
-        'local-service-unavailable': 'O serviço de cadastro local está desligado. Inicie “npm run dev” na pasta cleopatra e tente novamente. Seus dados continuam preenchidos.',
-        'api-unavailable': 'O formulário não está conectado ao serviço de cadastro nesta página. Seus dados ainda não foram enviados.',
+        'local-file': 'Não foi possível enviar seu cadastro. Tente novamente pelo endereço da página. Seus dados continuam preenchidos.',
+        'local-service-unavailable': 'O cadastro está temporariamente indisponível. Tente novamente em instantes. Seus dados continuam preenchidos.',
+        'api-unavailable': 'O cadastro está temporariamente indisponível. Tente novamente em instantes. Seus dados continuam preenchidos.',
         'invalid-fields': 'Confira seu nome, WhatsApp com DDD e e-mail antes de enviar novamente.'
       };
       error.textContent = messages[reason.message] || 'Não foi possível confirmar seu cadastro. Tente novamente em instantes. Seus dados continuam preenchidos.';

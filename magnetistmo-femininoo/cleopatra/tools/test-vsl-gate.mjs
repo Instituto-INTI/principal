@@ -71,7 +71,7 @@ for(const duration of [0,NaN,Infinity,-10]){
 }
 const html=fs.readFileSync(new URL('../../../magnetismo-feminino/index.html',import.meta.url),'utf8');
 assert.equal((html.match(/data-vsl-delayed hidden inert/g)||[]).length,4,'Oculta conteúdo, rodapé, oferta fixa e botão principal já no HTML');
-assert(/class="button" data-vsl-delayed hidden inert>Quero despertar meu magnetismo/.test(html),'O botão principal usa a mesma liberação da VSL');
+assert(/class="button" data-vsl-delayed hidden inert>QUERO ATIVAR MEU MAGNETISMO/.test(html),'O botão principal usa a mesma liberação da VSL');
 const wrapper=html.indexOf('id="vsl-delayed-content"');
 assert(wrapper>html.indexOf('</vturb-smartplayer>'),'A VSL permanece fora do conteúdo oculto');
 assert(wrapper<html.indexOf('id="essencia"')&&wrapper<html.indexOf('id="oferta"'),'As seções de venda ficam no conteúdo oculto');

@@ -1,56 +1,6 @@
 (() => {
   'use strict';
   const config = window.CLEOPATRA_CONFIG || {};
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const loopVideos = [...document.querySelectorAll('.hero-background-video, .section-loop')];
-  const visibleVideos = new Set();
-  const dataConnection = navigator.connection;
-  const syncLoop = video => {
-    if (video.dataset.failed) return;
-    if (reducedMotion.matches || document.hidden || dataConnection?.saveData || !visibleVideos.has(video)) {
-      video.pause();
-      return;
-    }
-    if (video.dataset.src) {
-      video.src = video.dataset.src;
-      delete video.dataset.src;
-      video.load();
-    }
-    video.play().catch(() => {});
-  };
-  const syncAllLoops = () => loopVideos.forEach(syncLoop);
-  loopVideos.forEach(video => {
-    video.muted = true;
-    video.defaultMuted = true;
-    if (reducedMotion.matches || dataConnection?.saveData) video.removeAttribute('autoplay');
-    video.addEventListener('error', () => {
-      if (video.dataset.failed) return;
-      video.dataset.failed = 'true';
-      video.pause();
-      const fallback = document.createElement('img');
-      fallback.src = video.poster;
-      fallback.alt = video.getAttribute('aria-label') || '';
-      fallback.className = 'loop-fallback';
-      video.replaceWith(fallback);
-      visibleVideos.delete(video);
-    });
-  });
-  reducedMotion.addEventListener('change', syncAllLoops);
-  document.addEventListener('visibilitychange', syncAllLoops);
-  dataConnection?.addEventListener('change', syncAllLoops);
-  if ('IntersectionObserver' in window) {
-    const loopObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) visibleVideos.add(entry.target);
-        else visibleVideos.delete(entry.target);
-        syncLoop(entry.target);
-      });
-    }, { threshold: 0.01 });
-    loopVideos.forEach(video => loopObserver.observe(video));
-  } else {
-    loopVideos.forEach(video => visibleVideos.add(video));
-    syncAllLoops();
-  }
   const validHttps = value => { try { return new URL(value).protocol === 'https:'; } catch { return false; } };
   document.documentElement.classList.add('js-motion');
 
@@ -154,7 +104,9 @@
       countdown.hidden = true;
       if (countdownTimer) window.clearInterval(countdownTimer);
       if (Number.isFinite(end) && remaining <= 0) {
-        document.querySelector('#checkout-status').textContent = 'O prazo desta oferta foi encerrado.';
+        const status = document.querySelector('#checkout-status');
+        status.textContent = 'O prazo desta oferta foi encerrado.';
+        status.hidden = false;
       }
       return;
     }
