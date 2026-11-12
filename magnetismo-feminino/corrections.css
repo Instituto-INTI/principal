@@ -18,7 +18,7 @@ body { font-size: 17px; }
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 4px;
-  background: #fff;
+  background: transparent;
 }
 .brand-icon img { width: 100%; height: auto; }
 .brand small { font-size: 9px; letter-spacing: 1.5px; }
