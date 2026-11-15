@@ -49,14 +49,15 @@
       let response = await fetch(endpoint, request);
       // Live Server serves the page but cannot receive POST requests.
       // Retry only its explicit missing-route response, never a failed save.
-      if (localPreview && endpoint === form.getAttribute('action') && [404, 405].includes(response.status)) {
+      if (localPreview && endpoint === '/api/priority-list' && [404, 405].includes(response.status)) {
         try { response = await fetch('http://127.0.0.1:4173/api/priority-list', request); }
         catch { throw new Error('local-service-unavailable'); }
       }
       if ([404, 405].includes(response.status)) throw new Error('api-unavailable');
       if (response.status === 422) throw new Error('invalid-fields');
-      const result = await response.json();
-      if (!response.ok || result.ok !== true) throw new Error('registration-failed');
+      const result = await response.json().catch(() => null);
+      const acceptsHttpSuccess = window.CLEOPATRA_CONFIG?.priorityResponseMode === 'http';
+      if (!response.ok || result?.ok === false || (!acceptsHttpSuccess && result?.ok !== true)) throw new Error('registration-failed');
       form.reset();
       name.setCustomValidity('');
       phone.setCustomValidity('');

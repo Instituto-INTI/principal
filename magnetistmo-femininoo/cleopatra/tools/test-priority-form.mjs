@@ -112,6 +112,32 @@ for (const name of ['name', 'whatsapp', 'email']) assert(new RegExp(`name="${nam
   assert.deepEqual(state.redirects, []);
 }
 assert(!html.includes('Inscrições encerradas'), 'Enrollment closure notice appears only after registration');
+const productionWindow = {};
+vm.runInNewContext(fs.readFileSync(new URL('../../../magnetismo-feminino/config.js', import.meta.url), 'utf8'), { window: productionWindow });
+const productionConfig = productionWindow.CLEOPATRA_CONFIG;
+const webhook = 'https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/ea5ae026-31d9-47ef-804a-c8fa2c7dbf15/584a6865-495d-4168-9103-ac63c35f51ff';
+assert.equal(productionConfig.priorityEndpoint, webhook);
+for (const response of [new Response('{"ok":true}', { status: 201 }), new Response('{"message":"Accepted"}', { status: 202 }), new Response('OK', { status: 200 }), new Response(null, { status: 204 })]) {
+  const calls = [];
+  const state = setup(async (url, options) => { calls.push({ url, options }); return response; }, 'https:', { hostname: 'example.com', port: '' }, productionConfig);
+  await state.submit();
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, webhook);
+  assert.equal(calls[0].options.method, 'POST');
+  assert.equal(calls[0].options.headers['Content-Type'], 'application/json');
+  assert.deepEqual(JSON.parse(calls[0].options.body), { name: 'Maria', whatsapp: '(71) 99999-9999', email: 'maria@example.invalid', consent: true });
+  assert.deepEqual(state.redirects, ['cadastro-confirmado.html'], 'Webhook HTTP success redirects, including empty responses');
+}
+for (const response of [new Response(null, { status: 404 }), new Response(null, { status: 422 }), new Response(null, { status: 500 }), new Response('{"ok":false}', { status: 200 }), null]) {
+  let calls = 0;
+  const state = setup(async () => { calls++; if (!response) throw Error('network'); return response; }, 'http:', { port: '5500' }, productionConfig);
+  await state.submit();
+  assert.equal(calls, 1, 'Webhook errors never retry against localhost');
+  assert.deepEqual(state.redirects, []);
+  assert(!state['priority-error'].hidden);
+  assert(state['priority-form'].elements.name.value.includes('Maria'));
+  assert(!state.button.disabled && !state.timers.size);
+}
 const confirmation = fs.readFileSync(new URL('../../../magnetismo-feminino/cadastro-confirmado.html', import.meta.url), 'utf8');
 assert(confirmation.includes('seu cadastro foi realizado com sucesso'));
 const message = confirmation.match(/<div class="priority-message">([\s\S]*?)<\/div>/)[1].replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
