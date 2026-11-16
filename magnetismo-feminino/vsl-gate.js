@@ -1,12 +1,13 @@
 (() => {
   'use strict';
 
-  const player = document.getElementById('vid-6aee4b40cbb56d66d7edc140');
+  const player = document.getElementById('vid-6afb25de3d8d0dff27996353');
   const content = document.getElementById('vsl-delayed-content');
   const presentation = document.getElementById('apresentacao');
   if (!player || !content || !presentation) return;
 
   const delayedElements = [...document.querySelectorAll('[data-vsl-delayed]')];
+  const unlockTimeSeconds = 4 * 60 + 55;
   let unlocked = false;
 
   function unlock() {
@@ -19,7 +20,7 @@
     player.removeEventListener('video:timeupdate', onTimeUpdate);
     player.removeEventListener('video:play', onPlayback);
     player.removeEventListener('video:pause', onPlayback);
-    player.removeEventListener('video:ended', unlock);
+    player.removeEventListener('video:ended', onPlayback);
     player.removeEventListener('player:ready', onReady);
     document.removeEventListener('click', redirectLockedAnchor, true);
     document.dispatchEvent(new CustomEvent('cleopatra:vsl-unlocked'));
@@ -27,11 +28,9 @@
 
   function checkProgress(time) {
     if (unlocked || player.inSmartAutoPlay === true) return;
-    const duration = Number(player.duration);
-    if (!Number.isFinite(duration) || duration <= 0) return;
     const currentTime = Number(time);
     if (!Number.isFinite(currentTime) || currentTime < 0) return;
-    if (currentTime >= duration * 0.5) unlock();
+    if (currentTime >= unlockTimeSeconds) unlock();
   }
 
   function onTimeUpdate(event) {
@@ -44,7 +43,7 @@
   }
 
   function onReady() {
-    // A restored playback position can already be past the halfway point.
+    // A restored playback position can already be past the unlock time.
     if (player.played === true) onPlayback();
   }
 
@@ -65,7 +64,7 @@
   player.addEventListener('video:timeupdate', onTimeUpdate);
   player.addEventListener('video:play', onPlayback);
   player.addEventListener('video:pause', onPlayback);
-  player.addEventListener('video:ended', unlock);
+  player.addEventListener('video:ended', onPlayback);
   document.addEventListener('click', redirectLockedAnchor, true);
   onReady();
 })();
